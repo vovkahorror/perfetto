@@ -12,6 +12,11 @@ class CoffeeMachine {
         ratedVoltageFrequency: string;
     };
 
+    private colourMaterialFinish: {
+        colour: string;
+        finishing: string;
+    };
+
     constructor(public model: string,
                 public series: string,
                 dimensions: string,
@@ -21,7 +26,9 @@ class CoffeeMachine {
                 waterContainerCapacity: number,
                 groundsContainerCapacity: number,
                 energyClass: string,
-                maxCupHeight: number) {
+                maxCupHeight: number,
+                colour: string,
+                finishing: string) {
         this.technicalData = {
             dimensions,
             weight,
@@ -33,6 +40,11 @@ class CoffeeMachine {
             maxCupHeight,
             inputPower: 1450,
             ratedVoltageFrequency: '220-240 V / 50-60 Hz',
+        };
+
+        this.colourMaterialFinish = {
+            colour,
+            finishing,
         };
     }
 }
