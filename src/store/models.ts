@@ -1,3 +1,5 @@
+import {DrinksType} from './drinks';
+
 class CoffeeMachine {
     private technicalData: {
         dimensions: string;
@@ -17,6 +19,16 @@ class CoffeeMachine {
         finishing: string;
     };
 
+    private functions: {
+        hotCoffeeDrinks: DrinksType;
+        hotMilkDrinks: DrinksType | null;
+        otherDrinks: DrinksType;
+        aromaFunction: boolean;
+        possibilityToCustomiseLength: boolean;
+        advancedPersonalisation: string | null;
+        abilityToCreateYourOwnDrinks: string | null;
+    };
+
     constructor(public model: string,
                 public series: string,
                 dimensions: string,
@@ -28,7 +40,12 @@ class CoffeeMachine {
                 energyClass: string,
                 maxCupHeight: number,
                 colour: string,
-                finishing: string) {
+                finishing: string,
+                hotCoffeeDrinks: DrinksType,
+                hotMilkDrinks: DrinksType,
+                otherDrinks: DrinksType,
+                advancedPersonalisation: string | null,
+                abilityToCreateYourOwnDrinks: string | null) {
         this.technicalData = {
             dimensions,
             weight,
@@ -45,6 +62,16 @@ class CoffeeMachine {
         this.colourMaterialFinish = {
             colour,
             finishing,
+        };
+
+        this.functions = {
+            hotCoffeeDrinks,
+            hotMilkDrinks,
+            otherDrinks,
+            aromaFunction: true,
+            possibilityToCustomiseLength: true,
+            advancedPersonalisation,
+            abilityToCreateYourOwnDrinks,
         };
     }
 }
