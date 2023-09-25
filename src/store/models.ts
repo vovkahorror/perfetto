@@ -7,7 +7,7 @@ import {
 } from './drinks';
 
 class CoffeeMachine {
-    private technicalData: {
+    public technicalData: {
         dimensions: string;
         weight: number;
         pumpPressure: number;
@@ -20,12 +20,12 @@ class CoffeeMachine {
         ratedVoltageFrequency: string;
     };
 
-    private colourMaterialFinish: {
+    public colourMaterialFinish: {
         colour: string;
         finishing: string;
     };
 
-    private functions: {
+    public functions: {
         hotCoffeeDrinks: HotCoffeeDrinksType;
         hotMilkDrinks: HotMilkDrinksType | null;
         coldCoffeeDrinks: ColdCoffeeDrinksType | null;
@@ -37,10 +37,20 @@ class CoffeeMachine {
         abilityToCreateYourOwnDrinks: string | null;
     };
 
-    private controlPanel: {
+    public controlPanel: {
         controls: string;
         display: string | null;
         connectivity: string | null;
+    };
+
+    public features: {
+        milkSystem: string;
+        possibilityToFrothMilkManually: boolean;
+        cupIllumination: boolean;
+        cupWarmer: boolean;
+        cupHolder: string;
+        twinShot: boolean;
+        thermalMilkJug: boolean;
     };
 
     constructor(public model: string,
@@ -64,7 +74,13 @@ class CoffeeMachine {
                 abilityToCreateYourOwnDrinks: string | null,
                 controls: string,
                 display: string | null,
-                connectivity: string | null) {
+                connectivity: string | null,
+                milkSystem: string,
+                possibilityToFrothMilkManually: boolean,
+                cupIllumination: boolean,
+                cupWarmer: boolean,
+                cupHolder: string,
+                thermalMilkJug: boolean) {
         this.technicalData = {
             dimensions,
             weight,
@@ -98,7 +114,17 @@ class CoffeeMachine {
         this.controlPanel = {
             controls,
             display,
-            connectivity
+            connectivity,
+        };
+
+        this.features = {
+            milkSystem,
+            possibilityToFrothMilkManually,
+            cupIllumination,
+            cupWarmer,
+            cupHolder,
+            twinShot: true,
+            thermalMilkJug,
         };
     }
 }
