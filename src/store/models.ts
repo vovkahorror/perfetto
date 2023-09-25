@@ -1,4 +1,4 @@
-import {DrinksType} from './drinks';
+import {HotCoffeeDrinksType, HotMilkDrinksType, OtherDrinksType} from './drinks';
 
 class CoffeeMachine {
     private technicalData: {
@@ -20,9 +20,9 @@ class CoffeeMachine {
     };
 
     private functions: {
-        hotCoffeeDrinks: DrinksType;
-        hotMilkDrinks: DrinksType | null;
-        otherDrinks: DrinksType;
+        hotCoffeeDrinks: HotCoffeeDrinksType;
+        hotMilkDrinks: HotMilkDrinksType | null;
+        otherDrinks: OtherDrinksType;
         aromaFunction: boolean;
         possibilityToCustomiseLength: boolean;
         advancedPersonalisation: string | null;
@@ -41,9 +41,9 @@ class CoffeeMachine {
                 maxCupHeight: number,
                 colour: string,
                 finishing: string,
-                hotCoffeeDrinks: DrinksType,
-                hotMilkDrinks: DrinksType,
-                otherDrinks: DrinksType,
+                hotCoffeeDrinks: HotCoffeeDrinksType,
+                hotMilkDrinks: HotMilkDrinksType,
+                otherDrinks: OtherDrinksType,
                 advancedPersonalisation: string | null,
                 abilityToCreateYourOwnDrinks: string | null) {
         this.technicalData = {
