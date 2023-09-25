@@ -53,6 +53,12 @@ class CoffeeMachine {
         thermalMilkJug: boolean;
     };
 
+    public miscellaneous: {
+        possibilityToUseWaterFilter: boolean;
+        programmableWaterHardness: boolean;
+        possibilityToUseGroundCoffee: boolean;
+    };
+
     constructor(public model: string,
                 public series: string,
                 dimensions: string,
@@ -125,6 +131,12 @@ class CoffeeMachine {
             cupHolder,
             twinShot: true,
             thermalMilkJug,
+        };
+
+        this.miscellaneous = {
+            possibilityToUseWaterFilter: true,
+            programmableWaterHardness: true,
+            possibilityToUseGroundCoffee: true,
         };
     }
 }
