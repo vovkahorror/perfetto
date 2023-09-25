@@ -37,6 +37,12 @@ class CoffeeMachine {
         abilityToCreateYourOwnDrinks: string | null;
     };
 
+    private controlPanel: {
+        controls: string;
+        display: string | null;
+        connectivity: string | null;
+    };
+
     constructor(public model: string,
                 public series: string,
                 dimensions: string,
@@ -55,7 +61,10 @@ class CoffeeMachine {
                 coldMilkDrinks: ColdMilkDrinksType | null,
                 otherDrinks: OtherDrinksType,
                 advancedPersonalisation: string | null,
-                abilityToCreateYourOwnDrinks: string | null) {
+                abilityToCreateYourOwnDrinks: string | null,
+                controls: string,
+                display: string | null,
+                connectivity: string | null) {
         this.technicalData = {
             dimensions,
             weight,
@@ -84,6 +93,12 @@ class CoffeeMachine {
             possibilityToCustomiseLength: true,
             advancedPersonalisation,
             abilityToCreateYourOwnDrinks,
+        };
+
+        this.controlPanel = {
+            controls,
+            display,
+            connectivity
         };
     }
 }
