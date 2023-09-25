@@ -1,9 +1,11 @@
 import {
+    AMERICANO, CAFFELATTE, CAPPUCCINO, CAPPUCCINO_MIX, CAPPUCCINO_PLUS, CHOCOLATE_MIX_CARAFE,
+    COFFEE, COLD_COFFEE_MIX_CARAFE, COLD_MILK_FOAM_MIX_CARAFE,
     ColdCoffeeDrinksType,
-    ColdMilkDrinksType,
+    ColdMilkDrinksType, DOPPIO_PLUS, ESPRESSO, ESPRESSO_MACCHIATO, FLAT_WHITE, HOT_MILK, HOT_WATER,
     HotCoffeeDrinksType,
-    HotMilkDrinksType,
-    OtherDrinksType,
+    HotMilkDrinksType, LATTE_MACCHIATO, LONG,
+    OtherDrinksType, STEAM, TEA_FUNCTION,
 } from './drinks';
 
 class CoffeeMachine {
@@ -13,6 +15,8 @@ class CoffeeMachine {
         pumpPressure: number;
         beansContainerCapacity: number;
         waterContainerCapacity: number;
+        coffeeGrinder: 'металева конічна' | 'металева плоскопараллельна';
+        degreesOfGrinding: number;
         groundsContainerCapacity: number;
         energyClass: string;
         maxCupHeight: number;
@@ -61,11 +65,15 @@ class CoffeeMachine {
 
     constructor(public model: string,
                 public series: string,
+                public imageUrl: string[],
+                public videoId: string | null,
                 dimensions: string,
                 weight: number,
                 pumpPressure: number,
                 beansContainerCapacity: number,
                 waterContainerCapacity: number,
+                coffeeGrinder: 'металева конічна' | 'металева плоскопараллельна',
+                degreesOfGrinding: number,
                 groundsContainerCapacity: number,
                 energyClass: string,
                 maxCupHeight: number,
@@ -93,6 +101,8 @@ class CoffeeMachine {
             pumpPressure,
             beansContainerCapacity,
             waterContainerCapacity,
+            coffeeGrinder,
+            degreesOfGrinding,
             groundsContainerCapacity,
             energyClass,
             maxCupHeight,
@@ -140,3 +150,36 @@ class CoffeeMachine {
         };
     }
 }
+
+const ecam650_85 = new CoffeeMachine('ECAM650.85.MS',
+    'PrimaDonna Elite Experience',
+    ['https://dam.delonghi.com/902x902/assets/84298', 'https://dam.delonghi.com/902x902/assets/186070', 'https://dam.delonghi.com/902x902/assets/84323', 'https://dam.delonghi.com/902x902/assets/95788'],
+    'E3FpR6UzruA',
+    '260 x 375 x 470',
+    12.4,
+    19,
+    400,
+    2,
+    'металева конічна',
+    13,
+    14,
+    'Better than A',
+    142,
+    'Металево-сріблястий',
+    'Суцільно-металеве',
+    [ESPRESSO, COFFEE, LONG, DOPPIO_PLUS, AMERICANO],
+    [CAPPUCCINO, LATTE_MACCHIATO, CAPPUCCINO_PLUS, CAPPUCCINO_MIX, HOT_MILK, CAFFELATTE, FLAT_WHITE, ESPRESSO_MACCHIATO],
+    null,
+    null,
+    [CHOCOLATE_MIX_CARAFE, COLD_COFFEE_MIX_CARAFE, COLD_MILK_FOAM_MIX_CARAFE, TEA_FUNCTION, HOT_WATER, STEAM],
+    '6 профілів користувача',
+    'Так, через додаток',
+    'Сенсорний дисплей',
+    'кольоровий 4,3" TFT',
+    'Coffee Link App',
+    'LatteCrema Hot Technology',
+    true,
+    true,
+    true,
+    'Zamac',
+    true);
