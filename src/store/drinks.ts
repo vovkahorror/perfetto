@@ -3,6 +3,7 @@ export const COFFEE = 'Coffee';
 export const LONG = 'Long';
 export const DOPPIO_PLUS = 'Doppio+';
 export const AMERICANO = 'Americano';
+export const COFFEE_POT = 'Coffee Pot';
 export const CAPPUCCINO = 'Cappuccino';
 export const LATTE_MACCHIATO = 'Latte Macchiato';
 export const CAPPUCCINO_PLUS = 'Cappuccino+';
@@ -36,7 +37,8 @@ export type HotCoffeeDrinksType = Array<
     | typeof COFFEE
     | typeof LONG
     | typeof DOPPIO_PLUS
-    | typeof AMERICANO>;
+    | typeof AMERICANO
+    | typeof COFFEE_POT>;
 
 export type HotMilkDrinksType = Array<
     typeof CAPPUCCINO

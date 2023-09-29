@@ -1,6 +1,6 @@
 import {
     AMERICANO, CAFFELATTE, CAPPUCCINO, CAPPUCCINO_MIX, CAPPUCCINO_PLUS, CHOCOLATE_MIX_CARAFE,
-    COFFEE, COLD_COFFEE_MIX_CARAFE, COLD_MILK_FOAM_MIX_CARAFE,
+    COFFEE, COFFEE_POT, COLD_COFFEE_MIX_CARAFE, COLD_MILK_FOAM_MIX_CARAFE,
     ColdCoffeeDrinksType,
     ColdMilkDrinksType, DOPPIO_PLUS, ESPRESSO, ESPRESSO_MACCHIATO, FLAT_WHITE, HOT_MILK, HOT_WATER,
     HotCoffeeDrinksType,
@@ -51,7 +51,7 @@ class CoffeeMachine {
         milkSystem: string;
         possibilityToFrothMilkManually: boolean;
         cupIllumination: boolean;
-        cupWarmer: boolean;
+        cupWarmer: 'активний' | 'пасивний' | null;
         cupHolder: string;
         twinShot: boolean;
         thermalMilkJug: boolean;
@@ -94,7 +94,7 @@ class CoffeeMachine {
                 milkSystem: string,
                 possibilityToFrothMilkManually: boolean,
                 cupIllumination: boolean,
-                cupWarmer: boolean,
+                cupWarmer: 'активний' | 'пасивний' | null,
                 cupHolder: string,
                 thermalMilkJug: boolean) {
         this.technicalData = {
@@ -170,13 +170,13 @@ const ecam650_85 = new CoffeeMachine('ECAM650.85.MS',
     'Better than A',
     142,
     'Металево-сріблястий',
-    'Суцільно-металеве',
+    'Суцільно-металевий',
     [ESPRESSO, COFFEE, LONG, DOPPIO_PLUS, AMERICANO],
     [CAPPUCCINO, LATTE_MACCHIATO, CAPPUCCINO_PLUS, CAPPUCCINO_MIX, HOT_MILK, CAFFELATTE, FLAT_WHITE, ESPRESSO_MACCHIATO],
     null,
     null,
     [CHOCOLATE_MIX_CARAFE, COLD_COFFEE_MIX_CARAFE, COLD_MILK_FOAM_MIX_CARAFE, TEA_FUNCTION, HOT_WATER, STEAM],
-    '6 профілів користувача',
+    '6 профілів користувача + гостьовий профіль',
     'Так, через додаток',
     'Сенсорний дисплей',
     'кольоровий 4,3" TFT',
@@ -184,6 +184,41 @@ const ecam650_85 = new CoffeeMachine('ECAM650.85.MS',
     'LatteCrema Hot Technology',
     true,
     true,
-    true,
+    'активний',
     'Zamac',
+    true);
+
+const ecam370_95 = new CoffeeMachine('ECAM370.95.T',
+    'Dinamica Plus',
+    ['https://dam.delonghi.com/902x902/assets/118864', 'https://dam.delonghi.com/902x902/assets/118841', 'https://dam.delonghi.com/902x902/assets/118871'],
+    'iiXqD1Evr3w',
+    'Вибирайте з 12 рецептів і насолоджуйтесь смачним напоєм за допомогою автоматичної кавомашини Dinamica Plus. Цей незабутній кавовий досвід покращується унікальними інтерактивними функціями, включаючи Smart One Touch, 3 профілі користувачів і додаток Coffee Link для нескінченної персоналізації. Ця кавомашина преміум-класу є обов’язковою на будь-якій сучасній кухні.',
+    ['Напої на основі кави та молока одним дотиком', 'Приготування 2 чашок еспресо одночасно', 'Кремова, щільна, стійка молочна піна ідеальної температури за допомогою автоматичної системи LatteCrema System. Карафа для молока з автоматичним очищенням', 'Керуйте профілями, створюйте та налаштовуйте нові рецепти за допомогою дисплея та додатка Coffee Link', 'Преміальний титановий колір та 3,5-дюймовий сенсорний дисплей'],
+    '236 x 429 x 348',
+    9.5,
+    19,
+    300,
+    1.8,
+    'металева конічна',
+    13,
+    14,
+    'Better than A',
+    135,
+    'Титановий',
+    'Пофарбований пластик',
+    [ESPRESSO, COFFEE, LONG, DOPPIO_PLUS, COFFEE_POT],
+    [CAPPUCCINO, LATTE_MACCHIATO, CAPPUCCINO_PLUS, CAPPUCCINO_MIX, HOT_MILK, CAFFELATTE, FLAT_WHITE, ESPRESSO_MACCHIATO],
+    null,
+    null,
+    [HOT_WATER],
+    '3 профілів користувача + гостьовий профіль',
+    'Так, через додаток',
+    'Сенсорний дисплей',
+    'кольоровий 3,5" TFT',
+    'Coffee Link App',
+    'LatteCrema Hot Technology',
+    false,
+    false,
+    'пасивний',
+    'Нержавіюча сталь',
     true);
