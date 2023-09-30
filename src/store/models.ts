@@ -35,6 +35,7 @@ class CoffeeMachine {
         coldCoffeeDrinks: ColdCoffeeDrinksType | null;
         coldMilkDrinks: ColdMilkDrinksType | null;
         otherDrinks: OtherDrinksType;
+        totalCountOfDrinks: number;
         aromaFunction: boolean;
         possibilityToCustomiseLength: boolean;
         advancedPersonalisation: string | null;
@@ -123,6 +124,7 @@ class CoffeeMachine {
             coldCoffeeDrinks,
             coldMilkDrinks,
             otherDrinks,
+            totalCountOfDrinks: hotCoffeeDrinks.length + hotMilkDrinks.length + (coldCoffeeDrinks ? coldCoffeeDrinks.length : 0) + (coldMilkDrinks ? coldMilkDrinks.length : 0) + otherDrinks.length,
             aromaFunction: true,
             possibilityToCustomiseLength: true,
             advancedPersonalisation,
