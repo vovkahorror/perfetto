@@ -1,4 +1,5 @@
 export const ESPRESSO = 'Espresso';
+export const ESPRESSO_LUNGO = 'Espresso Lungo';
 export const COFFEE = 'Coffee';
 export const LONG = 'Long';
 export const DOPPIO_PLUS = 'Doppio+';
@@ -34,6 +35,7 @@ export const STEAM = 'Steam';
 
 export type HotCoffeeDrinksType = Array<
     typeof ESPRESSO
+    | typeof ESPRESSO_LUNGO
     | typeof COFFEE
     | typeof LONG
     | typeof DOPPIO_PLUS
