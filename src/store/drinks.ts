@@ -12,6 +12,7 @@ export const CAPPUCCINO_MIX = 'Cappuccino Mix';
 export const HOT_MILK = 'Hot Milk';
 export const CAFFELATTE = 'Caffelatte';
 export const FLAT_WHITE = 'Flat White';
+export const CORTADO = 'Cortado';
 export const ESPRESSO_MACCHIATO = 'Espresso Macchiato';
 export const COLD_AMERICANO = 'Cold Americano';
 export const COLD_COFFEE = 'Cold Coffee';
@@ -26,6 +27,8 @@ export const COLD_CAFFELATTE = 'Cold CaffeLatte';
 export const COLD_MILK = 'Cold Milk';
 export const COLD_FLAT_WHITE = 'Cold Flat White';
 export const FOAMED_MILK = 'Foamed Milk';
+export const COLD_BREW_LATTE = 'Cold Brew Latte';
+export const COLD_BREW_CAPPUCCINO = 'Cold Brew Cappuccino';
 export const CHOCOLATE_MIX_CARAFE = 'Chocolate (Mix Carafe)';
 export const COLD_COFFEE_MIX_CARAFE = 'Cold Coffee (Mix Carafe)';
 export const COLD_MILK_FOAM_MIX_CARAFE = 'Cold milk foam (Mix Carafe)';
@@ -50,6 +53,7 @@ export type HotMilkDrinksType = Array<
     | typeof HOT_MILK
     | typeof CAFFELATTE
     | typeof FLAT_WHITE
+    | typeof CORTADO
     | typeof ESPRESSO_MACCHIATO>;
 
 export type ColdCoffeeDrinksType = Array<
@@ -67,7 +71,9 @@ export type ColdMilkDrinksType = Array<
     | typeof COLD_CAFFELATTE
     | typeof COLD_MILK
     | typeof COLD_FLAT_WHITE
-    | typeof FOAMED_MILK>;
+    | typeof FOAMED_MILK
+    | typeof COLD_BREW_LATTE
+    | typeof COLD_BREW_CAPPUCCINO>;
 
 export type OtherDrinksType = Array<
     typeof CHOCOLATE_MIX_CARAFE
