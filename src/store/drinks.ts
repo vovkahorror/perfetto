@@ -5,6 +5,8 @@ export const LONG = 'Long';
 export const DOPPIO_PLUS = 'Doppio+';
 export const AMERICANO = 'Americano';
 export const COFFEE_POT = 'Coffee Pot';
+export const OVER_ICE = 'Over Ice';
+export const LONG_BLACK = 'Long Black';
 export const CAPPUCCINO = 'Cappuccino';
 export const LATTE_MACCHIATO = 'Latte Macchiato';
 export const CAPPUCCINO_PLUS = 'Cappuccino+';
@@ -35,6 +37,7 @@ export const COLD_MILK_FOAM_MIX_CARAFE = 'Cold milk foam (Mix Carafe)';
 export const TEA_FUNCTION = 'Tea Function';
 export const HOT_WATER = 'Hot Water';
 export const STEAM = 'Steam';
+export const MUG_TO_GO = 'Mug To Go';
 
 export type HotCoffeeDrinksType = Array<
     typeof ESPRESSO
@@ -43,6 +46,8 @@ export type HotCoffeeDrinksType = Array<
     | typeof LONG
     | typeof DOPPIO_PLUS
     | typeof AMERICANO
+    | typeof OVER_ICE
+    | typeof LONG_BLACK
     | typeof COFFEE_POT>;
 
 export type HotMilkDrinksType = Array<
@@ -81,4 +86,5 @@ export type OtherDrinksType = Array<
     | typeof COLD_MILK_FOAM_MIX_CARAFE
     | typeof TEA_FUNCTION
     | typeof HOT_WATER
-    | typeof STEAM>;
+    | typeof STEAM
+    | typeof MUG_TO_GO>;
