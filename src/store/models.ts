@@ -196,7 +196,7 @@ class CoffeeMachine {
     }
 }
 
-const ecam650_85 = new CoffeeMachine('ECAM650.85.MS',
+export const ecam650_85 = new CoffeeMachine('ECAM650.85.MS',
     'PrimaDonna Elite Experience',
     ['https://dam.delonghi.com/902x902/assets/84298', 'https://dam.delonghi.com/902x902/assets/186070', 'https://dam.delonghi.com/902x902/assets/84323', 'https://dam.delonghi.com/902x902/assets/95788'],
     'E3FpR6UzruA',
@@ -231,7 +231,7 @@ const ecam650_85 = new CoffeeMachine('ECAM650.85.MS',
     'Zamac',
     true);
 
-const ecam370_95 = new CoffeeMachine('ECAM370.95.T',
+export const ecam370_95 = new CoffeeMachine('ECAM370.95.T',
     'Dinamica Plus',
     ['https://dam.delonghi.com/902x902/assets/118864', 'https://dam.delonghi.com/902x902/assets/118841', 'https://dam.delonghi.com/902x902/assets/118871'],
     'iiXqD1Evr3w',
@@ -266,7 +266,7 @@ const ecam370_95 = new CoffeeMachine('ECAM370.95.T',
     'Нержавіюча сталь',
     true);
 
-const ecam370_70 = new CoffeeMachine('ECAM370.70.B',
+export const ecam370_70 = new CoffeeMachine('ECAM370.70.B',
     'Dinamica Plus',
     ['https://dam.delonghi.com/902x902/assets/219345', 'https://dam.delonghi.com/902x902/assets/125041', 'https://dam.delonghi.com/902x902/assets/186030', 'https://dam.delonghi.com/902x902/assets/192114', 'https://dam.delonghi.com/902x902/assets/219347'],
     'tjgYo4OD1rc',
@@ -301,7 +301,7 @@ const ecam370_70 = new CoffeeMachine('ECAM370.70.B',
     'Нержавіюча сталь',
     false);
 
-const ecam22_112 = new CoffeeMachine('ECAM22.112.B',
+export const ecam22_112 = new CoffeeMachine('ECAM22.112.B',
     'Magnifica S',
     ['https://dam.delonghi.com/902x902/assets/223655', 'https://dam.delonghi.com/902x902/assets/148639', 'https://dam.delonghi.com/902x902/assets/148644', 'https://dam.delonghi.com/902x902/assets/71561'],
     'ol0PjrMxe6g',
@@ -336,7 +336,7 @@ const ecam22_112 = new CoffeeMachine('ECAM22.112.B',
     'Нержавіюча сталь',
     false);
 
-const ecam220_21 = new CoffeeMachine('ECAM220.21.B',
+export const ecam220_21 = new CoffeeMachine('ECAM220.21.B',
     'Magnifica Start',
     ['https://dam.delonghi.com/902x902/assets/246474', 'https://dam.delonghi.com/902x902/assets/218782', 'https://dam.delonghi.com/902x902/assets/236105', 'https://dam.delonghi.com/902x902/assets/244958', 'https://dam.delonghi.com/902x902/assets/246464', 'https://dam.delonghi.com/902x902/assets/244943'],
     'P6eZ5NceqGA',
@@ -371,7 +371,7 @@ const ecam220_21 = new CoffeeMachine('ECAM220.21.B',
     'Нержавіюча сталь',
     false);
 
-const ecam220_60 = new CoffeeMachine('ECAM220.60.B',
+export const ecam220_60 = new CoffeeMachine('ECAM220.60.B',
     'Magnifica Start',
     ['https://dam.delonghi.com/902x902/assets/271841', 'https://dam.delonghi.com/902x902/assets/231606', 'https://dam.delonghi.com/902x902/assets/244958', 'https://dam.delonghi.com/902x902/assets/267855', 'https://dam.delonghi.com/902x902/assets/267857'],
     'rsmnAKyEDYw',
@@ -406,7 +406,7 @@ const ecam220_60 = new CoffeeMachine('ECAM220.60.B',
     'Нержавіюча сталь',
     false);
 
-const ecam290_21 = new CoffeeMachine('ECAM290.21.B',
+export const ecam290_21 = new CoffeeMachine('ECAM290.21.B',
     'Magnifica Evo',
     ['https://dam.delonghi.com/902x902/assets/228161', 'https://dam.delonghi.com/902x902/assets/218782', 'https://dam.delonghi.com/902x902/assets/218783', 'https://dam.delonghi.com/902x902/assets/218785', 'https://dam.delonghi.com/902x902/assets/218787'],
     'yiILFEek-NI',
@@ -441,7 +441,7 @@ const ecam290_21 = new CoffeeMachine('ECAM290.21.B',
     'Нержавіюча сталь',
     false);
 
-const ecam290_51 = new CoffeeMachine('ECAM290.51.B',
+export const ecam290_51 = new CoffeeMachine('ECAM290.51.B',
     'Magnifica Evo',
     ['https://dam.delonghi.com/902x902/assets/260898', 'https://dam.delonghi.com/902x902/assets/218787', 'https://dam.delonghi.com/902x902/assets/231606', 'https://dam.delonghi.com/902x902/assets/257394', 'https://dam.delonghi.com/902x902/assets/257395'],
     'duLoyCwcejI',
@@ -478,7 +478,7 @@ const ecam290_51 = new CoffeeMachine('ECAM290.51.B',
 
 // const ecam359_55
 
-const ecam450_65 = new CoffeeMachine('ECAM450.65.G',
+export const ecam450_65 = new CoffeeMachine('ECAM450.65.G',
     'Eletta Explore',
     ['https://dam.delonghi.com/902x902/assets/257455', 'https://dam.delonghi.com/902x902/assets/220127', 'https://dam.delonghi.com/902x902/assets/232723', 'https://dam.delonghi.com/902x902/assets/247339', 'https://dam.delonghi.com/902x902/assets/232717'],
     'MNrCaAKMFwE',
@@ -514,7 +514,7 @@ const ecam450_65 = new CoffeeMachine('ECAM450.65.G',
     'Нержавіюча сталь',
     false);
 
-const ecam450_86 = new CoffeeMachine('ECAM450.86.T',
+export const ecam450_86 = new CoffeeMachine('ECAM450.86.T',
     'Eletta Explore',
     ['https://dam.delonghi.com/902x902/assets/257457', 'https://dam.delonghi.com/902x902/assets/220127', 'https://dam.delonghi.com/902x902/assets/220214', 'https://dam.delonghi.com/902x902/assets/232723', 'https://dam.delonghi.com/902x902/assets/247348', 'https://dam.delonghi.com/902x902/assets/232717'],
     'Y38FsqAokno',
@@ -551,7 +551,7 @@ const ecam450_86 = new CoffeeMachine('ECAM450.86.T',
     'Нержавіюча сталь',
     false);
 
-const ecam610_74 = new CoffeeMachine('ECAM610.74.MB',
+export const ecam610_74 = new CoffeeMachine('ECAM610.74.MB',
     'PrimaDonna Soul',
     ['https://dam.delonghi.com/902x902/assets/190115', 'https://dam.delonghi.com/902x902/assets/190129', 'https://dam.delonghi.com/902x902/assets/191135', 'https://dam.delonghi.com/902x902/assets/191143', 'https://dam.delonghi.com/902x902/assets/191147'],
     'Lp9MzaP9wto',
@@ -586,7 +586,7 @@ const ecam610_74 = new CoffeeMachine('ECAM610.74.MB',
     'Нержавіюча сталь',
     true);
 
-const epam960_75 = new CoffeeMachine('EPAM960.75.GLM',
+export const epam960_75 = new CoffeeMachine('EPAM960.75.GLM',
     'Maestosa',
     ['https://dam.delonghi.com/902x902/assets/122189', 'https://dam.delonghi.com/902x902/assets/122160', 'https://dam.delonghi.com/902x902/assets/122162', 'https://dam.delonghi.com/902x902/assets/122165', 'https://dam.delonghi.com/902x902/assets/123529'],
     'kbhSGl5Xr_c',
