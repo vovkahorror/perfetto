@@ -8,9 +8,12 @@ export const COFFEE_POT = 'Coffee Pot';
 export const OVER_ICE = 'Over Ice';
 export const LONG_BLACK = 'Long Black';
 export const CAPPUCCINO = 'Cappuccino';
+export const TWO_CAPPUCCINO = `2x ${CAPPUCCINO}`;
 export const LATTE_MACCHIATO = 'Latte Macchiato';
+export const TWO_LATTE_MACCHIATO = `2x ${LATTE_MACCHIATO}`;
 export const CAPPUCCINO_PLUS = 'Cappuccino+';
 export const CAPPUCCINO_MIX = 'Cappuccino Mix';
+export const TWO_CAPPUCCINO_MIX = `2x ${CAPPUCCINO_MIX}`;
 export const HOT_MILK = 'Hot Milk';
 export const CAFFELATTE = 'Caffelatte';
 export const FLAT_WHITE = 'Flat White';
@@ -52,9 +55,12 @@ export type HotCoffeeDrinksType = Array<
 
 export type HotMilkDrinksType = Array<
     typeof CAPPUCCINO
+    | typeof TWO_CAPPUCCINO
     | typeof LATTE_MACCHIATO
+    | typeof TWO_LATTE_MACCHIATO
     | typeof CAPPUCCINO_PLUS
     | typeof CAPPUCCINO_MIX
+    | typeof TWO_CAPPUCCINO_MIX
     | typeof HOT_MILK
     | typeof CAFFELATTE
     | typeof FLAT_WHITE
