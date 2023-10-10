@@ -49,7 +49,7 @@ import {
     TWO_LATTE_MACCHIATO,
 } from './drinks';
 
-class CoffeeMachine {
+export class CoffeeMachine {
     public technicalData: {
         dimensions: string;
         weight: number;
