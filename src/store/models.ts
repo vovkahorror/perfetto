@@ -477,7 +477,7 @@ export const ecam290_51 = new CoffeeMachine('ECAM290.51.B',
     'Нержавіюча сталь',
     false);
 
-const ecam359_55 = new CoffeeMachine('ECAM359.55.B',
+export const ecam359_55 = new CoffeeMachine('ECAM359.55.B',
     'Dinamica',
     ['https://dam.delonghi.com/902x902/assets/88388', 'https://dam.delonghi.com/902x902/assets/116923', 'https://dam.delonghi.com/902x902/assets/116925', 'https://dam.delonghi.com/902x902/assets/116927'],
     '39WQdMVdqdM',
