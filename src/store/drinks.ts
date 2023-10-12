@@ -20,6 +20,7 @@ export const CAFFELATTE = 'Caffelatte';
 export const FLAT_WHITE = 'Flat White';
 export const CORTADO = 'Cortado';
 export const ESPRESSO_MACCHIATO = 'Espresso Macchiato';
+export const MY_LATTE = 'MyLatte';
 export const COLD_AMERICANO = 'Cold Americano';
 export const COLD_COFFEE = 'Cold Coffee';
 export const COLD_ESPRESSO = 'Cold Espresso';
@@ -67,7 +68,8 @@ export type HotMilkDrinksType = Array<
     | typeof CAFFELATTE
     | typeof FLAT_WHITE
     | typeof CORTADO
-    | typeof ESPRESSO_MACCHIATO>;
+    | typeof ESPRESSO_MACCHIATO
+    | typeof MY_LATTE>;
 
 export type ColdCoffeeDrinksType = Array<
     typeof COLD_AMERICANO
