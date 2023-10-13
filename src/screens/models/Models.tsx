@@ -3,8 +3,9 @@ import {Model} from './model/model';
 import {useAppSelector} from '../../utils/custom-hooks/useAppSelector';
 import {selectModels} from './selectors';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {ModelsProps} from '../../types/NavigationTypes';
 
-export const Models = () => {
+export const Models = ({navigation}: ModelsProps) => {
     const insets = useSafeAreaInsets();
     const models = useAppSelector(selectModels);
 
