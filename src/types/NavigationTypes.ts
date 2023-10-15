@@ -7,3 +7,4 @@ export type RootStackParamList = {
 }
 
 export type ModelsProps = NativeStackScreenProps<RootStackParamList, 'Models'>;
+export type CurrentModelProps = NativeStackScreenProps<RootStackParamList, 'CurrentModel'>;

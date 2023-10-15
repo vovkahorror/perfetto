@@ -1,7 +1,7 @@
 import {Image, ListRenderItem, Text, View, StyleSheet} from 'react-native';
 import {CoffeeMachine} from '../../../store/models';
 
-export const Model: ListRenderItem<CoffeeMachine> = ({item}) => {
+export const ModeItem: ListRenderItem<CoffeeMachine> = ({item}) => {
     return (
         <View style={styles.container}>
             <Image style={styles.image} source={{uri: item.imageUrl[0]}}/>

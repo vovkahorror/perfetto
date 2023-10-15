@@ -1,5 +1,5 @@
 import {FlatList, View, StyleSheet, ImageBackground} from 'react-native';
-import {Model} from './model/model';
+import {ModeItem} from './ModeItem/ModeItem';
 import {useAppSelector} from '../../utils/custom-hooks/useAppSelector';
 import {selectModels} from './selectors';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -14,7 +14,7 @@ export const Models = ({navigation}: ModelsProps) => {
             <ImageBackground source={require('../../../assets/background/background1.webp')}>
                 <FlatList
                     data={models}
-                    renderItem={Model}
+                    renderItem={ModeItem}
                     contentContainerStyle={{paddingHorizontal: 20}}/>
             </ImageBackground>
         </View>
