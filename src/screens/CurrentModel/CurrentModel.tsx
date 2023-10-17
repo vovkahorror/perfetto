@@ -5,6 +5,7 @@ import {List} from 'react-native-paper';
 import {ListItem} from '../../utils/hoc/ListItem';
 import {useStringCreator} from '../../utils/custom-hooks/useStringCreator';
 import {useConvertBooleanToString} from '../../utils/custom-hooks/useConvertBooleanToString';
+import {ListAccordion} from '../../utils/hoc/ListAccordion';
 
 export const CurrentModel = ({route}: CurrentModelProps) => {
     const {
@@ -30,7 +31,7 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                 <Text>{description}</Text>
 
                 <List.Section title="Характеристики" titleStyle={styles.listTitle}>
-                    <List.Accordion
+                    <ListAccordion
                         title="Технічні дані"
                         left={props => <List.Icon {...props} icon="ruler"/>}>
                         <ListItem title="Розміри (Ш x Д x В), мм" description={technicalData?.dimensions}/>
@@ -48,16 +49,16 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                         <ListItem title="Вхідна потужність, Вт" description={technicalData?.inputPower}/>
                         <ListItem title="Номінальна напруга / Частота"
                                   description={technicalData?.ratedVoltageFrequency}/>
-                    </List.Accordion>
+                    </ListAccordion>
 
-                    <List.Accordion
+                    <ListAccordion
                         title="Колір, матеріал, оздоблення"
                         left={props => <List.Icon {...props} icon="palette"/>}>
                         <ListItem title="Колір" description={colourMaterialFinish?.colour}/>
                         <ListItem title="Матеріал корпусу" description={colourMaterialFinish?.finishing}/>
-                    </List.Accordion>
+                    </ListAccordion>
 
-                    <List.Accordion
+                    <ListAccordion
                         title="Функції"
                         left={props => <List.Icon {...props} icon="coffee"/>}>
                         <ListItem title="Гарячі кавові напої"
@@ -78,18 +79,18 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                                                                          description={functions.advancedPersonalisation}/>}
                         {functions?.abilityToCreateYourOwnDrinks && <ListItem title="Можливість створювати власні напої"
                                                                               description={functions.abilityToCreateYourOwnDrinks}/>}
-                    </List.Accordion>
+                    </ListAccordion>
 
-                    <List.Accordion
+                    <ListAccordion
                         title="Панель управління"
                         left={props => <List.Icon {...props} icon="monitor-dashboard"/>}>
                         <ListItem title="Елементи управління" description={controlPanel?.controls}/>
                         {controlPanel?.display && <ListItem title="Дисплей" description={controlPanel.display}/>}
                         {controlPanel?.connectivity &&
                             <ListItem title="Підключення" description={controlPanel.connectivity}/>}
-                    </List.Accordion>
+                    </ListAccordion>
 
-                    <List.Accordion
+                    <ListAccordion
                         title="Особливості"
                         left={props => <List.Icon {...props} icon="coffee-maker-check"/>}>
                         <ListItem title="Молочна система" description={features?.milkSystem}/>
@@ -107,9 +108,9 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                                   description={useConvertBooleanToString(features?.twinShot)}/>
                         {features?.thermalMilkJug && <ListItem title="Термокарафа для молока"
                                                                description={useConvertBooleanToString(features.thermalMilkJug)}/>}
-                    </List.Accordion>
+                    </ListAccordion>
 
-                    <List.Accordion
+                    <ListAccordion
                         title="Різне"
                         left={props => <List.Icon {...props} icon="text-box"/>}>
                         <ListItem title="Можливість використання фільтра для води"
@@ -118,7 +119,7 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                                   description={useConvertBooleanToString(miscellaneous?.programmableWaterHardness)}/>
                         <ListItem title="Можливість використання меленої кави"
                                   description={useConvertBooleanToString(miscellaneous?.possibilityToUseGroundCoffee)}/>
-                    </List.Accordion>
+                    </ListAccordion>
                 </List.Section>
             </ScrollView>
         </WithSafeAreaProvider>
