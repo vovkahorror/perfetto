@@ -5,12 +5,12 @@ import {Provider} from 'react-redux';
 import {store} from './src/store/store';
 import {Models} from './src/screens/Models/Models';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {createStackNavigator} from '@react-navigation/stack';
 import {RootStackParamList} from './src/types/NavigationTypes';
 import {NavigationContainer} from '@react-navigation/native';
 import {CurrentModel} from './src/screens/CurrentModel/CurrentModel';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
     return (
@@ -19,7 +19,7 @@ export default function App() {
                 <View style={styles.container}>
                     <StatusBar style="auto"/>
                     <NavigationContainer>
-                        <Stack.Navigator screenOptions={{headerShown: false}}>
+                        <Stack.Navigator screenOptions={{headerShown: false, animation: 'fade'}}>
                             <Stack.Screen name={'Models'} component={Models}/>
                             <Stack.Screen name={'CurrentModel'} component={CurrentModel}/>
                         </Stack.Navigator>
@@ -27,14 +27,13 @@ export default function App() {
                 </View>
             </SafeAreaProvider>
         </Provider>
-    )
-        ;
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
+        position: 'relative',
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'stretch',
         justifyContent: 'center',
     },

@@ -1,12 +1,28 @@
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
 import {CurrentModelProps} from '../../types/NavigationTypes';
+import {WithSafeAreaProvider} from '../../utils/hoc/WithSafeAreaProvider';
 
 export const CurrentModel = ({route}: CurrentModelProps) => {
-    const {model} = {...route.params};
+    const {
+        model,
+        series,
+        imageUrl,
+        videoId,
+        description,
+        summary,
+        technicalData,
+        colourMaterialFinish,
+        functions,
+        controlPanel,
+        features,
+        miscellaneous,
+    } = {...route.params};
 
     return (
-        <View>
+        <WithSafeAreaProvider>
             <Text>{model}</Text>
-        </View>
+            <Text>{series}</Text>
+            <Text>{description}</Text>
+        </WithSafeAreaProvider>
     );
 };

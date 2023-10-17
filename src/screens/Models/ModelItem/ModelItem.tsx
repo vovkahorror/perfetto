@@ -1,21 +1,50 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Animated, Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {CoffeeMachine} from '../../../store/models';
-import {FC} from 'react';
+import {FC, useEffect, useRef, useState} from 'react';
+import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import {RootStackParamList} from '../../../types/NavigationTypes';
 
-export const ModelItem: FC<ModelItemProps> = ({item}) => {
+export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
+    const [isPressed, setIsPressed] = useState(false);
+    const transformAnimValue = useRef(new Animated.Value(1)).current;
+
+    const handlePress = (item: CoffeeMachine) => {
+        setIsPressed(true);
+        navigation.navigate('CurrentModel', item);
+    };
+
+    useEffect(() => {
+        Animated.timing(transformAnimValue, {
+            toValue: isPressed ? 1.3 : 1,
+            duration: 200,
+            useNativeDriver: true,
+        }).start();
+
+        const timeout = setTimeout(() => setIsPressed(false), 500);
+
+        return () => {
+            transformAnimValue.setValue(1);
+            clearTimeout(timeout);
+        };
+    }, [isPressed]);
+
+
     return (
-            <View style={styles.container}>
+        <Pressable onPress={() => handlePress(item)}>
+            <Animated.View style={[styles.container, {transform: [{scale: transformAnimValue}]}]}>
                 <Image style={styles.image} source={{uri: item.imageUrl[0]}}/>
                 <View>
                     <Text style={styles.model}>{item.model}</Text>
                     <Text style={styles.series}>{item.series}</Text>
                 </View>
-            </View>
+            </Animated.View>
+        </Pressable>
     );
 };
 
 interface ModelItemProps {
     item: CoffeeMachine;
+    navigation: NativeStackNavigationProp<RootStackParamList, 'Models'>;
 }
 
 const styles = StyleSheet.create({
@@ -24,6 +53,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
         marginVertical: 10,
+        transition: 0.3,
     },
     image: {
         width: 150,
