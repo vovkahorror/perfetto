@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, Text} from 'react-native';
+import {LayoutChangeEvent, ScrollView, StyleSheet, Text} from 'react-native';
 import {CurrentModelProps} from '../../types/NavigationTypes';
 import {WithSafeAreaProvider} from '../../utils/hoc/WithSafeAreaProvider';
 import {List} from 'react-native-paper';
@@ -6,6 +6,9 @@ import {ListItem} from '../../utils/hoc/ListItem';
 import {useStringCreator} from '../../utils/custom-hooks/useStringCreator';
 import {useConvertBooleanToString} from '../../utils/custom-hooks/useConvertBooleanToString';
 import {ListAccordion} from '../../utils/hoc/ListAccordion';
+import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
+import {useCallback, useState} from 'react';
+import {PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../constants/constants';
 
 export const CurrentModel = ({route}: CurrentModelProps) => {
     const {
@@ -23,12 +26,34 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
         miscellaneous,
     } = {...route.params};
 
+    const [viewWidth, setViewWidth] = useState(400);
+    const [playing, setPlaying] = useState(false);
+
+    const handleLayout = useCallback((event: LayoutChangeEvent) => {
+        const {width} = event.nativeEvent.layout;
+        setViewWidth(width);
+    }, []);
+
+    const onStateChange = useCallback((state: PLAYER_STATES) => {
+        if (state === 'ended') {
+            setPlaying(false);
+        }
+    }, []);
+
     return (
         <WithSafeAreaProvider>
-            <ScrollView>
+            <ScrollView onLayout={handleLayout} style={styles.container}>
                 <Text>{model}</Text>
                 <Text>{series}</Text>
                 <Text>{description}</Text>
+
+                <YoutubePlayer
+                    height={(viewWidth - (PADDING_HORIZONTAL * 2)) / (16 / 9)}
+                    play={playing}
+                    videoId={videoId}
+                    onChangeState={onStateChange}
+                    webViewStyle={{opacity: 0.99}}
+                />
 
                 <List.Section title="Характеристики" titleStyle={styles.listTitle}>
                     <ListAccordion
@@ -127,6 +152,10 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+        paddingHorizontal: PADDING_HORIZONTAL,
+        paddingVertical: PADDING_VERTICAL,
+    },
     listTitle: {
         fontSize: 18,
         fontWeight: '700',

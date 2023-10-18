@@ -110,7 +110,7 @@ export class CoffeeMachine {
     constructor(public model: string,
                 public series: string,
                 public imageUrl: string[],
-                public videoId: string | null,
+                public videoId: string,
                 public description: string | null,
                 public summary: string[],
                 dimensions: string,
