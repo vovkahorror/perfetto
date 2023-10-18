@@ -1,4 +1,4 @@
-import {LayoutChangeEvent, ScrollView, StyleSheet, Text} from 'react-native';
+import {ImageSourcePropType, LayoutChangeEvent, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {CurrentModelProps} from '../../types/NavigationTypes';
 import {WithSafeAreaProvider} from '../../utils/hoc/WithSafeAreaProvider';
 import {List} from 'react-native-paper';
@@ -9,12 +9,14 @@ import {ListAccordion} from '../../utils/hoc/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
 import {PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../constants/constants';
+import {ImageSlider} from 'react-native-image-slider-banner';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 export const CurrentModel = ({route}: CurrentModelProps) => {
     const {
         model,
         series,
-        imageUrl,
+        imageUrls,
         videoId,
         description,
         summary,
@@ -29,6 +31,10 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
     const [viewWidth, setViewWidth] = useState(400);
     const [playing, setPlaying] = useState(false);
 
+    const mappedSummary = summary?.map((el) => {
+        return <List.Item title={el} titleNumberOfLines={10} left={() => <List.Icon icon="check"/>}/>;
+    });
+
     const handleLayout = useCallback((event: LayoutChangeEvent) => {
         const {width} = event.nativeEvent.layout;
         setViewWidth(width);
@@ -40,20 +46,48 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
         }
     }, []);
 
+    const setOrientation = useCallback((isFullscreen: boolean) => {
+        isFullscreen
+            ? ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
+            : ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+    }, []);
+
     return (
         <WithSafeAreaProvider>
             <ScrollView onLayout={handleLayout} style={styles.container}>
                 <Text>{model}</Text>
                 <Text>{series}</Text>
+
+                <View style={styles.mediaWrapper}>
+                    {imageUrls && <ImageSlider
+                        data={imageUrls?.map((el) => ({img: el as ImageSourcePropType}))}
+                        autoPlay={false}
+                        closeIconColor="#082141"
+                        showHeader
+                        previewImageStyle={{borderRadius: 10}}
+                        caroselImageContainerStyle={{height: viewWidth}}
+                        caroselImageStyle={{height: '100%', borderRadius: 10}}
+                        indicatorContainerStyle={{bottom: 0}}
+                    />}
+                </View>
+
                 <Text>{description}</Text>
 
-                <YoutubePlayer
-                    height={(viewWidth - (PADDING_HORIZONTAL * 2)) / (16 / 9)}
-                    play={playing}
-                    videoId={videoId}
-                    onChangeState={onStateChange}
-                    webViewStyle={{opacity: 0.99}}
-                />
+                <List.Section>
+                    <List.Subheader>Резюме</List.Subheader>
+                    {mappedSummary}
+                </List.Section>
+
+                <View style={styles.mediaWrapper}>
+                    <YoutubePlayer
+                        height={(viewWidth - (PADDING_HORIZONTAL * 2)) / (16 / 9)}
+                        play={playing}
+                        videoId={videoId}
+                        onChangeState={onStateChange}
+                        onFullScreenChange={setOrientation}
+                        webViewStyle={{opacity: 0.99}}
+                    />
+                </View>
 
                 <List.Section title="Характеристики" titleStyle={styles.listTitle}>
                     <ListAccordion
@@ -155,6 +189,10 @@ const styles = StyleSheet.create({
     container: {
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
+    },
+    mediaWrapper: {
+        borderRadius: 10,
+        overflow: 'hidden',
     },
     listTitle: {
         fontSize: 18,

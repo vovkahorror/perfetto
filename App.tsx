@@ -9,6 +9,10 @@ import {RootStackParamList} from './src/types/NavigationTypes';
 import {NavigationContainer} from '@react-navigation/native';
 import {CurrentModel} from './src/screens/CurrentModel/CurrentModel';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs(['new NativeEventEmitter']);
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

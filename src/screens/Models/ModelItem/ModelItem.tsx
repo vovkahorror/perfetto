@@ -32,7 +32,7 @@ export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
     return (
         <Pressable onPress={() => handlePress(item)}>
             <Animated.View style={[styles.container, {transform: [{scale: transformAnimValue}]}]}>
-                <Image style={styles.image} source={{uri: item.imageUrl[0]}}/>
+                <Image style={styles.image} source={{uri: item.imageUrls[0]}}/>
                 <View>
                     <Text style={styles.model}>{item.model}</Text>
                     <Text style={styles.series}>{item.series}</Text>

@@ -5,6 +5,6 @@ import {List} from 'react-native-paper';
 export const ListItem: FC<Props> = (props) => {
     return (
         <List.Item descriptionStyle={{fontSize: 16, fontWeight: '700'}} titleNumberOfLines={2}
-                   descriptionNumberOfLines={4} {...props} />
+                   descriptionNumberOfLines={5} {...props} />
     );
 };
