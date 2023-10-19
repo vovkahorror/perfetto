@@ -54,6 +54,9 @@ const styles = StyleSheet.create({
         gap: 10,
         marginVertical: 10,
         transition: 0.3,
+        padding: 10,
+        borderRadius: 10,
+        backgroundColor: 'rgba(255, 192, 173, 0.6)'
     },
     image: {
         width: 150,
@@ -64,9 +67,11 @@ const styles = StyleSheet.create({
     model: {
         fontSize: 18,
         fontWeight: 'bold',
+        color: '#271c19'
     },
     series: {
         fontSize: 16,
         fontStyle: 'italic',
+        color: '#271c19'
     },
 });
