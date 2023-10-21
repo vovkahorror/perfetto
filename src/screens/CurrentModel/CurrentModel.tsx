@@ -8,7 +8,7 @@ import {useConvertBooleanToString} from '../../utils/custom-hooks/useConvertBool
 import {ListAccordion} from '../../utils/hoc/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
-import {PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../constants/constants';
+import {PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR} from '../../constants/constants';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
@@ -54,9 +54,11 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
 
     return (
         <WithSafeAreaProvider>
-            <ScrollView onLayout={handleLayout} style={styles.container}>
-                <Text>{model}</Text>
-                <Text>{series}</Text>
+            <ScrollView onLayout={handleLayout} contentContainerStyle={styles.container}>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.model}>{model}</Text>
+                    <Text style={styles.series}>{series}</Text>
+                </View>
 
                 <View style={styles.mediaWrapper}>
                     {imageUrls && <ImageSlider
@@ -68,10 +70,11 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                         caroselImageContainerStyle={{height: viewWidth}}
                         caroselImageStyle={{height: '100%', borderRadius: 10}}
                         indicatorContainerStyle={{bottom: 0}}
+                        activeIndicatorStyle={{backgroundColor: TEXT_COLOR}}
                     />}
                 </View>
 
-                <Text>{description}</Text>
+                <Text style={styles.description}>{description}</Text>
 
                 <List.Section>
                     <List.Subheader>Резюме</List.Subheader>
@@ -187,12 +190,31 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
 
 const styles = StyleSheet.create({
     container: {
+        gap: 10,
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
+        backgroundColor: 'rgba(85, 66, 61, 0.8)',
+    },
+    titleContainer: {
+        alignItems: 'center',
+    },
+    model: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: TEXT_COLOR,
+    },
+    series: {
+        fontSize: 18,
+        fontStyle: 'italic',
+        color: TEXT_COLOR,
     },
     mediaWrapper: {
         borderRadius: 10,
         overflow: 'hidden',
+    },
+    description: {
+        fontSize: 16,
+        color: TEXT_COLOR,
     },
     listTitle: {
         fontSize: 18,

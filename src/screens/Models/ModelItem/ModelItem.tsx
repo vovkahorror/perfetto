@@ -3,6 +3,7 @@ import {CoffeeMachine} from '../../../store/models';
 import {FC, useEffect, useRef, useState} from 'react';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {RootStackParamList} from '../../../types/NavigationTypes';
+import {TEXT_COLOR} from '../../../constants/constants';
 
 export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
     const [isPressed, setIsPressed] = useState(false);
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
         transition: 0.3,
         padding: 10,
         borderRadius: 10,
-        backgroundColor: 'rgba(85, 66, 61, 0.8)'
+        backgroundColor: 'rgba(85, 66, 61, 0.8)',
     },
     image: {
         width: 150,
@@ -66,11 +67,11 @@ const styles = StyleSheet.create({
     model: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: '#ffc0ad'
+        color: TEXT_COLOR,
     },
     series: {
         fontSize: 16,
         fontStyle: 'italic',
-        color: '#ffc0ad'
+        color: TEXT_COLOR,
     },
 });

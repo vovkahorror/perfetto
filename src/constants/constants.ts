@@ -6,4 +6,5 @@ export const ElementsText = {
     AUTOPLAY: "AutoPlay",
 };
 
-export const BACKGROUND_IMAGE_COFFEE_MACHINES = require('../../assets/background/background1.jpg')
+export const BACKGROUND_IMAGE_COFFEE_MACHINES = require('../../assets/background/background1.jpg');
+export const TEXT_COLOR = '#ffc0ad';
