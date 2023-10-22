@@ -32,7 +32,8 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
     const [playing, setPlaying] = useState(false);
 
     const mappedSummary = summary?.map((el) => {
-        return <List.Item title={el} titleNumberOfLines={10} left={() => <List.Icon icon="check"/>}/>;
+        return <List.Item title={el} titleStyle={{fontSize: 14, color: TEXT_COLOR}} titleNumberOfLines={10}
+                          style={styles.summaryItem} left={() => <List.Icon icon="check" color={TEXT_COLOR}/>}/>;
     });
 
     const handleLayout = useCallback((event: LayoutChangeEvent) => {
@@ -76,8 +77,7 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
 
                 <Text style={styles.description}>{description}</Text>
 
-                <List.Section>
-                    <List.Subheader>Резюме</List.Subheader>
+                <List.Section title="Резюме" titleStyle={styles.listTitle}>
                     {mappedSummary}
                 </List.Section>
 
@@ -168,7 +168,7 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                         <ListItem title="Піддон для чашок" description={features?.cupHolder}/>
                         <ListItem title="Twin Shot"
                                   description={useConvertBooleanToString(features?.twinShot)}/>
-                        {features?.thermalMilkJug && <ListItem title="Термокарафа для молока"
+                        {features?.thermalMilkJug && <ListItem title="Термокарафка для молока"
                                                                description={useConvertBooleanToString(features.thermalMilkJug)}/>}
                     </ListAccordion>
 
@@ -215,10 +215,17 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 16,
         color: TEXT_COLOR,
+        fontStyle: 'italic',
     },
     listTitle: {
+        paddingVertical: 0,
         fontSize: 18,
         fontWeight: '700',
         fontStyle: 'italic',
+        color: TEXT_COLOR,
+    },
+    summaryItem: {
+        paddingVertical: 0,
+        paddingHorizontal: 10,
     },
 });
