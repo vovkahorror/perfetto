@@ -95,7 +95,7 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                 <List.Section title="Характеристики" titleStyle={styles.listTitle}>
                     <ListAccordion
                         title="Технічні дані"
-                        left={props => <List.Icon {...props} icon="ruler"/>}>
+                        icon="ruler">
                         <ListItem title="Розміри (Ш x Д x В), мм" description={technicalData?.dimensions}/>
                         <ListItem title="Вага, кг" description={technicalData?.weight}/>
                         <ListItem title="Тиск помпи, бар" description={technicalData?.pumpPressure}/>
@@ -115,14 +115,14 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
 
                     <ListAccordion
                         title="Колір, матеріал, оздоблення"
-                        left={props => <List.Icon {...props} icon="palette"/>}>
+                        icon="palette">
                         <ListItem title="Колір" description={colourMaterialFinish?.colour}/>
                         <ListItem title="Матеріал корпусу" description={colourMaterialFinish?.finishing}/>
                     </ListAccordion>
 
                     <ListAccordion
                         title="Функції"
-                        left={props => <List.Icon {...props} icon="coffee"/>}>
+                        icon="coffee">
                         <ListItem title="Гарячі кавові напої"
                                   description={useStringCreator(functions?.hotCoffeeDrinks)}/>
                         {functions?.hotMilkDrinks && <ListItem title="Гарячі молочні напої"
@@ -145,7 +145,7 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
 
                     <ListAccordion
                         title="Панель управління"
-                        left={props => <List.Icon {...props} icon="monitor-dashboard"/>}>
+                        icon="monitor-dashboard">
                         <ListItem title="Елементи управління" description={controlPanel?.controls}/>
                         {controlPanel?.display && <ListItem title="Дисплей" description={controlPanel.display}/>}
                         {controlPanel?.connectivity &&
@@ -154,7 +154,7 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
 
                     <ListAccordion
                         title="Особливості"
-                        left={props => <List.Icon {...props} icon="coffee-maker-check"/>}>
+                        icon="coffee-maker-check">
                         <ListItem title="Молочна система" description={features?.milkSystem}/>
                         {features?.possibilityToFrothMilkManually &&
                             <ListItem title="Можливість спінювання молока вручну"
@@ -174,7 +174,7 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
 
                     <ListAccordion
                         title="Різне"
-                        left={props => <List.Icon {...props} icon="text-box"/>}>
+                        icon="text-box">
                         <ListItem title="Можливість використання фільтра для води"
                                   description={useConvertBooleanToString(miscellaneous?.possibilityToUseWaterFilter)}/>
                         <ListItem title="Програмування жорсткості води"
