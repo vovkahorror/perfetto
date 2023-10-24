@@ -105,6 +105,7 @@ export class CoffeeMachine {
         possibilityToUseWaterFilter: boolean;
         programmableWaterHardness: boolean;
         possibilityToUseGroundCoffee: boolean;
+        warranty: number,
     };
 
     constructor(public model: string,
@@ -194,6 +195,7 @@ export class CoffeeMachine {
             possibilityToUseWaterFilter: true,
             programmableWaterHardness: true,
             possibilityToUseGroundCoffee: true,
+            warranty: 36,
         };
     }
 }
@@ -932,7 +934,7 @@ export const ecam22_112 = new CoffeeMachine('ECAM22.112.B',
     'Magnifica S',
     ['https://dam.delonghi.com/902x902/assets/223655', 'https://dam.delonghi.com/902x902/assets/148639', 'https://dam.delonghi.com/902x902/assets/148644', 'https://dam.delonghi.com/902x902/assets/71561'],
     'ol0PjrMxe6g',
-    null,
+    'Пориньте у світ кави у зернах разом із De\'Longhi Magnifica S, яка надає все необхідне, щоб розпочати приготування улюблених напоїв на основі еспресо вдома. Вона має зручний інтерфейс і привабливе чорне оздоблення з індивідуальним вибором напоїв, які можна приготувати лише одним дотиком.',
     ['Напої на основі кави одним натисканням кнопки', 'Система Twin-Shot готує 2 чашки еспресо одночасно', 'Вершкова молочна піна зі спінювачем молока з ручним регулюванням', 'Можливість налаштування аромату та кількості напою', 'Чорний глянцевий корпус із сріблястою панеллю з кнопками з м\'яким натиском'],
     '230 x 430 x 340',
     9,

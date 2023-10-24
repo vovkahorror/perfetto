@@ -1,10 +1,14 @@
 import {FC} from 'react';
 import {Props} from 'react-native-paper/src/components/List/ListItem';
 import {List} from 'react-native-paper';
+import {TEXT_COLOR} from '../../constants/constants';
 
 export const ListItem: FC<Props> = (props) => {
     return (
-        <List.Item descriptionStyle={{fontSize: 16, fontWeight: '700'}} titleNumberOfLines={2}
-                   descriptionNumberOfLines={5} {...props} />
+        <List.Item titleStyle={{color: TEXT_COLOR, textDecorationLine: 'underline'}}
+                   descriptionStyle={{fontSize: 16, fontWeight: '700', color: TEXT_COLOR}}
+                   titleNumberOfLines={2}
+                   descriptionNumberOfLines={5}
+                   {...props} />
     );
 };

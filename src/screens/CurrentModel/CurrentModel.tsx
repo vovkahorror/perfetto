@@ -181,6 +181,8 @@ export const CurrentModel = ({route}: CurrentModelProps) => {
                                   description={useConvertBooleanToString(miscellaneous?.programmableWaterHardness)}/>
                         <ListItem title="Можливість використання меленої кави"
                                   description={useConvertBooleanToString(miscellaneous?.possibilityToUseGroundCoffee)}/>
+                        <ListItem title="Гарантія, міс"
+                                  description={miscellaneous?.warranty}/>
                     </ListAccordion>
                 </List.Section>
             </ScrollView>
