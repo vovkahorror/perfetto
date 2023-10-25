@@ -1,16 +1,17 @@
-import {ImageSourcePropType, LayoutChangeEvent, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ImageSourcePropType, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {CurrentModelProps} from '../../types/NavigationTypes';
 import {WithSafeAreaProvider} from '../../utils/hoc/WithSafeAreaProvider';
-import {List} from 'react-native-paper';
+import {Icon, List} from 'react-native-paper';
 import {ListItem} from '../../utils/hoc/ListItem';
 import {useStringCreator} from '../../utils/custom-hooks/useStringCreator';
 import {useConvertBooleanToString} from '../../utils/custom-hooks/useConvertBooleanToString';
 import {ListAccordion} from '../../utils/hoc/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
-import {PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR} from '../../constants/constants';
+import {PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../constants/constants';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import {v1} from 'react-native-uuid/dist/v1';
 
 export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
     const {
@@ -20,6 +21,7 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
         videoId,
         description,
         summary,
+        instructionUrl,
         technicalData,
         colourMaterialFinish,
         functions,
@@ -32,8 +34,12 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
     const [playing, setPlaying] = useState(false);
 
     const mappedSummary = summary?.map((el) => {
-        return <List.Item title={el} titleStyle={{fontSize: 14, color: TEXT_COLOR}} titleNumberOfLines={10}
-                          style={styles.summaryItem} left={() => <List.Icon icon="check" color={TEXT_COLOR}/>}/>;
+        return <List.Item key={v1() as string}
+                          title={el}
+                          titleStyle={{fontSize: 14, color: TEXT_COLOR}}
+                          titleNumberOfLines={10}
+                          style={styles.summaryItem}
+                          left={() => <List.Icon icon="check" color={TEXT_COLOR}/>}/>;
     });
 
     const handleLayout = useCallback((event: LayoutChangeEvent) => {
@@ -52,6 +58,10 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
             ? ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
             : ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
     }, []);
+
+    const handlePress = useCallback(() => {
+        navigation.navigate('Instruction', {uri: instructionUrl});
+    }, [navigation, instructionUrl]);
 
     return (
         <WithSafeAreaProvider>
@@ -185,6 +195,19 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                                   description={miscellaneous?.warranty}/>
                     </ListAccordion>
                 </List.Section>
+
+                <Pressable onPress={handlePress} style={styles.titleContainer}>
+                    {({pressed}) => {
+                        return (
+                            <>
+                                <Icon size={64} source={'book-open-variant'}
+                                      color={pressed ? TEXT_FOCUS_COLOR : TEXT_COLOR}/>
+                                <Text
+                                    style={[styles.buttonText, {color: pressed ? TEXT_FOCUS_COLOR : TEXT_COLOR}]}>Інструкція</Text>
+                            </>
+                        );
+                    }}
+                </Pressable>
             </ScrollView>
         </WithSafeAreaProvider>
     );
@@ -229,5 +252,8 @@ const styles = StyleSheet.create({
     summaryItem: {
         paddingVertical: 0,
         paddingHorizontal: 10,
+    },
+    buttonText: {
+        fontSize: 18,
     },
 });

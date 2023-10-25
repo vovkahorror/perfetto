@@ -10,7 +10,8 @@ import {PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../constants/constants';
 export const Models = ({navigation}: ModelsProps) => {
     const models = useAppSelector(selectModels);
 
-    const renderItem: ListRenderItem<CoffeeMachine> = ({item}) => <ModelItem item={item} navigation={navigation}/>;
+    const renderItem: ListRenderItem<CoffeeMachine> = ({item}) => (
+        <ModelItem item={item} navigation={navigation}/>);
 
     return (
         <WithSafeAreaProvider>

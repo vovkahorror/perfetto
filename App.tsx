@@ -10,6 +10,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {CurrentModel} from './src/screens/CurrentModel/CurrentModel';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {LogBox} from 'react-native';
+import {Instruction} from './src/screens/CurrentModel/Instruction/Instruction';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 LogBox.ignoreAllLogs();
@@ -26,6 +27,7 @@ export default function App() {
                         <Stack.Navigator screenOptions={{headerShown: false, animation: 'fade'}}>
                             <Stack.Screen name={'Models'} component={Models}/>
                             <Stack.Screen name={'CurrentModel'} component={CurrentModel}/>
+                            <Stack.Screen name={'Instruction'} component={Instruction}/>
                         </Stack.Navigator>
                     </NavigationContainer>
                 </View>

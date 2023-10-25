@@ -4,7 +4,7 @@ import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 export type RootStackParamList = {
     Models: undefined;
     CurrentModel: CoffeeMachine | undefined;
-    Instruction: { uri: string } | undefined;
+    Instruction: { uri: string | undefined } | undefined;
 }
 
 export type ModelsProps = NativeStackScreenProps<RootStackParamList, 'Models'>;
