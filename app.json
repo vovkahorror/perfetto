@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "perfetto",
+    "name": "Perfetto",
     "slug": "perfetto",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,18 +22,32 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION",
+        "android.permission.ACCESS_NETWORK_STATE"
+      ],
+      "package": "com.vovkahorror.perfetto"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
+      "@config-plugins/react-native-blob-util",
+      "@config-plugins/react-native-pdf",
       [
         "expo-screen-orientation",
         {
           "initialOrientation": "DEFAULT"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "dabf6189-da82-491e-afdc-9500b600a8ac"
+      }
+    }
   }
 }

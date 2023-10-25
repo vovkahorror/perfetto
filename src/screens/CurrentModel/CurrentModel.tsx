@@ -12,7 +12,7 @@ import {PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR} from '../../constants/
 import {ImageSlider} from 'react-native-image-slider-banner';
 import * as ScreenOrientation from 'expo-screen-orientation';
 
-export const CurrentModel = ({route}: CurrentModelProps) => {
+export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
     const {
         model,
         series,

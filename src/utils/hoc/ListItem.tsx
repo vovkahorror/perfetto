@@ -2,6 +2,7 @@ import {FC} from 'react';
 import {Props} from 'react-native-paper/src/components/List/ListItem';
 import {List} from 'react-native-paper';
 import {TEXT_COLOR} from '../../constants/constants';
+import 'react-native-get-random-values';
 
 export const ListItem: FC<Props> = (props) => {
     return (
