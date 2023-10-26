@@ -2,7 +2,7 @@ import {Dimensions, View, StyleSheet} from 'react-native';
 import {InstructionProps} from '../../../types/NavigationTypes';
 import Pdf from 'react-native-pdf';
 import {WithSafeAreaProvider} from '../../../utils/hoc/WithSafeAreaProvider';
-import {PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR} from '../../../constants/constants';
+import {BORDER_RADIUS, PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR} from '../../../constants/constants';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 export const Instruction = ({route}: InstructionProps) => {
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
         flex: 1,
         width: Dimensions.get('window').width - PADDING_HORIZONTAL * 2,
         height: Dimensions.get('window').height - PADDING_VERTICAL * 2,
-        borderRadius: 10,
+        borderRadius: BORDER_RADIUS,
     },
 });

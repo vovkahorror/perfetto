@@ -1,7 +1,7 @@
 import {FC, useState} from 'react';
 import {Props} from 'react-native-paper/src/components/List/ListAccordion';
 import {List} from 'react-native-paper';
-import {TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../constants/constants';
+import {BORDER_RADIUS, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../constants/constants';
 import {IconSource} from 'react-native-paper/lib/typescript/components/Icon';
 
 export const ListAccordion: FC<Props & CustomProps> = ({icon, ...props}) => {
@@ -19,7 +19,7 @@ export const ListAccordion: FC<Props & CustomProps> = ({icon, ...props}) => {
                         expanded={isExpanded}
                         onPress={() => setIsExpanded(!isExpanded)}
                         rippleColor={TEXT_COLOR}
-                        style={{borderRadius: 10}}
+                        style={{borderRadius: BORDER_RADIUS}}
                         {...props}>
             {props.children}
         </List.Accordion>

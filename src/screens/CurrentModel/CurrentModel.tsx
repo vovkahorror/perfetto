@@ -9,7 +9,7 @@ import {ListAccordion} from '../../utils/hoc/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
 import {
-    BACKGROUND_COLOR,
+    BACKGROUND_COLOR, BORDER_RADIUS,
     PADDING_HORIZONTAL,
     PADDING_VERTICAL,
     TEXT_COLOR,
@@ -83,9 +83,9 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                         autoPlay={false}
                         closeIconColor="#082141"
                         showHeader
-                        previewImageStyle={{borderRadius: 10}}
+                        previewImageStyle={{borderRadius: BORDER_RADIUS}}
                         caroselImageContainerStyle={{height: viewWidth}}
-                        caroselImageStyle={{height: '100%', borderRadius: 10}}
+                        caroselImageStyle={{height: '100%', borderRadius: BORDER_RADIUS}}
                         indicatorContainerStyle={{bottom: 0}}
                         activeIndicatorStyle={{backgroundColor: TEXT_COLOR}}
                     />}
@@ -225,6 +225,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
         backgroundColor: BACKGROUND_COLOR,
+        borderRadius: BORDER_RADIUS
     },
     titleContainer: {
         alignItems: 'center',
@@ -240,7 +241,7 @@ const styles = StyleSheet.create({
         color: TEXT_COLOR,
     },
     mediaWrapper: {
-        borderRadius: 10,
+        borderRadius: BORDER_RADIUS,
         overflow: 'hidden',
     },
     description: {
