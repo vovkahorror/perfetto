@@ -7,11 +7,11 @@ export const WithSafeAreaProvider = ({children, backgroundImage}: WithSafeAreaPr
     const insets = useSafeAreaInsets();
 
     return (
-        <View style={{flex: 1, paddingTop: insets.top, paddingBottom: insets.bottom}}>
-            <ImageBackground source={backgroundImage || BACKGROUND_IMAGE_COFFEE_MACHINES} style={{flex: 1}}>
+        <ImageBackground source={backgroundImage || BACKGROUND_IMAGE_COFFEE_MACHINES} style={{flex: 1}}>
+            <View style={{flex: 1, paddingTop: insets.top, paddingBottom: insets.bottom}}>
                 {children}
-            </ImageBackground>
-        </View>
+            </View>
+        </ImageBackground>
     );
 };
 

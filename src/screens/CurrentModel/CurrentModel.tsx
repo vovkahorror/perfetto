@@ -8,7 +8,13 @@ import {useConvertBooleanToString} from '../../utils/custom-hooks/useConvertBool
 import {ListAccordion} from '../../utils/hoc/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
-import {PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../constants/constants';
+import {
+    BACKGROUND_COLOR,
+    PADDING_HORIZONTAL,
+    PADDING_VERTICAL,
+    TEXT_COLOR,
+    TEXT_FOCUS_COLOR,
+} from '../../constants/constants';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {v1} from 'react-native-uuid/dist/v1';
@@ -218,7 +224,7 @@ const styles = StyleSheet.create({
         gap: 10,
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
-        backgroundColor: 'rgba(85, 66, 61, 0.8)',
+        backgroundColor: BACKGROUND_COLOR,
     },
     titleContainer: {
         alignItems: 'center',
