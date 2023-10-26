@@ -1,7 +1,7 @@
 import {Dimensions, View, StyleSheet} from 'react-native';
 import {InstructionProps} from '../../../types/NavigationTypes';
 import Pdf from 'react-native-pdf';
-import {WithSafeAreaProvider} from '../../../utils/hoc/WithSafeAreaProvider';
+import {Wrapper} from '../../../utils/hoc/Wrapper';
 import {BORDER_RADIUS, PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR} from '../../../constants/constants';
 import Spinner from 'react-native-loading-spinner-overlay';
 
@@ -9,7 +9,7 @@ export const Instruction = ({route}: InstructionProps) => {
     const {uri} = {...route.params};
 
     return (
-        <WithSafeAreaProvider>
+        <Wrapper>
             <View style={styles.container}>
                 <Pdf
                     source={{
@@ -26,7 +26,7 @@ export const Instruction = ({route}: InstructionProps) => {
                             textStyle={{color: TEXT_COLOR}}/>}
                     style={styles.pdf}/>
             </View>
-        </WithSafeAreaProvider>
+        </Wrapper>
     );
 };
 

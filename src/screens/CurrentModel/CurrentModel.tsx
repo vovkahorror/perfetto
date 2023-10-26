@@ -1,6 +1,6 @@
 import {ImageSourcePropType, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {CurrentModelProps} from '../../types/NavigationTypes';
-import {WithSafeAreaProvider} from '../../utils/hoc/WithSafeAreaProvider';
+import {Wrapper} from '../../utils/hoc/Wrapper';
 import {Icon, List} from 'react-native-paper';
 import {ListItem} from '../../utils/hoc/ListItem';
 import {useStringCreator} from '../../utils/custom-hooks/useStringCreator';
@@ -70,7 +70,7 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
     }, [navigation, instructionUrl]);
 
     return (
-        <WithSafeAreaProvider>
+        <Wrapper>
             <ScrollView onLayout={handleLayout} contentContainerStyle={styles.container}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.model}>{model}</Text>
@@ -215,7 +215,7 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                     }}
                 </Pressable>
             </ScrollView>
-        </WithSafeAreaProvider>
+        </Wrapper>
     );
 };
 

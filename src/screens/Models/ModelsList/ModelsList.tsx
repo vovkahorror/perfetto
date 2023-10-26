@@ -7,7 +7,7 @@ import {ModelItem} from './ModelItem/ModelItem';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {RootStackParamList} from '../../../types/NavigationTypes';
 import {FC} from 'react';
-import {WithSafeAreaProvider} from '../../../utils/hoc/WithSafeAreaProvider';
+import {Wrapper} from '../../../utils/hoc/Wrapper';
 import {ModelsHeader} from './ModelsHeader/ModelsHeader';
 
 export const ModelsList: FC<ModelsListProps> = ({navigation}) => {
@@ -17,14 +17,14 @@ export const ModelsList: FC<ModelsListProps> = ({navigation}) => {
         <ModelItem item={item} navigation={navigation}/>);
 
     return (
-        <WithSafeAreaProvider>
+        <Wrapper>
             <FlatList
                 data={models}
                 renderItem={renderItem}
                 ListHeaderComponent={ModelsHeader}
                 contentContainerStyle={styles.contentContainerStyle}
                 keyboardShouldPersistTaps="always"/>
-        </WithSafeAreaProvider>
+        </Wrapper>
     );
 };
 
