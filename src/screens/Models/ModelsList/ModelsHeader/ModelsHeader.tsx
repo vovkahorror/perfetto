@@ -4,7 +4,7 @@ import {BACKGROUND_COLOR, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../../../consta
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {useAppSelector} from '../../../../utils/custom-hooks/useAppSelector';
 import {selectSearchQuery} from '../../selectors';
-import {setSearch} from '../../../../store/models-reducer';
+import {setSearch} from '../../../../store/models-slice';
 import {useAppDispatch} from '../../../../utils/custom-hooks/useAppDispatch';
 import {useDrawerStatus} from '@react-navigation/drawer';
 

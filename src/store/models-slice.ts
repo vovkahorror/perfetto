@@ -62,5 +62,5 @@ const slice = createSlice({
     },
 });
 
-export const modelsReducer = slice.reducer;
+export const modelsSlice = slice.reducer;
 export const {setSearch} = slice.actions;

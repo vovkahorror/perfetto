@@ -140,14 +140,14 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                         title="Функції"
                         icon="coffee">
                         <ListItem title="Гарячі кавові напої"
-                                  description={useStringCreator(functions?.hotCoffeeDrinks)}/>
-                        {functions?.hotMilkDrinks && <ListItem title="Гарячі молочні напої"
-                                                               description={useStringCreator(functions.hotMilkDrinks)}/>}
-                        {functions?.coldCoffeeDrinks && <ListItem title="Холодні кавові напої"
-                                                                  description={useStringCreator(functions.coldCoffeeDrinks)}/>}
-                        {functions?.coldMilkDrinks && <ListItem title="Холодні молочні напої"
-                                                                description={useStringCreator(functions.coldMilkDrinks)}/>}
-                        <ListItem title="Інші напої" description={useStringCreator(functions?.otherDrinks)}/>
+                                  description={useStringCreator(functions?.drinks.hotCoffeeDrinks)}/>
+                        {functions?.drinks.hotMilkDrinks && <ListItem title="Гарячі молочні напої"
+                                                                      description={useStringCreator(functions.drinks.hotMilkDrinks)}/>}
+                        {functions?.drinks.coldCoffeeDrinks && <ListItem title="Холодні кавові напої"
+                                                                         description={useStringCreator(functions.drinks.coldCoffeeDrinks)}/>}
+                        {functions?.drinks.coldMilkDrinks && <ListItem title="Холодні молочні напої"
+                                                                       description={useStringCreator(functions.drinks.coldMilkDrinks)}/>}
+                        <ListItem title="Інші напої" description={useStringCreator(functions?.drinks.otherDrinks)}/>
                         <ListItem title="Загальна кількість напоїв" description={functions?.totalCountOfDrinks}/>
                         <ListItem title="Можливість персоналізувати аромат"
                                   description={useConvertBooleanToString(functions?.aromaFunction)}/>
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
         backgroundColor: BACKGROUND_COLOR,
-        borderRadius: BORDER_RADIUS
+        borderRadius: BORDER_RADIUS,
     },
     titleContainer: {
         alignItems: 'center',

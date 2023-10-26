@@ -1,9 +1,9 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import {modelsReducer} from './models-reducer';
+import {modelsSlice} from './models-slice';
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
-    models: modelsReducer,
+    models: modelsSlice,
 });
 
 export const store = configureStore({

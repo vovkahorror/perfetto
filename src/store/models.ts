@@ -55,6 +55,7 @@ import {
     TWO_LATTE_MACCHIATO,
     VERLANGERTER,
 } from './drinks';
+import {useElementsCount} from '../utils/custom-hooks/useElementsCount';
 
 export class CoffeeMachine {
     public technicalData: {
@@ -77,11 +78,13 @@ export class CoffeeMachine {
     };
 
     public functions: {
-        hotCoffeeDrinks: HotCoffeeDrinksType;
-        hotMilkDrinks: HotMilkDrinksType | null;
-        coldCoffeeDrinks: ColdCoffeeDrinksType | null;
-        coldMilkDrinks: ColdMilkDrinksType | null;
-        otherDrinks: OtherDrinksType;
+        drinks: {
+            hotCoffeeDrinks: HotCoffeeDrinksType;
+            hotMilkDrinks: HotMilkDrinksType | null;
+            coldCoffeeDrinks: ColdCoffeeDrinksType | null;
+            coldMilkDrinks: ColdMilkDrinksType | null;
+            otherDrinks: OtherDrinksType;
+        }
         totalCountOfDrinks: number;
         aromaFunction: boolean;
         possibilityToCustomiseLength: boolean;
@@ -168,12 +171,14 @@ export class CoffeeMachine {
         };
 
         this.functions = {
-            hotCoffeeDrinks,
-            hotMilkDrinks,
-            coldCoffeeDrinks,
-            coldMilkDrinks,
-            otherDrinks,
-            totalCountOfDrinks: hotCoffeeDrinks.length + (hotMilkDrinks ? hotMilkDrinks.length : 0) + (coldCoffeeDrinks ? coldCoffeeDrinks.length : 0) + (coldMilkDrinks ? coldMilkDrinks.length : 0) + otherDrinks.length,
+            drinks: {
+                hotCoffeeDrinks,
+                hotMilkDrinks,
+                coldCoffeeDrinks,
+                coldMilkDrinks,
+                otherDrinks,
+            },
+            totalCountOfDrinks: hotCoffeeDrinks.length + useElementsCount(hotMilkDrinks) + useElementsCount(coldCoffeeDrinks) + useElementsCount(coldMilkDrinks) + otherDrinks.length,
             aromaFunction: true,
             possibilityToCustomiseLength: true,
             advancedPersonalisation,

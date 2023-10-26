@@ -1,0 +1,1 @@
+export const useElementsCount = (arr: any[] | null) => arr ? arr.length : 0;
