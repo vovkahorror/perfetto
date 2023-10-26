@@ -1,5 +1,6 @@
 import {CoffeeMachine} from '../store/models';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
+import {DrawerScreenProps} from '@react-navigation/drawer';
 
 export type RootStackParamList = {
     Models: undefined;
@@ -10,3 +11,9 @@ export type RootStackParamList = {
 export type ModelsProps = NativeStackScreenProps<RootStackParamList, 'Models'>;
 export type CurrentModelProps = NativeStackScreenProps<RootStackParamList, 'CurrentModel'>;
 export type InstructionProps = NativeStackScreenProps<RootStackParamList, 'Instruction'>;
+
+export type RootDrawerParamList = {
+    ModelsList: undefined;
+}
+
+export type ModelsListProps = DrawerScreenProps<RootDrawerParamList, 'ModelsList'>

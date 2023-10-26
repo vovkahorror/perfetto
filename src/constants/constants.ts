@@ -1,4 +1,4 @@
-export const PADDING = 20;
+export const PADDING = 10;
 export const PADDING_HORIZONTAL = 10;
 export const PADDING_VERTICAL = 10;
 export const BORDER_RADIUS = 10;
