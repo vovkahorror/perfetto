@@ -417,7 +417,7 @@ export const ecam380_95 = new CoffeeMachine('ECAM380.95.TB',
     'Сенсорний дисплей',
     'кольоровий 3,5" TFT',
     null,
-    'LatteCrema Hot Technology',
+    'LatteCrema Hot Technology (2 карафки у комплекті)',
     false,
     false,
     false,
@@ -433,6 +433,10 @@ export const ecam380_85 = {
     colourMaterialFinish: {
         ...ecam380_95.colourMaterialFinish,
         colour: 'Сріблясто-чорний',
+    },
+    features: {
+        ...ecam380_95.features,
+        milkSystem: 'LatteCrema Hot Technology',
     },
 };
 
