@@ -1,5 +1,7 @@
 import {
     AMERICANO,
+    CAFE_AU_LAIT,
+    CAFE_CON_LECHE,
     CAFFELATTE,
     CAPPUCCINO,
     CAPPUCCINO_MIX,
@@ -32,10 +34,12 @@ import {
     ESPRESSO_MACCHIATO,
     FLAT_WHITE,
     FOAMED_MILK,
+    GALAO,
     HOT_MILK,
     HOT_WATER,
     HotCoffeeDrinksType,
     HotMilkDrinksType,
+    ICED_COFFEE,
     LATTE_MACCHIATO,
     LONG,
     LONG_BLACK,
@@ -49,6 +53,7 @@ import {
     TWO_CAPPUCCINO,
     TWO_CAPPUCCINO_MIX,
     TWO_LATTE_MACCHIATO,
+    VERLANGERTER,
 } from './drinks';
 
 export class CoffeeMachine {
@@ -384,6 +389,53 @@ export const ecam450_65 = new CoffeeMachine('ECAM450.65.G',
     'Нержавіюча сталь',
     false);
 
+export const ecam380_95 = new CoffeeMachine('ECAM380.95.TB',
+    'Dinamica Plus',
+    ['https://dam.delonghi.com/902x902/assets/267447', 'https://dam.delonghi.com/902x902/assets/267448', 'https://dam.delonghi.com/902x902/assets/267450', 'https://dam.delonghi.com/902x902/assets/267454', 'https://dam.delonghi.com/902x902/assets/274278'],
+    'HmgfxFfQplM',
+    'З Dinamica Plus ви матимете каву на будь-який момент дня. Вибирайте з 24 напоїв, доступних одним натисканням кнопки на інтуїтивно зрозумілому 3,5-дюймовому кольоровому дисплеї. Оснащена ексклюзивною технологією LatteCrema Hot, щоб доповнити ваші напої вершковою насиченою молочною піною з можливістю вибору між трьома текстурами піни: густою, кремовою або легкою.',
+    ['LatteCrema Hot доповнює напої насиченою вершковою молочною пінкою. Вибирайте одну з трьох текстур: густу, кремову або легку', 'Інтуїтивно зрозумілий кольоровий дисплей 3,5 дюйма та 24 напої одним дотиком', 'Ваші персональні налаштування кави із можливістю створення до чотирьох профілів користувачів', 'Чотири нових напої: Verlängerter, Café Con Leche, Café Au Lait i Galao', 'Легке очищення завдяки автоматичному очищенню одним дотиком і карафці для молока, яку можна мити в посудомийній машині', 'Елегантна кавова машина з оздобленням титанового кольору'],
+    'https://www.dropbox.com/scl/fi/w7n05jvrbrqth5msfnudo/ECAM38095TB-276311.pdf?rlkey=sksaez8la1400lm49dsnp0nyx&dl=0&raw=1',
+    '236 x 429 x 348',
+    9.5,
+    15,
+    300,
+    1.8,
+    'металева конічна',
+    13,
+    14,
+    135,
+    'Титаново-чорний',
+    'Фарбований пластик',
+    [ESPRESSO, RISTRETTO, ESPRESSO_LUNGO, DOPPIO_PLUS, COFFEE, LONG, AMERICANO, COFFEE_POT, ICED_COFFEE, VERLANGERTER],
+    [CAPPUCCINO, CAPPUCCINO_PLUS, CAPPUCCINO_MIX, LATTE_MACCHIATO, CAFFELATTE, FLAT_WHITE, ESPRESSO_MACCHIATO, CORTADO, HOT_MILK, CAFE_AU_LAIT, GALAO, CAFE_CON_LECHE],
+    null,
+    null,
+    [HOT_WATER],
+    '4 профілі користувача',
+    null,
+    'Сенсорний дисплей',
+    'кольоровий 3,5" TFT',
+    null,
+    'LatteCrema Hot Technology',
+    false,
+    false,
+    false,
+    'пасивний',
+    'Нержавіюча сталь',
+    false);
+
+export const ecam380_85 = {
+    ...ecam380_95,
+    model: 'ECAM380.85.SB',
+    imageUrls: ['https://dam.delonghi.com/902x902/assets/267440', 'https://dam.delonghi.com/902x902/assets/267441', 'https://dam.delonghi.com/902x902/assets/267443', 'https://dam.delonghi.com/902x902/assets/267454', 'https://dam.delonghi.com/902x902/assets/274271', 'https://dam.delonghi.com/902x902/assets/274270'],
+    videoId: 'kAc-dvW39Sc',
+    colourMaterialFinish: {
+        ...ecam380_95.colourMaterialFinish,
+        colour: 'Сріблясто-чорний',
+    },
+};
+
 export const ecam370_95 = new CoffeeMachine('ECAM370.95.T',
     'Dinamica Plus',
     ['https://dam.delonghi.com/902x902/assets/118864', 'https://dam.delonghi.com/902x902/assets/118841', 'https://dam.delonghi.com/902x902/assets/118871'],
@@ -533,7 +585,10 @@ export const ecam353_75b = {
     model: 'ECAM353.75.B',
     imageUrls: ['https://dam.delonghi.com/902x902/assets/117703', 'https://dam.delonghi.com/902x902/assets/117700', 'https://dam.delonghi.com/902x902/assets/117704'],
     summary: ecam359_55.summary,
-    color: 'Чорний',
+    colourMaterialFinish: {
+        ...ecam353_75w.colourMaterialFinish,
+        colour: 'Чорний',
+    },
 };
 
 export const ecam350_75 = {
@@ -542,7 +597,10 @@ export const ecam350_75 = {
     imageUrls: ['https://dam.delonghi.com/902x902/assets/88403', 'https://dam.delonghi.com/902x902/assets/116927', 'https://dam.delonghi.com/902x902/assets/88397'],
     videoId: '1LTub27B1v8',
     summary: ['Напої на основі кави та молока одним натисканням кнопки', 'Приготування 2 чашок еспресо одночасно', 'Кремова, щільна, стійка молочна піна ідеальної температури з автоматичною системою LatteCrema. Карафка для молока з автоматичним очищенням', 'Створюйте нові рецепти, змінюйте аромат і кількість за допомогою функції "My"', 'Срібне оздоблення та РК-дисплей'],
-    color: 'Срібний',
+    colourMaterialFinish: {
+        ...ecam353_75w.colourMaterialFinish,
+        colour: 'Срібний',
+    },
 };
 
 export const ecam350_50 = new CoffeeMachine('ECAM350.50.B',
@@ -622,7 +680,10 @@ export const ecam350_35w = {
     model: 'ECAM350.35.W',
     imageUrls: ['https://dam.delonghi.com/902x902/assets/88374', 'https://dam.delonghi.com/902x902/assets/116898', 'https://dam.delonghi.com/902x902/assets/88367', 'https://dam.delonghi.com/902x902/assets/88371'],
     summary: ['Кавові напої одним натисканням кнопки', 'Приготування 2 чашок еспресо одночасно', 'Кремова молочна піна завдяки ручному спінювачу молока', 'Створюйте нові рецепти, змінюйте аромат і кількість за допомогою функції "My"', 'Білий корпус із чорними елементами та LCD-дисплеєм'],
-    color: 'Білий',
+    colourMaterialFinish: {
+        ...ecam350_35sb.colourMaterialFinish,
+        colour: 'Білий',
+    },
 };
 
 export const ecam290_81 = new CoffeeMachine('ECAM290.81.TB',

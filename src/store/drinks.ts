@@ -8,6 +8,8 @@ export const AMERICANO = 'Americano';
 export const COFFEE_POT = 'Coffee Pot';
 export const OVER_ICE = 'Over Ice';
 export const LONG_BLACK = 'Long Black';
+export const ICED_COFFEE = 'Iced Coffee';
+export const VERLANGERTER = 'Verlängerter';
 export const CAPPUCCINO = 'Cappuccino';
 export const TWO_CAPPUCCINO = `2x ${CAPPUCCINO}`;
 export const LATTE_MACCHIATO = 'Latte Macchiato';
@@ -21,6 +23,9 @@ export const FLAT_WHITE = 'Flat White';
 export const CORTADO = 'Cortado';
 export const ESPRESSO_MACCHIATO = 'Espresso Macchiato';
 export const MY_LATTE = 'MyLatte';
+export const CAFE_AU_LAIT = 'Café Au Lait';
+export const GALAO = 'Galao';
+export const CAFE_CON_LECHE = 'Café Con Leche';
 export const COLD_AMERICANO = 'Cold Americano';
 export const COLD_COFFEE = 'Cold Coffee';
 export const COLD_ESPRESSO = 'Cold Espresso';
@@ -54,7 +59,9 @@ export type HotCoffeeDrinksType = Array<
     | typeof AMERICANO
     | typeof OVER_ICE
     | typeof LONG_BLACK
-    | typeof COFFEE_POT>;
+    | typeof COFFEE_POT
+    | typeof ICED_COFFEE
+    | typeof VERLANGERTER>;
 
 export type HotMilkDrinksType = Array<
     typeof CAPPUCCINO
@@ -69,7 +76,10 @@ export type HotMilkDrinksType = Array<
     | typeof FLAT_WHITE
     | typeof CORTADO
     | typeof ESPRESSO_MACCHIATO
-    | typeof MY_LATTE>;
+    | typeof MY_LATTE
+    | typeof CAFE_AU_LAIT
+    | typeof GALAO
+    | typeof CAFE_CON_LECHE>;
 
 export type ColdCoffeeDrinksType = Array<
     typeof COLD_AMERICANO
