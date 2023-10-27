@@ -4,7 +4,7 @@ import {
     HotCoffeeDrinksType,
     HotMilkDrinksType,
     OtherDrinksType,
-} from '../../store/drinks';
+} from '../../store/data/drinks';
 
 export const useStringCreator = (arr?: StringCreatorArgType) => {
     return arr?.reduce((acc, val, ind) => {

@@ -55,7 +55,7 @@ import {
     TWO_LATTE_MACCHIATO,
     VERLANGERTER,
 } from './drinks';
-import {useElementsCount} from '../utils/custom-hooks/useElementsCount';
+import {useElementsCount} from '../../utils/custom-hooks/useElementsCount';
 
 export class CoffeeMachine {
     public technicalData: {

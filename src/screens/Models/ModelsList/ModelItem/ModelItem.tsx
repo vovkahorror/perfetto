@@ -1,5 +1,5 @@
 import {Animated, Image, Pressable, StyleSheet, Text, View} from 'react-native';
-import {CoffeeMachine} from '../../../../store/models';
+import {CoffeeMachine} from '../../../../store/data/models';
 import {FC, useEffect, useRef, useState} from 'react';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {RootStackParamList} from '../../../../types/NavigationTypes';

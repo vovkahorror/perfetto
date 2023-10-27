@@ -1,4 +1,4 @@
-import {CoffeeMachine} from '../store/models';
+import {CoffeeMachine} from '../store/data/models';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 
