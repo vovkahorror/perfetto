@@ -47,7 +47,7 @@ import {
     DOPPIO_PLUS,
     ESPRESSO,
     ESPRESSO_LUNGO,
-    ESPRESSO_MACCHIATO,
+    ESPRESSO_MACCHIATO, ESPRESSO_SOUL,
     FLAT_WHITE, FOAMED_MILK,
     GALAO,
     HOT_MILK, HOT_WATER,
@@ -96,6 +96,7 @@ export const allModels = [
 export const allDrinks = {
     hotCoffeeDrinks: [
         ESPRESSO,
+        ESPRESSO_SOUL,
         ESPRESSO_LUNGO,
         RISTRETTO,
         COFFEE,

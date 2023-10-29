@@ -23,7 +23,7 @@ export const ModelsList: FC<ModelsListProps> = ({navigation}) => {
                 renderItem={renderItem}
                 ListHeaderComponent={ModelsHeader}
                 contentContainerStyle={styles.contentContainerStyle}
-                keyboardShouldPersistTaps="always"/>
+                keyboardShouldPersistTaps={'always'}/>
         </Wrapper>
     );
 };
