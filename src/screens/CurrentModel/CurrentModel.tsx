@@ -3,8 +3,8 @@ import {CurrentModelProps} from '../../types/NavigationTypes';
 import {Wrapper} from '../../utils/hoc/Wrapper';
 import {Icon, List} from 'react-native-paper';
 import {ListItem} from '../../utils/hoc/ListItem';
-import {useStringCreator} from '../../utils/custom-hooks/useStringCreator';
-import {useConvertBooleanToString} from '../../utils/custom-hooks/useConvertBooleanToString';
+import {createStringFromArray} from '../../utils/util-functions/createStringFromArray';
+import {convertBooleanToString} from '../../utils/util-functions/convertBooleanToString';
 import {ListAccordion} from '../../utils/hoc/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
@@ -140,19 +140,19 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                         title="Функції"
                         icon="coffee">
                         <ListItem title="Гарячі кавові напої"
-                                  description={useStringCreator(functions?.drinks.hotCoffeeDrinks)}/>
+                                  description={createStringFromArray(functions?.drinks.hotCoffeeDrinks)}/>
                         {functions?.drinks.hotMilkDrinks && <ListItem title="Гарячі молочні напої"
-                                                                      description={useStringCreator(functions.drinks.hotMilkDrinks)}/>}
+                                                                      description={createStringFromArray(functions.drinks.hotMilkDrinks)}/>}
                         {functions?.drinks.coldCoffeeDrinks && <ListItem title="Холодні кавові напої"
-                                                                         description={useStringCreator(functions.drinks.coldCoffeeDrinks)}/>}
+                                                                         description={createStringFromArray(functions.drinks.coldCoffeeDrinks)}/>}
                         {functions?.drinks.coldMilkDrinks && <ListItem title="Холодні молочні напої"
-                                                                       description={useStringCreator(functions.drinks.coldMilkDrinks)}/>}
-                        <ListItem title="Інші напої" description={useStringCreator(functions?.drinks.otherDrinks)}/>
+                                                                       description={createStringFromArray(functions.drinks.coldMilkDrinks)}/>}
+                        <ListItem title="Інші напої" description={createStringFromArray(functions?.drinks.otherDrinks)}/>
                         <ListItem title="Загальна кількість напоїв" description={functions?.totalCountOfDrinks}/>
                         <ListItem title="Можливість персоналізувати аромат"
-                                  description={useConvertBooleanToString(functions?.aromaFunction)}/>
+                                  description={convertBooleanToString(functions?.aromaFunction)}/>
                         <ListItem title="Можливість персоналізувати об'єм"
-                                  description={useConvertBooleanToString(functions?.possibilityToCustomiseLength)}/>
+                                  description={convertBooleanToString(functions?.possibilityToCustomiseLength)}/>
                         {functions?.advancedPersonalisation && <ListItem title="Розширена персоналізація"
                                                                          description={functions.advancedPersonalisation}/>}
                         {functions?.abilityToCreateYourOwnDrinks && <ListItem title="Можливість створювати власні напої"
@@ -174,29 +174,29 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                         <ListItem title="Молочна система" description={features?.milkSystem}/>
                         {features?.possibilityToFrothMilkManually &&
                             <ListItem title="Можливість спінювання молока вручну"
-                                      description={useConvertBooleanToString(features.possibilityToFrothMilkManually)}/>}
+                                      description={convertBooleanToString(features.possibilityToFrothMilkManually)}/>}
                         {features?.beanAdapt && <ListItem title="Bean Adapt Technology"
-                                                          description={useConvertBooleanToString(features.beanAdapt)}/>}
+                                                          description={convertBooleanToString(features.beanAdapt)}/>}
                         {features?.cupIllumination && <ListItem title="Підсвітка чашок"
-                                                                description={useConvertBooleanToString(features.cupIllumination)}/>}
+                                                                description={convertBooleanToString(features.cupIllumination)}/>}
                         {features?.cupWarmer && <ListItem title="Підігрів чашок"
                                                           description={features.cupWarmer}/>}
                         <ListItem title="Піддон для чашок" description={features?.cupHolder}/>
                         <ListItem title="Twin Shot"
-                                  description={useConvertBooleanToString(features?.twinShot)}/>
+                                  description={convertBooleanToString(features?.twinShot)}/>
                         {features?.thermalMilkJug && <ListItem title="Термокарафка для молока"
-                                                               description={useConvertBooleanToString(features.thermalMilkJug)}/>}
+                                                               description={convertBooleanToString(features.thermalMilkJug)}/>}
                     </ListAccordion>
 
                     <ListAccordion
                         title="Різне"
                         icon="text-box">
                         <ListItem title="Можливість використання фільтра для води"
-                                  description={useConvertBooleanToString(miscellaneous?.possibilityToUseWaterFilter)}/>
+                                  description={convertBooleanToString(miscellaneous?.possibilityToUseWaterFilter)}/>
                         <ListItem title="Програмування жорсткості води"
-                                  description={useConvertBooleanToString(miscellaneous?.programmableWaterHardness)}/>
+                                  description={convertBooleanToString(miscellaneous?.programmableWaterHardness)}/>
                         <ListItem title="Можливість використання меленої кави"
-                                  description={useConvertBooleanToString(miscellaneous?.possibilityToUseGroundCoffee)}/>
+                                  description={convertBooleanToString(miscellaneous?.possibilityToUseGroundCoffee)}/>
                         <ListItem title="Гарантія, міс"
                                   description={miscellaneous?.warranty}/>
                     </ListAccordion>

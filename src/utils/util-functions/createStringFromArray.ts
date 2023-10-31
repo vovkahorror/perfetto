@@ -6,7 +6,7 @@ import {
     OtherDrinksType,
 } from '../../store/data/drinks';
 
-export const useStringCreator = (arr?: StringCreatorArgType) => {
+export const createStringFromArray = (arr?: StringCreatorArgType) => {
     return arr?.reduce((acc, val, ind) => {
         return ind === arr.length - 1 ? acc + val : acc + val + ', ';
     }, '');

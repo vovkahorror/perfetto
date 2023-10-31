@@ -55,7 +55,8 @@ import {
     TWO_LATTE_MACCHIATO,
     VERLANGERTER,
 } from './drinks';
-import {useElementsCount} from '../../utils/custom-hooks/useElementsCount';
+import {getElementsCount} from '../../utils/util-functions/getElementsCount';
+import {DrinksDataType} from './summary-data';
 
 export class CoffeeMachine {
     public technicalData: {
@@ -78,13 +79,7 @@ export class CoffeeMachine {
     };
 
     public functions: {
-        drinks: {
-            hotCoffeeDrinks: HotCoffeeDrinksType;
-            hotMilkDrinks: HotMilkDrinksType | null;
-            coldCoffeeDrinks: ColdCoffeeDrinksType | null;
-            coldMilkDrinks: ColdMilkDrinksType | null;
-            otherDrinks: OtherDrinksType;
-        }
+        drinks: DrinksDataType;
         totalCountOfDrinks: number;
         aromaFunction: boolean;
         possibilityToCustomiseLength: boolean;
@@ -178,7 +173,7 @@ export class CoffeeMachine {
                 coldMilkDrinks,
                 otherDrinks,
             },
-            totalCountOfDrinks: hotCoffeeDrinks.length + useElementsCount(hotMilkDrinks) + useElementsCount(coldCoffeeDrinks) + useElementsCount(coldMilkDrinks) + otherDrinks.length,
+            totalCountOfDrinks: hotCoffeeDrinks.length + getElementsCount(hotMilkDrinks) + getElementsCount(coldCoffeeDrinks) + getElementsCount(coldMilkDrinks) + otherDrinks.length,
             aromaFunction: true,
             possibilityToCustomiseLength: true,
             advancedPersonalisation,
