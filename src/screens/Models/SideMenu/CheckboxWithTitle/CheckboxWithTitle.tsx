@@ -1,9 +1,9 @@
 import {Checkbox} from 'react-native-paper';
 import {DrinksDataType} from '../../../../store/data/summary-data';
-import {setSelectedDrinks} from '../../../../store/models-slice';
 import {useAppDispatch} from '../../../../utils/custom-hooks/useAppDispatch';
 import {useAppSelector} from '../../../../utils/custom-hooks/useAppSelector';
 import {selectSelectedDrinks} from '../../selectors';
+import {setSelectedDrinks} from '../../../../store/drinks-slice';
 
 export const CheckboxWithTitle = ({drink, drinkKey}: CheckboxWithTitleProps) => {
     const dispatch = useAppDispatch();
@@ -12,8 +12,6 @@ export const CheckboxWithTitle = ({drink, drinkKey}: CheckboxWithTitleProps) => 
     const handleCheck = (drink: string, drinkKey: keyof DrinksDataType) => {
         dispatch(setSelectedDrinks({drink, drinkKey}));
     };
-
-    console.log(JSON.stringify(selectedDrinks,  null, 2));
 
     return (
         <Checkbox.Item

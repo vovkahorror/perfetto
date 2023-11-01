@@ -1,22 +1,16 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {allDrinks, allModels, DrinksDataType} from './data/summary-data';
+import {allModels} from './data/summary-data';
 import {CoffeeMachine} from './data/models';
 import {normalizeText} from '../utils/util-functions/normalizeText';
+import {SelectedDrinks} from './drinks-slice';
 
 const slice = createSlice({
     name: 'models',
     initialState: {
         models: allModels,
-        drinks: allDrinks,
         searchQuery: '',
-        selectedDrinks: {
-            hotCoffeeDrinks: [],
-            hotMilkDrinks: [],
-            coldCoffeeDrinks: [],
-            coldMilkDrinks: [],
-            otherDrinks: [],
-        },
-    } as ModelState,
+    } as ModelsState,
+
     reducers: {
         setSearch(state, action: PayloadAction<string>) {
             state.searchQuery = action.payload;
@@ -31,22 +25,13 @@ const slice = createSlice({
             }, []);
         },
 
-        setSelectedDrinks(state, action: PayloadAction<{
-            drink: string,
-            drinkKey: keyof DrinksDataType
-        }>) {
-            const {drink, drinkKey} = action.payload;
+        setSelectedModels(state, action: PayloadAction<SelectedDrinks>) {
+            const selectedDrinks = action.payload;
 
-            state.selectedDrinks[drinkKey] = state.selectedDrinks[drinkKey].includes(drink)
-                ? state.selectedDrinks[drinkKey].filter((selectedDrink) => selectedDrink !== drink)
-                : [...state.selectedDrinks[drinkKey], drink];
-        },
-
-        setSelectedModels(state) {
-            if (Object.keys(state.selectedDrinks).some((drinkKey) => state.selectedDrinks[drinkKey as keyof SelectedDrinks].length > 0)) {
+            if (Object.keys(selectedDrinks).some((drinkKey) => selectedDrinks[drinkKey as keyof SelectedDrinks].length > 0)) {
                 state.models = allModels.filter((model) => {
-                    return Object.keys(state.selectedDrinks).every((drinkKey) => {
-                        return state.selectedDrinks[drinkKey as keyof SelectedDrinks].every((drink) => {
+                    return Object.keys(selectedDrinks).every((drinkKey) => {
+                        return selectedDrinks[drinkKey as keyof SelectedDrinks].every((drink) => {
                             return model.functions.drinks[drinkKey as keyof SelectedDrinks]?.includes(drink as never);
                         });
                     });
@@ -55,23 +40,17 @@ const slice = createSlice({
                 state.models = allModels;
             }
         },
+
+        resetModels(state) {
+            state.models = allModels;
+        }
     },
 });
 
-interface SelectedDrinks {
-    hotCoffeeDrinks: string[];
-    hotMilkDrinks: string[];
-    coldCoffeeDrinks: string[];
-    coldMilkDrinks: string[];
-    otherDrinks: string[];
-}
-
-interface ModelState {
+interface ModelsState {
     models: CoffeeMachine[];
-    drinks: DrinksDataType;
     searchQuery: string;
-    selectedDrinks: SelectedDrinks;
 }
 
 export const modelsSlice = slice.reducer;
-export const {setSearch, setSelectedDrinks, setSelectedModels} = slice.actions;
+export const {setSearch, setSelectedModels, resetModels} = slice.actions;
