@@ -13,6 +13,8 @@ export const CheckboxWithTitle = ({drink, drinkKey}: CheckboxWithTitleProps) => 
         dispatch(setSelectedDrinks({drink, drinkKey}));
     };
 
+    console.log(JSON.stringify(selectedDrinks,  null, 2));
+
     return (
         <Checkbox.Item
             label={drink}
