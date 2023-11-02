@@ -10,6 +10,7 @@ import {resetModels, setSelectedModels} from '../../../store/models-slice';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {resetSelectedDrinks, setSelectedDrinks} from '../../../store/drinks-slice';
 import {useCallback} from 'react';
+import {PADDING_HORIZONTAL, PADDING_VERTICAL, PRIMARY_DARK_COLOR, TEXT_COLOR} from '../../../constants/constants';
 
 export const SideMenu = () => {
     const dispatch = useAppDispatch();
@@ -47,43 +48,73 @@ export const SideMenu = () => {
     };
 
     return (
-        <Wrapper backgroundColor={'#55423d'}>
-            <ScrollView>
+        <Wrapper backgroundColor={PRIMARY_DARK_COLOR}>
+            <ScrollView contentContainerStyle={styles.scrollView}>
                 <View>
-                    <Text>Гарячі кавові напої</Text>
-                    <FlatList data={drinks.hotCoffeeDrinks} renderItem={getRenderItem('hotCoffeeDrinks')} scrollEnabled={false}/>
+                    <Text style={styles.title}>Гарячі кавові напої</Text>
+                    <FlatList data={drinks.hotCoffeeDrinks} renderItem={getRenderItem('hotCoffeeDrinks')}
+                              scrollEnabled={false}/>
                 </View>
 
                 <View>
-                    <Text>Гарячі молочні напої</Text>
-                    <FlatList data={drinks.hotMilkDrinks} renderItem={getRenderItem('hotMilkDrinks')} scrollEnabled={false}/>
+                    <Text style={styles.title}>Гарячі молочні напої</Text>
+                    <FlatList data={drinks.hotMilkDrinks} renderItem={getRenderItem('hotMilkDrinks')}
+                              scrollEnabled={false}/>
                 </View>
 
                 <View>
-                    <Text>Холодні кавові напої</Text>
-                    <FlatList data={drinks.coldCoffeeDrinks} renderItem={getRenderItem('coldCoffeeDrinks')} scrollEnabled={false}/>
+                    <Text style={styles.title}>Холодні кавові напої</Text>
+                    <FlatList data={drinks.coldCoffeeDrinks} renderItem={getRenderItem('coldCoffeeDrinks')}
+                              scrollEnabled={false}/>
                 </View>
 
                 <View>
-                    <Text>Холодні молочні напої</Text>
-                    <FlatList data={drinks.coldMilkDrinks} renderItem={getRenderItem('coldMilkDrinks')} scrollEnabled={false}/>
+                    <Text style={styles.title}>Холодні молочні напої</Text>
+                    <FlatList data={drinks.coldMilkDrinks} renderItem={getRenderItem('coldMilkDrinks')}
+                              scrollEnabled={false}/>
                 </View>
 
                 <View>
-                    <Text>Інші напої</Text>
-                    <FlatList data={drinks.otherDrinks} renderItem={getRenderItem('otherDrinks')} scrollEnabled={false}/>
+                    <Text style={styles.title}>Інші напої</Text>
+                    <FlatList data={drinks.otherDrinks} renderItem={getRenderItem('otherDrinks')}
+                              scrollEnabled={false}/>
                 </View>
             </ScrollView>
 
-            <Button onPress={applyFilter}>
-                <Text>Застосувати</Text>
-            </Button>
+            <View style={styles.buttonsWrapper}>
+                <Button mode={'elevated'} buttonColor={TEXT_COLOR} textColor={PRIMARY_DARK_COLOR} style={{padding: 2}} onPress={applyFilter}>
+                    <Text>Застосувати</Text>
+                </Button>
+                <Button mode={'elevated'} buttonColor={PRIMARY_DARK_COLOR} textColor={TEXT_COLOR} style={styles.resetButton}
+                        onPress={resetFilter}>
+                    <Text>Скинути</Text>
+                </Button>
+            </View>
         </Wrapper>
     );
 };
 
 const styles = StyleSheet.create({
     scrollView: {
-        gap: 40,
+        gap: 20,
+        paddingHorizontal: PADDING_HORIZONTAL,
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: '700',
+        textDecorationLine: 'underline',
+        fontStyle: 'italic',
+        textAlign: 'center',
+        color: TEXT_COLOR,
+    },
+    buttonsWrapper: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        paddingVertical: PADDING_VERTICAL,
+    },
+    resetButton: {
+        borderColor: TEXT_COLOR,
+        borderStyle: 'solid',
+        borderWidth: 2,
     },
 });
