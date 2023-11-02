@@ -1,4 +1,4 @@
-import {FlatList, ListRenderItem, ScrollView, Text, View} from 'react-native';
+import {FlatList, ListRenderItem, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {Wrapper} from '../../../utils/hoc/Wrapper';
 import {useAppSelector} from '../../../utils/custom-hooks/useAppSelector';
 import {selectDrinks, selectSelectedDrinks} from '../selectors';
@@ -8,7 +8,8 @@ import {Button} from 'react-native-paper';
 import {useAppDispatch} from '../../../utils/custom-hooks/useAppDispatch';
 import {resetModels, setSelectedModels} from '../../../store/models-slice';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
-import {resetSelectedDrinks} from '../../../store/drinks-slice';
+import {resetSelectedDrinks, setSelectedDrinks} from '../../../store/drinks-slice';
+import {useCallback} from 'react';
 
 export const SideMenu = () => {
     const dispatch = useAppDispatch();
@@ -16,10 +17,9 @@ export const SideMenu = () => {
     const drinks = useAppSelector(selectDrinks);
     const selectedDrinks = useAppSelector(selectSelectedDrinks);
 
-    const getRenderItem = (drinkKey: keyof DrinksDataType) => {
-        const renderItem: ListRenderItem<string> = ({item}) => <CheckboxWithTitle drink={item} drinkKey={drinkKey}/>;
-        return renderItem;
-    };
+    const handleCheck = useCallback((drink: string, drinkKey: keyof DrinksDataType) => {
+        dispatch(setSelectedDrinks({drink, drinkKey}));
+    }, [dispatch]);
 
     const applyFilter = () => {
         dispatch(setSelectedModels(selectedDrinks));
@@ -32,32 +32,46 @@ export const SideMenu = () => {
         navigation.dispatch(DrawerActions.toggleDrawer());
     };
 
+    const getRenderItem = (drinkKey: keyof DrinksDataType) => {
+        const renderItem: ListRenderItem<string> = ({item}) => {
+            return (
+                <CheckboxWithTitle
+                    drink={item}
+                    drinkKey={drinkKey}
+                    isPressed={selectedDrinks[drinkKey].includes(item)}
+                    handleCheck={handleCheck}
+                />
+            );
+        };
+        return renderItem;
+    };
+
     return (
         <Wrapper backgroundColor={'#55423d'}>
             <ScrollView>
                 <View>
                     <Text>Гарячі кавові напої</Text>
-                    <FlatList data={drinks.hotCoffeeDrinks} renderItem={getRenderItem('hotCoffeeDrinks')}/>
+                    <FlatList data={drinks.hotCoffeeDrinks} renderItem={getRenderItem('hotCoffeeDrinks')} scrollEnabled={false}/>
                 </View>
 
                 <View>
                     <Text>Гарячі молочні напої</Text>
-                    <FlatList data={drinks.hotMilkDrinks} renderItem={getRenderItem('hotMilkDrinks')}/>
+                    <FlatList data={drinks.hotMilkDrinks} renderItem={getRenderItem('hotMilkDrinks')} scrollEnabled={false}/>
                 </View>
 
                 <View>
                     <Text>Холодні кавові напої</Text>
-                    <FlatList data={drinks.coldCoffeeDrinks} renderItem={getRenderItem('coldCoffeeDrinks')}/>
+                    <FlatList data={drinks.coldCoffeeDrinks} renderItem={getRenderItem('coldCoffeeDrinks')} scrollEnabled={false}/>
                 </View>
 
                 <View>
                     <Text>Холодні молочні напої</Text>
-                    <FlatList data={drinks.coldMilkDrinks} renderItem={getRenderItem('coldMilkDrinks')}/>
+                    <FlatList data={drinks.coldMilkDrinks} renderItem={getRenderItem('coldMilkDrinks')} scrollEnabled={false}/>
                 </View>
 
                 <View>
                     <Text>Інші напої</Text>
-                    <FlatList data={drinks.otherDrinks} renderItem={getRenderItem('otherDrinks')}/>
+                    <FlatList data={drinks.otherDrinks} renderItem={getRenderItem('otherDrinks')} scrollEnabled={false}/>
                 </View>
             </ScrollView>
 
@@ -67,3 +81,9 @@ export const SideMenu = () => {
         </Wrapper>
     );
 };
+
+const styles = StyleSheet.create({
+    scrollView: {
+        gap: 40,
+    },
+});
