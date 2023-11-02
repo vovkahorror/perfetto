@@ -13,7 +13,7 @@ import {
     PADDING_HORIZONTAL,
     PADDING_VERTICAL,
     TEXT_COLOR,
-    TEXT_FOCUS_COLOR,
+    TEXT_FOCUS_COLOR, TEXT_SHADOW_COLOR,
 } from '../../constants/constants';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import * as ScreenOrientation from 'expo-screen-orientation';
@@ -234,11 +234,17 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         color: TEXT_COLOR,
+        textShadowColor: TEXT_SHADOW_COLOR,
+        textShadowOffset: {width: 2, height: 2},
+        textShadowRadius: 2
     },
     series: {
         fontSize: 18,
         fontStyle: 'italic',
         color: TEXT_COLOR,
+        textShadowColor: TEXT_SHADOW_COLOR,
+        textShadowOffset: {width: 2, height: 2},
+        textShadowRadius: 2
     },
     mediaWrapper: {
         borderRadius: BORDER_RADIUS,

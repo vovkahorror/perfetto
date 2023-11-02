@@ -6,4 +6,5 @@ export const BACKGROUND_IMAGE_COFFEE_MACHINES = require('../../assets/background
 export const TEXT_COLOR = '#ffc0ad';
 export const TEXT_FOCUS_COLOR = '#fff3ec';
 export const PRIMARY_DARK_COLOR = '#271c19';
+export const TEXT_SHADOW_COLOR = '#140d0b';
 export const BACKGROUND_COLOR = 'rgba(85,66,61,0.8)';
