@@ -354,7 +354,7 @@ export const ecam610_55 = new CoffeeMachine('ECAM610.55.SB',
     false,
     'пасивний',
     'Нержавіюча сталь',
-    true);
+    false);
 
 export const ecam450_86 = new CoffeeMachine('ECAM450.86.T',
     'Eletta Explore',
