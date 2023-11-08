@@ -1,13 +1,13 @@
 import {FlatList, ListRenderItem, StyleSheet} from 'react-native';
-import {PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../../constants/constants';
-import {useAppSelector} from '../../../utils/custom-hooks/useAppSelector';
+import {PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../../../constants/constants';
+import {useAppSelector} from '../../../../utils/custom-hooks/useAppSelector';
 import {selectModels} from '../selectors';
-import {CoffeeMachine} from '../../../store/data/models';
+import {CoffeeMachine} from '../../../../store/data/models';
 import {ModelItem} from './ModelItem/ModelItem';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
-import {RootStackParamList} from '../../../types/NavigationTypes';
+import {RootStackParamList} from '../../../../types/NavigationTypes';
 import {FC} from 'react';
-import {Wrapper} from '../../../utils/hoc/Wrapper';
+import {Wrapper} from '../../../../utils/hoc/Wrapper';
 import {ModelsHeader} from './ModelsHeader/ModelsHeader';
 
 export const ModelsList: FC<ModelsListProps> = ({navigation}) => {

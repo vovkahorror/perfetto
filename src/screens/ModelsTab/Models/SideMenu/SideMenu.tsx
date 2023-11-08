@@ -1,16 +1,16 @@
 import {FlatList, ListRenderItem, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {Wrapper} from '../../../utils/hoc/Wrapper';
-import {useAppSelector} from '../../../utils/custom-hooks/useAppSelector';
+import {Wrapper} from '../../../../utils/hoc/Wrapper';
+import {useAppSelector} from '../../../../utils/custom-hooks/useAppSelector';
 import {selectDrinks, selectSelectedDrinks} from '../selectors';
-import {DrinksDataType} from '../../../store/data/summary-data';
+import {DrinksDataType} from '../../../../store/data/summary-data';
 import {CheckboxWithTitle} from './CheckboxWithTitle/CheckboxWithTitle';
 import {Button} from 'react-native-paper';
-import {useAppDispatch} from '../../../utils/custom-hooks/useAppDispatch';
-import {resetModels, setSelectedModels} from '../../../store/models-slice';
+import {useAppDispatch} from '../../../../utils/custom-hooks/useAppDispatch';
+import {resetModels, setSelectedModels} from '../../../../store/models-slice';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
-import {resetSelectedDrinks, setSelectedDrinks} from '../../../store/drinks-slice';
+import {resetSelectedDrinks, setSelectedDrinks} from '../../../../store/drinks-slice';
 import {useCallback} from 'react';
-import {PADDING_HORIZONTAL, PADDING_VERTICAL, PRIMARY_DARK_COLOR, TEXT_COLOR} from '../../../constants/constants';
+import {PADDING_HORIZONTAL, PADDING_VERTICAL, PRIMARY_DARK_COLOR, TEXT_COLOR} from '../../../../constants/constants';
 
 export const SideMenu = () => {
     const dispatch = useAppDispatch();

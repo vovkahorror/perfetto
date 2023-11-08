@@ -1,8 +1,8 @@
 import {Checkbox} from 'react-native-paper';
 import {StyleSheet} from 'react-native';
-import {DrinksDataType} from '../../../../store/data/summary-data';
+import {DrinksDataType} from '../../../../../store/data/summary-data';
 import {memo} from 'react';
-import {TEXT_COLOR} from '../../../../constants/constants';
+import {TEXT_COLOR} from '../../../../../constants/constants';
 
 export const CheckboxWithTitle = memo(({drink, drinkKey, isPressed, handleCheck}: CheckboxWithTitleProps) => {
     return (

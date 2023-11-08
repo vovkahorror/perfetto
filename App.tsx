@@ -3,13 +3,13 @@ import {StatusBar} from 'expo-status-bar';
 import {LogBox, StyleSheet, View} from 'react-native';
 import {Provider} from 'react-redux';
 import {store} from './src/store/store';
-import {Models} from './src/screens/Models/Models';
+import {Models} from './src/screens/ModelsTab/Models/Models';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {RootStackParamList} from './src/types/NavigationTypes';
 import {NavigationContainer} from '@react-navigation/native';
-import {CurrentModel} from './src/screens/CurrentModel/CurrentModel';
+import {CurrentModel} from './src/screens/ModelsTab/CurrentModel/CurrentModel';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Instruction} from './src/screens/CurrentModel/Instruction/Instruction';
+import {Instruction} from './src/screens/ModelsTab/CurrentModel/Instruction/Instruction';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 LogBox.ignoreAllLogs();

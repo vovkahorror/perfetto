@@ -1,11 +1,11 @@
 import {ImageSourcePropType, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {CurrentModelProps} from '../../types/NavigationTypes';
-import {Wrapper} from '../../utils/hoc/Wrapper';
+import {CurrentModelProps} from '../../../types/NavigationTypes';
+import {Wrapper} from '../../../utils/hoc/Wrapper';
 import {Icon, List} from 'react-native-paper';
-import {ListItem} from '../../utils/hoc/ListItem';
-import {createStringFromArray} from '../../utils/util-functions/createStringFromArray';
-import {convertBooleanToString} from '../../utils/util-functions/convertBooleanToString';
-import {ListAccordion} from '../../utils/hoc/ListAccordion';
+import {ListItem} from '../../../utils/hoc/ListItem';
+import {createStringFromArray} from '../../../utils/util-functions/createStringFromArray';
+import {convertBooleanToString} from '../../../utils/util-functions/convertBooleanToString';
+import {ListAccordion} from '../../../utils/hoc/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
 import {
@@ -14,7 +14,7 @@ import {
     PADDING_VERTICAL,
     TEXT_COLOR,
     TEXT_FOCUS_COLOR, TEXT_SHADOW_COLOR,
-} from '../../constants/constants';
+} from '../../../constants/constants';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {v1} from 'react-native-uuid/dist/v1';
