@@ -6,9 +6,12 @@ import {store} from './src/store/store';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {ModelsTab} from './src/screens/ModelsTab/ModelsTab';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 LogBox.ignoreAllLogs();
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
     return (

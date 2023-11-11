@@ -5,7 +5,7 @@ import {selectModels} from '../selectors';
 import {CoffeeMachine} from '../../../../store/data/models';
 import {ModelItem} from './ModelItem/ModelItem';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
-import {RootStackParamList} from '../../../../types/NavigationTypes';
+import {ModelsStackParamList} from '../../../../types/NavigationTypes';
 import {FC} from 'react';
 import {Wrapper} from '../../../../utils/hoc/Wrapper';
 import {ModelsHeader} from './ModelsHeader/ModelsHeader';
@@ -37,5 +37,5 @@ const styles = StyleSheet.create({
 });
 
 interface ModelsListProps {
-    navigation: NativeStackNavigationProp<RootStackParamList, 'Models'>;
+    navigation: NativeStackNavigationProp<ModelsStackParamList, 'Models'>;
 }

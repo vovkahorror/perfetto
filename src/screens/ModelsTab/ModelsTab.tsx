@@ -2,9 +2,9 @@ import {Models} from './Models/Models';
 import {CurrentModel} from './CurrentModel/CurrentModel';
 import {Instruction} from './CurrentModel/Instruction/Instruction';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../types/NavigationTypes';
+import {ModelsStackParamList} from '../../types/NavigationTypes';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<ModelsStackParamList>();
 
 export const ModelsTab = () => {
     return (

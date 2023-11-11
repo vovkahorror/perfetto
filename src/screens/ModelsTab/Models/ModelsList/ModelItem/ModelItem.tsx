@@ -2,7 +2,7 @@ import {Animated, Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {CoffeeMachine} from '../../../../../store/data/models';
 import {FC, useEffect, useRef, useState} from 'react';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
-import {RootStackParamList} from '../../../../../types/NavigationTypes';
+import {ModelsStackParamList} from '../../../../../types/NavigationTypes';
 import {BACKGROUND_COLOR, BORDER_RADIUS, TEXT_COLOR, TEXT_SHADOW_COLOR} from '../../../../../constants/constants';
 
 export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
@@ -45,7 +45,7 @@ export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
 
 interface ModelItemProps {
     item: CoffeeMachine;
-    navigation: NativeStackNavigationProp<RootStackParamList, 'Models'>;
+    navigation: NativeStackNavigationProp<ModelsStackParamList, 'Models'>;
 }
 
 const styles = StyleSheet.create({
