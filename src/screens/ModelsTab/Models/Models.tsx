@@ -1,9 +1,9 @@
-import {ModelsProps, RootDrawerParamList} from '../../types/NavigationTypes';
+import {ModelsProps, ModelsDrawerParamList} from '../../../types/NavigationTypes';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {ModelsList} from './ModelsList/ModelsList';
 import {SideMenu} from './SideMenu/SideMenu';
 
-const Drawer = createDrawerNavigator<RootDrawerParamList>();
+const Drawer = createDrawerNavigator<ModelsDrawerParamList>();
 
 export const Models = ({}: ModelsProps) => {
     return (

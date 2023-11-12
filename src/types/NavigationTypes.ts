@@ -2,6 +2,11 @@ import {CoffeeMachine} from '../store/data/models';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 
+export type RootTabParamList = {
+    ModelsTab: undefined;
+    PatentsTab: undefined;
+}
+
 export type ModelsStackParamList = {
     Models: undefined;
     CurrentModel: CoffeeMachine | undefined;
