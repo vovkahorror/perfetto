@@ -10,6 +10,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-paper';
 import {RootTabParamList} from './src/types/NavigationTypes';
 import {PRIMARY_DARK_COLOR} from './src/constants/constants';
+import {PatentsTab} from './src/screens/PatentsTab/PatentsTab';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 LogBox.ignoreAllLogs();
@@ -23,7 +24,7 @@ export default function App() {
                 <View style={styles.container}>
                     <StatusBar style="light"/>
                     <NavigationContainer>
-                        <Tab.Navigator screenOptions={{headerShown: false, tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR, borderWidth: 0}}}>
+                        <Tab.Navigator screenOptions={{headerShown: false, tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR}}}>
                             <Tab.Screen name="ModelsTab"
                                         component={ModelsTab}
                                         options={{
@@ -31,7 +32,7 @@ export default function App() {
                                             tabBarIcon: ({}) => <Icon source={'coffee-maker'} size={24}/>,
                                         }}/>
                             <Tab.Screen name="PatentsTab"
-                                        component={ModelsTab}
+                                        component={PatentsTab}
                                         options={{
                                             tabBarLabel:  'Патенти',
                                             tabBarIcon: ({}) => <Icon source={'certificate'} size={24}/>,
