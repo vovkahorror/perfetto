@@ -9,7 +9,7 @@ import {ModelsTab} from './src/screens/ModelsTab/ModelsTab';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-paper';
 import {RootTabParamList} from './src/types/NavigationTypes';
-import {PRIMARY_DARK_COLOR} from './src/constants/constants';
+import {PRIMARY_DARK_COLOR, TEXT_COLOR, TEXT_FOCUS_COLOR} from './src/constants/constants';
 import {PatentsTab} from './src/screens/PatentsTab/PatentsTab';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
@@ -24,18 +24,22 @@ export default function App() {
                 <View style={styles.container}>
                     <StatusBar style="light"/>
                     <NavigationContainer>
-                        <Tab.Navigator screenOptions={{headerShown: false, tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR}}}>
+                        <Tab.Navigator screenOptions={{headerShown: false, tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR, borderTopWidth: 0}}}>
                             <Tab.Screen name="ModelsTab"
                                         component={ModelsTab}
                                         options={{
                                             tabBarLabel:  'Моделі',
-                                            tabBarIcon: ({}) => <Icon source={'coffee-maker'} size={24}/>,
+                                            tabBarActiveTintColor: TEXT_FOCUS_COLOR,
+                                            tabBarInactiveTintColor: TEXT_COLOR,
+                                            tabBarIcon: ({focused}) => <Icon source={'coffee-maker'} color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={24}/>,
                                         }}/>
                             <Tab.Screen name="PatentsTab"
                                         component={PatentsTab}
                                         options={{
                                             tabBarLabel:  'Патенти',
-                                            tabBarIcon: ({}) => <Icon source={'certificate'} size={24}/>,
+                                            tabBarActiveTintColor: TEXT_FOCUS_COLOR,
+                                            tabBarInactiveTintColor: TEXT_COLOR,
+                                            tabBarIcon: ({focused}) => <Icon source={'certificate'} color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR}  size={24}/>,
                                         }}/>
                         </Tab.Navigator>
                     </NavigationContainer>
