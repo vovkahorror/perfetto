@@ -24,14 +24,14 @@ export default function App() {
                 <View style={styles.container}>
                     <StatusBar style="light"/>
                     <NavigationContainer>
-                        <Tab.Navigator screenOptions={{headerShown: false, tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR, borderTopWidth: 0}}}>
+                        <Tab.Navigator screenOptions={{headerShown: false, tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR, paddingBottom: 2, borderTopWidth: 0}}}>
                             <Tab.Screen name="ModelsTab"
                                         component={ModelsTab}
                                         options={{
                                             tabBarLabel:  'Моделі',
                                             tabBarActiveTintColor: TEXT_FOCUS_COLOR,
                                             tabBarInactiveTintColor: TEXT_COLOR,
-                                            tabBarIcon: ({focused}) => <Icon source={'coffee-maker'} color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={24}/>,
+                                            tabBarIcon: ({focused}) => <Icon source={'coffee-maker'} color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={30}/>,
                                         }}/>
                             <Tab.Screen name="PatentsTab"
                                         component={PatentsTab}
@@ -39,7 +39,7 @@ export default function App() {
                                             tabBarLabel:  'Патенти',
                                             tabBarActiveTintColor: TEXT_FOCUS_COLOR,
                                             tabBarInactiveTintColor: TEXT_COLOR,
-                                            tabBarIcon: ({focused}) => <Icon source={'certificate'} color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR}  size={24}/>,
+                                            tabBarIcon: ({focused}) => <Icon source={'certificate'} color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR}  size={30}/>,
                                         }}/>
                         </Tab.Navigator>
                     </NavigationContainer>
