@@ -7,7 +7,7 @@ export class Patent {
                 public description: string,
                 public remark?: string) {
         this.image = image;
-        this.videoId  = videoId;
+        this.videoId = videoId;
         this.title = title;
         this.description = description;
         this.remark = remark;
@@ -29,7 +29,12 @@ export const tubeless = new Patent(
 );
 
 export const brewingUnit = new Patent(
-    ''
+    'https://www.dropbox.com/scl/fi/uisbe4nf5a8gb4z9wpe52/Brewing-Unit.jpg?rlkey=c56q1xvgfv3pwz3e9h2ciukr0&dl=0&raw=1',
+    'tK5PLd2duUY',
+    'Brewing Unit',
+    'Заварювальний блок — це «серце» повністю автоматичної кавомашини, а отже, і процесу приготування кави. Заварювальний блок De’Longhi має змінну камеру, здатну вміщувати різну кількість меленої кави, щоб завжди забезпечувати ідеальний результат у чашці, незалежно від рівня аромату та вибраного напою. Він правильно формує дозу меленої кави, так що екстрагується ідеальна, щільна, ароматна кава.\n' +
+    'Фаза перед заварюванням гарантує, що мелена кава буде рівномірно зволожена водою, щоб забезпечити оптимальне заварювання. На наступній стадії вода протікає через каву з певною швидкістю та з правильним тиском, щоб гарантувати ідеальний аромат, уникаючи недостатньої чи надмірної екстракції.',
+);
 
 
 export const twinShot = new Patent(
