@@ -10,7 +10,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-paper';
 import {RootTabParamList} from './src/types/NavigationTypes';
 import {PRIMARY_DARK_COLOR, TEXT_COLOR, TEXT_FOCUS_COLOR} from './src/constants/constants';
-import {PatentsTab} from './src/screens/PatentsTab/PatentsTab';
+import {TechnologiesTab} from './src/screens/TechnologiesTab/TechnologiesTab';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 LogBox.ignoreAllLogs();
@@ -24,22 +24,28 @@ export default function App() {
                 <View style={styles.container}>
                     <StatusBar style="light"/>
                     <NavigationContainer>
-                        <Tab.Navigator screenOptions={{headerShown: false, tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR, paddingBottom: 2, borderTopWidth: 0}}}>
+                        <Tab.Navigator screenOptions={{
+                            headerShown: false,
+                            tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR, paddingBottom: 2, borderTopWidth: 0},
+                            tabBarLabelStyle: {fontFamily: 'serif'},
+                            tabBarActiveTintColor: TEXT_FOCUS_COLOR,
+                            tabBarInactiveTintColor: TEXT_COLOR,
+                        }}>
                             <Tab.Screen name="ModelsTab"
                                         component={ModelsTab}
                                         options={{
-                                            tabBarLabel:  'Моделі',
-                                            tabBarActiveTintColor: TEXT_FOCUS_COLOR,
-                                            tabBarInactiveTintColor: TEXT_COLOR,
-                                            tabBarIcon: ({focused}) => <Icon source={'coffee-maker'} color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={30}/>,
+                                            tabBarLabel: 'Моделі',
+                                            tabBarIcon: ({focused}) => (
+                                                <Icon source={'coffee-maker'}
+                                                      color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={30}/>),
                                         }}/>
                             <Tab.Screen name="PatentsTab"
-                                        component={PatentsTab}
+                                        component={TechnologiesTab}
                                         options={{
-                                            tabBarLabel:  'Патенти',
-                                            tabBarActiveTintColor: TEXT_FOCUS_COLOR,
-                                            tabBarInactiveTintColor: TEXT_COLOR,
-                                            tabBarIcon: ({focused}) => <Icon source={'certificate'} color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR}  size={30}/>,
+                                            tabBarLabel: 'Технології',
+                                            tabBarIcon: ({focused}) => (
+                                                <Icon source={'certificate'}
+                                                      color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={30}/>),
                                         }}/>
                         </Tab.Navigator>
                     </NavigationContainer>

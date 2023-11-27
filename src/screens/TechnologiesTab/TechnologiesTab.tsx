@@ -1,10 +1,10 @@
 import {Text} from 'react-native';
 import {Wrapper} from '../../utils/hoc/Wrapper';
 
-export const PatentsTab = () => {
+export const TechnologiesTab = () => {
     return (
         <Wrapper>
-            <Text>Патенти</Text>
+            <Text>Технології</Text>
         </Wrapper>
     );
 };
