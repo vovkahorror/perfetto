@@ -70,3 +70,17 @@ export const latteCremaCool = new Technology(
     'LatteCrema Cool Technology',
     'LatteCrema Cool — нова система піноутворення молока, яка забезпечує бархатисту молочну піну при ідеальній температурі для холодних напоїв і включає в себе «формулу солодкості» від De’Longhi, щоб ідеально посилити солодкі нотки молока. Температура молока на виході складає 20 °C, що є ідеальним балансом між температурою і смаком. Для людського організму молоко сприймається холодним та солодким. Усі переваги LatteCrema Hot (можливість регулювати текстуру піни, легке очищення та ін.) характерні і для LatteCrema Cool Technology.',
 );
+
+export const beanAdapt = new Technology(
+    '',
+    '',
+    'Bean Adapt Technology',
+    '',
+);
+
+export const coldExtraction = new Technology(
+    '',
+    '',
+    '',
+    '',
+);
