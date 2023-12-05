@@ -84,6 +84,17 @@ import {
     TWO_LATTE_MACCHIATO,
     VERLANGERTER,
 } from './drinks';
+import {
+    beanAdapt,
+    brewingUnit,
+    coffeeGrinder, coldExtraction,
+    crf,
+    latteCremaCool,
+    latteCremaHot,
+    thermoblock,
+    tubeless,
+    twinShot,
+} from './technologies';
 
 export const allModels = [
     epam960_75,
@@ -182,6 +193,19 @@ export const allDrinks = {
         MUG_TO_GO,
     ],
 };
+
+export const allTechnologies = [
+    crf,
+    tubeless,
+    brewingUnit,
+    thermoblock,
+    coffeeGrinder,
+    twinShot,
+    latteCremaHot,
+    latteCremaCool,
+    beanAdapt,
+    coldExtraction
+];
 
 export type DrinksDataType = {
     hotCoffeeDrinks: HotCoffeeDrinksType;
