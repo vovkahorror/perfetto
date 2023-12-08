@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, View} from 'react-native';
 import {Icon, Searchbar} from 'react-native-paper';
-import {BACKGROUND_COLOR, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../../../../constants/constants';
+import {BACKGROUND_COLOR, GAP, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../../../../constants/constants';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {useAppSelector} from '../../../../../utils/custom-hooks/useAppSelector';
 import {selectSearchQuery} from '../../selectors';
@@ -50,6 +50,6 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 10,
+        gap: GAP,
     },
 });

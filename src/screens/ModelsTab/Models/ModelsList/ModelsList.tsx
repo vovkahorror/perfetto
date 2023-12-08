@@ -1,5 +1,5 @@
 import {FlatList, ListRenderItem, StyleSheet} from 'react-native';
-import {PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../../../constants/constants';
+import {GAP, PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../../../constants/constants';
 import {useAppSelector} from '../../../../utils/custom-hooks/useAppSelector';
 import {selectModels} from '../selectors';
 import {CoffeeMachine} from '../../../../store/data/models';
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     contentContainerStyle: {
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
-        gap: 10,
+        gap: GAP,
     },
 });
 

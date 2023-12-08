@@ -9,7 +9,7 @@ import {ListAccordion} from '../../../utils/hoc/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
 import {
-    BACKGROUND_COLOR, BORDER_RADIUS,
+    BACKGROUND_COLOR, BORDER_RADIUS, GAP,
     PADDING_HORIZONTAL,
     PADDING_VERTICAL,
     TEXT_COLOR,
@@ -221,7 +221,7 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
 
 const styles = StyleSheet.create({
     container: {
-        gap: 10,
+        gap: GAP,
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
         backgroundColor: BACKGROUND_COLOR,

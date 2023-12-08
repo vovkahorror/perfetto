@@ -4,7 +4,7 @@ import {useAppSelector} from '../../utils/custom-hooks/useAppSelector';
 import {selectTechnologies} from './selectors';
 import {TechnologyItem} from './TechnologyItem/TechnologyItem';
 import {Technology} from '../../store/data/technologies';
-import {PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../constants/constants';
+import {GAP, PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../constants/constants';
 
 export const TechnologiesTab = () => {
     const technologies = useAppSelector(selectTechnologies);
@@ -27,6 +27,6 @@ const styles = StyleSheet.create({
     contentContainerStyle: {
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
-        gap: 10,
+        gap: GAP,
     },
 });
