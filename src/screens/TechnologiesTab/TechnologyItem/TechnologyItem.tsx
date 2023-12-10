@@ -1,14 +1,50 @@
 import {Image, Text, StyleSheet, Dimensions, View} from 'react-native';
 import {Technology} from '../../../store/data/technologies';
 import {ListAccordion} from '../../../utils/hoc/ListAccordion';
-import {BACKGROUND_COLOR, BORDER_RADIUS, GAP, PADDING_HORIZONTAL} from '../../../constants/constants';
+import {
+    BACKGROUND_COLOR,
+    BORDER_RADIUS,
+    GAP,
+    PADDING_HORIZONTAL,
+    PADDING_VERTICAL,
+    TEXT_COLOR, TEXT_SHADOW_COLOR,
+} from '../../../constants/constants';
+import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
+import {useCallback, useState} from 'react';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 export const TechnologyItem = ({item}: TechnologyItemProps) => {
+    const [playing, setPlaying] = useState(false);
+
+    const onStateChange = useCallback((state: PLAYER_STATES) => {
+        if (state === 'ended') {
+            setPlaying(false);
+        }
+    }, []);
+
+    const setOrientation = useCallback((isFullscreen: boolean) => {
+        isFullscreen
+            ? ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
+            : ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+    }, []);
+
     return (
         <View style={styles.container}>
             <ListAccordion title={item.title}>
                 <View style={styles.contentContainer}>
                     <Image source={{uri: item.image}} style={styles.image} resizeMode={'cover'}/>
+                    {item.videoId &&
+                        <View style={styles.mediaWrapper}>
+                            <YoutubePlayer
+                                height={(400 - (PADDING_HORIZONTAL * 4)) / (16 / 9)}
+                                play={playing}
+                                videoId={item.videoId}
+                                onChangeState={onStateChange}
+                                onFullScreenChange={setOrientation}
+                                webViewStyle={{opacity: 0.99}}
+                            />
+                        </View>
+                    }
                     <Text style={styles.text}>{item.description}</Text>
                 </View>
             </ListAccordion>
@@ -28,6 +64,7 @@ const styles = StyleSheet.create({
     contentContainer: {
         paddingLeft: PADDING_HORIZONTAL,
         paddingRight: PADDING_HORIZONTAL,
+        paddingBottom: PADDING_VERTICAL,
         gap: GAP,
     },
     image: {
@@ -36,8 +73,18 @@ const styles = StyleSheet.create({
         height: 300,
         borderRadius: BORDER_RADIUS,
     },
+    mediaWrapper: {
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        borderRadius: BORDER_RADIUS,
+        overflow: 'hidden',
+    },
     text: {
-        paddingLeft: PADDING_HORIZONTAL,
-        paddingRight: PADDING_HORIZONTAL,
-    }
+        fontSize: 16,
+        textAlign: 'justify',
+        color: TEXT_COLOR,
+        textShadowColor: TEXT_SHADOW_COLOR,
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 1,
+    },
 });
