@@ -59,10 +59,8 @@ export type HotCoffeeDrinksType = Array<
     | typeof LONG
     | typeof DOPPIO_PLUS
     | typeof AMERICANO
-    | typeof OVER_ICE
     | typeof LONG_BLACK
     | typeof COFFEE_POT
-    | typeof ICED_COFFEE
     | typeof VERLANGERTER>;
 
 export type HotMilkDrinksType = Array<
@@ -84,7 +82,10 @@ export type HotMilkDrinksType = Array<
     | typeof CAFE_CON_LECHE>;
 
 export type ColdCoffeeDrinksType = Array<
-    typeof COLD_AMERICANO
+    typeof OVER_ICE
+    | typeof ICED_COFFEE
+    | typeof COLD_COFFEE_MIX_CARAFE
+    | typeof COLD_AMERICANO
     | typeof COLD_COFFEE
     | typeof COLD_ESPRESSO
     | typeof COLD_BREW
@@ -92,7 +93,8 @@ export type ColdCoffeeDrinksType = Array<
     | typeof COLD_BREW_POT>;
 
 export type ColdMilkDrinksType = Array<
-    typeof COLD_CAPPUCCINO
+    typeof COLD_MILK_FOAM_MIX_CARAFE
+    | typeof COLD_CAPPUCCINO
     | typeof COLD_CAPPUCCINO_MIX
     | typeof COLD_LATTE_MACCHIATO
     | typeof COLD_CAFFELATTE
@@ -104,8 +106,6 @@ export type ColdMilkDrinksType = Array<
 
 export type OtherDrinksType = Array<
     typeof CHOCOLATE_MIX_CARAFE
-    | typeof COLD_COFFEE_MIX_CARAFE
-    | typeof COLD_MILK_FOAM_MIX_CARAFE
     | typeof TEA_FUNCTION
     | typeof HOT_WATER
     | typeof STEAM

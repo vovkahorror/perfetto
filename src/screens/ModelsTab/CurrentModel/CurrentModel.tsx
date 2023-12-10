@@ -127,6 +127,8 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                         <ListItem title="Вхідна потужність, Вт" description={technicalData?.inputPower}/>
                         <ListItem title="Номінальна напруга / Частота"
                                   description={technicalData?.ratedVoltageFrequency}/>
+                        <ListItem title="Країна-виробник"
+                                  description={technicalData?.country}/>
                     </ListAccordion>
 
                     <ListAccordion
