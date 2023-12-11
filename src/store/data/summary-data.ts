@@ -90,7 +90,7 @@ import {
     coffeeGrinder, coldExtraction,
     crf,
     latteCremaCool,
-    latteCremaHot,
+    latteCremaHot, mixCarafe,
     thermoblock,
     tubeless,
     twinShot,
@@ -204,7 +204,8 @@ export const allTechnologies = [
     latteCremaHot,
     latteCremaCool,
     beanAdapt,
-    coldExtraction
+    coldExtraction,
+    mixCarafe
 ];
 
 export type DrinksDataType = {

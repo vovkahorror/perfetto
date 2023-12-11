@@ -34,16 +34,18 @@ export const TechnologyItem = ({item}: TechnologyItemProps) => {
                 <View style={styles.contentContainer}>
                     <Image source={{uri: item.image}} style={styles.image} resizeMode={'cover'}/>
                     {item.videoId &&
-                        <View style={styles.mediaWrapper}>
-                            <YoutubePlayer
-                                height={(400 - (PADDING_HORIZONTAL * 4)) / (16 / 9)}
-                                play={playing}
-                                videoId={item.videoId}
-                                onChangeState={onStateChange}
-                                onFullScreenChange={setOrientation}
-                                webViewStyle={{opacity: 0.99}}
-                            />
-                        </View>
+                        item.videoId.map(id => (
+                            <View style={styles.mediaWrapper}>
+                                <YoutubePlayer
+                                    height={(400 - (PADDING_HORIZONTAL * 4)) / (16 / 9)}
+                                    play={playing}
+                                    videoId={id}
+                                    onChangeState={onStateChange}
+                                    onFullScreenChange={setOrientation}
+                                    webViewStyle={{opacity: 0.99}}
+                                />
+                            </View>
+                        ))
                     }
                     <Text style={styles.text}>{item.description}</Text>
                 </View>

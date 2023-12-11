@@ -153,7 +153,7 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                         <ListItem title="Загальна кількість напоїв" description={functions?.totalCountOfDrinks}/>
                         <ListItem title="Можливість персоналізувати аромат"
                                   description={convertBooleanToString(functions?.aromaFunction)}/>
-                        <ListItem title="Можливість персоналізувати об'єм"
+                        <ListItem title="Можливість персоналізувати об’єм"
                                   description={convertBooleanToString(functions?.possibilityToCustomiseLength)}/>
                         {functions?.advancedPersonalisation && <ListItem title="Розширена персоналізація"
                                                                          description={functions.advancedPersonalisation}/>}
