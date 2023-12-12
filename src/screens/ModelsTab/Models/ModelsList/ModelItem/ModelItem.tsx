@@ -4,6 +4,7 @@ import {FC, useEffect, useRef, useState} from 'react';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {ModelsStackParamList} from '../../../../../types/NavigationTypes';
 import {BACKGROUND_COLOR, BORDER_RADIUS, GAP, TEXT_COLOR, TEXT_SHADOW_COLOR} from '../../../../../constants/constants';
+import {ImageWithLoading} from '../../../../../utils/hoc/ImageWithLoading';
 
 export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
     const [isPressed, setIsPressed] = useState(false);
@@ -33,7 +34,7 @@ export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
     return (
         <Pressable onPress={() => handlePress(item)}>
             <Animated.View style={[styles.container, {transform: [{scale: transformAnimValue}]}]}>
-                <Image style={styles.image} source={{uri: item.imageUrls[0]}}/>
+                <ImageWithLoading styles={styles.image} source={{uri: item.imageUrls[0]}}/>
                 <View>
                     <Text style={styles.model}>{item.model}</Text>
                     <Text style={styles.series}>{item.series}</Text>

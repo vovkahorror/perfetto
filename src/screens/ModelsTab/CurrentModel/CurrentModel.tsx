@@ -11,7 +11,7 @@ import {useCallback, useState} from 'react';
 import {
     BACKGROUND_COLOR, BORDER_RADIUS, GAP,
     PADDING_HORIZONTAL,
-    PADDING_VERTICAL,
+    PADDING_VERTICAL, PRIMARY_DARK_COLOR,
     TEXT_COLOR,
     TEXT_FOCUS_COLOR, TEXT_SHADOW_COLOR,
 } from '../../../constants/constants';
@@ -81,7 +81,7 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                     {imageUrls && <ImageSlider
                         data={imageUrls?.map((el) => ({img: el as ImageSourcePropType}))}
                         autoPlay={false}
-                        closeIconColor="#082141"
+                        closeIconColor={PRIMARY_DARK_COLOR}
                         showHeader
                         previewImageStyle={{borderRadius: BORDER_RADIUS}}
                         caroselImageContainerStyle={{height: viewWidth}}

@@ -1,4 +1,4 @@
-import {Image, Text, StyleSheet, Dimensions, View} from 'react-native';
+import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import {Technology} from '../../../store/data/technologies';
 import {ListAccordion} from '../../../utils/hoc/ListAccordion';
 import {
@@ -7,11 +7,14 @@ import {
     GAP,
     PADDING_HORIZONTAL,
     PADDING_VERTICAL,
-    TEXT_COLOR, TEXT_SHADOW_COLOR,
+    TEXT_COLOR,
+    TEXT_SHADOW_COLOR,
 } from '../../../constants/constants';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import {ImageWithLoading} from '../../../utils/hoc/ImageWithLoading';
+import {v1} from 'react-native-uuid/dist/v1';
 
 export const TechnologyItem = ({item}: TechnologyItemProps) => {
     const [playing, setPlaying] = useState(false);
@@ -32,10 +35,10 @@ export const TechnologyItem = ({item}: TechnologyItemProps) => {
         <View style={styles.container}>
             <ListAccordion title={item.title}>
                 <View style={styles.contentContainer}>
-                    <Image source={{uri: item.image}} style={styles.image} resizeMode={'cover'}/>
+                    <ImageWithLoading source={{uri: item.image}} styles={styles.image}/>
                     {item.videoId &&
                         item.videoId.map(id => (
-                            <View style={styles.mediaWrapper}>
+                            <View key={v1() as string} style={styles.mediaWrapper}>
                                 <YoutubePlayer
                                     height={(400 - (PADDING_HORIZONTAL * 4)) / (16 / 9)}
                                     play={playing}
