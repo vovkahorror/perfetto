@@ -24,7 +24,7 @@ export const ImageWithLoading = ({source, styles}: LoadingProps) => {
     return (
         <>
             {loading
-                ? <View style={styles}>
+                ? <View style={[{justifyContent: 'center', alignItems: 'center'}, styles]}>
                     <Image source={loadingImage} style={[styles, {width: 80}]} resizeMode={'contain'}/>
                 </View>
                 : <Image
