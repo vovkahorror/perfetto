@@ -160,7 +160,7 @@ export class CoffeeMachine {
             maxCupHeight,
             inputPower: this.model === 'EPAM960.75.GLM' ? 1550 : 1450,
             ratedVoltageFrequency: '220-240 V / 50-60 Hz',
-            country
+            country,
         };
 
         this.colourMaterialFinish = {
@@ -784,6 +784,43 @@ export const ecam350_35w = {
         colour: 'Білий',
     },
 };
+
+export const ecam293_52 = new CoffeeMachine('ECAM293.52.B',
+    'Magnifica Evo',
+    ['https://delonghi-shop.com.ua/modules/images/delonghi_ecam_29352_b_magnifica_evo_b.jpg', 'https://delonghi-shop.com.ua/modules/images/delonghi_ecam_29352_b_magnifica_evo_a.jpg', 'https://delonghi-shop.com.ua/modules/images/delonghi_ecam_29352_b_magnifica_evo_c.jpg', 'https://delonghi-shop.com.ua/modules/images/delonghi_ecam_29352_b_magnifica_evo_d.jpg', 'https://delonghi-shop.com.ua/modules/images/delonghi_ecam_29352_b_magnifica_evo_e.jpg', 'https://delonghi-shop.com.ua/modules/images/delonghi_ecam_29352_b_magnifica_evo_wtt.jpg'],
+    'gJi1O3_izo8',
+    'Magnifica Evo втілює досвід De’Longhi завдяки своїм автентичним напоям і елегантному сучасному дизайну. Приготуйте ідеальний італійський еспресо обо один з інших напоїв, у тому числі доповнених молочною пінкою завдяки технології LatteCrema Hot. Вибирайте із 4 напоїв одним дотиком через простий інтерфейс користувача. А також кавомашина оснащена функцією автоматичного очищення молочника одним дотиком.',
+    ['LatteCrema Hot доповнює ваші напої густою вершковою молочною пінкою', 'Оснащена функцією автоматичного очищення одним дотиком і карафою для молока, яку можна мити в посудомийній машині', 'Інтелектуальна панель керування з сенсорними піктограмами, включно з 4 варіантами напою одним дотиком', 'Додайте стилю своїй кухні за допомогою цієї витонченої чорної кавомашини'],
+    'https://www.dropbox.com/scl/fi/jsr3l51rbgbez9vegi584/ECAM29051B-261351.pdf?rlkey=5dc7fqoq8aon2vbrglpr4q8pt&dl=0&raw=1',
+    '240 x 440 x 360',
+    9.6,
+    15,
+    250,
+    1.8,
+    'металева конічна',
+    13,
+    14,
+    140,
+    'Румунія',
+    'Чорний',
+    'Пластик',
+    [ESPRESSO, COFFEE],
+    [CAPPUCCINO],
+    null,
+    null,
+    [HOT_WATER],
+    null,
+    null,
+    'Сенсорні кнопки',
+    null,
+    null,
+    'LatteCrema Hot Technology',
+    false,
+    false,
+    false,
+    'пасивний',
+    'Нержавіюча сталь',
+    false);
 
 export const ecam290_81 = new CoffeeMachine('ECAM290.81.TB',
     'Magnifica Evo',
