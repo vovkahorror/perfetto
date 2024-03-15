@@ -132,7 +132,7 @@ export const allModels = [
     ecam22_112,
 ];
 
-export const allDrinks = {
+export const allDrinks: DrinksDataType = {
     hotCoffeeDrinks: [
         ESPRESSO,
         ESPRESSO_SOUL,
@@ -145,8 +145,6 @@ export const allDrinks = {
         COFFEE_POT,
         LONG_BLACK,
         VERLANGERTER,
-        OVER_ICE,
-        ICED_COFFEE,
     ],
     hotMilkDrinks: [
         CAPPUCCINO,
@@ -173,6 +171,9 @@ export const allDrinks = {
         COLD_BREW,
         COLD_BREW_TO_MIX,
         COLD_BREW_POT,
+        COLD_COFFEE_MIX_CARAFE,
+        OVER_ICE,
+        ICED_COFFEE,
     ],
     coldMilkDrinks: [
         COLD_CAPPUCCINO,
@@ -184,11 +185,10 @@ export const allDrinks = {
         FOAMED_MILK,
         COLD_BREW_LATTE,
         COLD_BREW_CAPPUCCINO,
+        COLD_MILK_FOAM_MIX_CARAFE,
     ],
     otherDrinks: [
         CHOCOLATE_MIX_CARAFE,
-        COLD_COFFEE_MIX_CARAFE,
-        COLD_MILK_FOAM_MIX_CARAFE,
         TEA_FUNCTION,
         HOT_WATER,
         STEAM,
@@ -207,7 +207,7 @@ export const allTechnologies = [
     latteCremaCool,
     beanAdapt,
     coldExtraction,
-    mixCarafe
+    mixCarafe,
 ];
 
 export type DrinksDataType = {
