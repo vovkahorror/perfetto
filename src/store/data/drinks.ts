@@ -82,19 +82,18 @@ export type HotMilkDrinksType = Array<
     | typeof CAFE_CON_LECHE>;
 
 export type ColdCoffeeDrinksType = Array<
-    typeof OVER_ICE
-    | typeof ICED_COFFEE
-    | typeof COLD_COFFEE_MIX_CARAFE
-    | typeof COLD_AMERICANO
+    typeof COLD_AMERICANO
     | typeof COLD_COFFEE
     | typeof COLD_ESPRESSO
     | typeof COLD_BREW
     | typeof COLD_BREW_TO_MIX
-    | typeof COLD_BREW_POT>;
+    | typeof COLD_BREW_POT
+    | typeof OVER_ICE
+    | typeof ICED_COFFEE
+    | typeof COLD_COFFEE_MIX_CARAFE>;
 
 export type ColdMilkDrinksType = Array<
-    typeof COLD_MILK_FOAM_MIX_CARAFE
-    | typeof COLD_CAPPUCCINO
+ typeof COLD_CAPPUCCINO
     | typeof COLD_CAPPUCCINO_MIX
     | typeof COLD_LATTE_MACCHIATO
     | typeof COLD_CAFFELATTE
@@ -102,7 +101,8 @@ export type ColdMilkDrinksType = Array<
     | typeof COLD_FLAT_WHITE
     | typeof FOAMED_MILK
     | typeof COLD_BREW_LATTE
-    | typeof COLD_BREW_CAPPUCCINO>;
+    | typeof COLD_BREW_CAPPUCCINO
+    | typeof COLD_MILK_FOAM_MIX_CARAFE>;
 
 export type OtherDrinksType = Array<
     typeof CHOCOLATE_MIX_CARAFE
