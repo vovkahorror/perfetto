@@ -1,5 +1,12 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {allDrinks, DrinksDataType} from './data/summary-data';
+import {
+    ColdCoffeeDrinksType,
+    ColdMilkDrinksType,
+    DrinkType,
+    HotCoffeeDrinksType,
+    HotMilkDrinksType, OtherDrinksType,
+} from './data/drinks';
 
 export const slice = createSlice({
     name: 'models',
@@ -16,7 +23,7 @@ export const slice = createSlice({
 
     reducers: {
         setSelectedDrinks(state, action: PayloadAction<{
-            drink: string,
+            drink: DrinkType,
             drinkKey: keyof DrinksDataType
         }>) {
             const {drink, drinkKey} = action.payload;
@@ -39,11 +46,11 @@ export const slice = createSlice({
 });
 
 export interface SelectedDrinks {
-    hotCoffeeDrinks: string[];
-    hotMilkDrinks: string[];
-    coldCoffeeDrinks: string[];
-    coldMilkDrinks: string[];
-    otherDrinks: string[];
+    hotCoffeeDrinks: DrinkType[];
+    hotMilkDrinks: DrinkType[];
+    coldCoffeeDrinks: DrinkType[];
+    coldMilkDrinks: DrinkType[];
+    otherDrinks: DrinkType[];
 }
 
 interface DrinksState {

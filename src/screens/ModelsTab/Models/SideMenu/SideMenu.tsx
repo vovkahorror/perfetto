@@ -11,6 +11,7 @@ import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {resetSelectedDrinks, setSelectedDrinks} from '../../../../store/drinks-slice';
 import {useCallback} from 'react';
 import {PADDING_HORIZONTAL, PADDING_VERTICAL, PRIMARY_DARK_COLOR, TEXT_COLOR} from '../../../../constants/constants';
+import {DrinkType} from '../../../../store/data/drinks';
 
 export const SideMenu = () => {
     const dispatch = useAppDispatch();
@@ -18,7 +19,7 @@ export const SideMenu = () => {
     const drinks = useAppSelector(selectDrinks);
     const selectedDrinks = useAppSelector(selectSelectedDrinks);
 
-    const handleCheck = useCallback((drink: string, drinkKey: keyof DrinksDataType) => {
+    const handleCheck = useCallback((drink: DrinkType, drinkKey: keyof DrinksDataType) => {
         dispatch(setSelectedDrinks({drink, drinkKey}));
     }, [dispatch]);
 
@@ -34,7 +35,7 @@ export const SideMenu = () => {
     };
 
     const getRenderItem = (drinkKey: keyof DrinksDataType) => {
-        const renderItem: ListRenderItem<string> = ({item}) => {
+        const renderItem: ListRenderItem<DrinkType> = ({item}) => {
             return (
                 <CheckboxWithTitle
                     drink={item}

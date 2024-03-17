@@ -8,7 +8,7 @@ import {
 
 export const createStringFromArray = (arr?: StringCreatorArgType) => {
     return arr?.reduce((acc, val, ind) => {
-        return ind === arr.length - 1 ? acc + val : acc + val + ', ';
+        return ind === arr.length - 1 ? acc + val.name : acc + val.name + ', ';
     }, '');
 };
 
@@ -17,6 +17,4 @@ type StringCreatorArgType =
     | HotMilkDrinksType
     | ColdCoffeeDrinksType
     | ColdMilkDrinksType
-    | OtherDrinksType
-    | string[]
-    | null;
+    | OtherDrinksType;

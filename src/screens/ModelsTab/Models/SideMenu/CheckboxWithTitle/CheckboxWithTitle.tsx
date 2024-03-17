@@ -3,11 +3,12 @@ import {StyleSheet} from 'react-native';
 import {DrinksDataType} from '../../../../../store/data/summary-data';
 import {memo} from 'react';
 import {TEXT_COLOR} from '../../../../../constants/constants';
+import {DrinkType} from '../../../../../store/data/drinks';
 
 export const CheckboxWithTitle = memo(({drink, drinkKey, isPressed, handleCheck}: CheckboxWithTitleProps) => {
     return (
         <Checkbox.Item
-            label={drink}
+            label={drink.name}
             status={isPressed ? 'checked' : 'unchecked'}
             onPress={() => handleCheck(drink, drinkKey)}
             style={styles.checkbox}
@@ -19,10 +20,10 @@ export const CheckboxWithTitle = memo(({drink, drinkKey, isPressed, handleCheck}
 });
 
 interface CheckboxWithTitleProps {
-    drink: string;
+    drink: DrinkType;
     drinkKey: keyof DrinksDataType;
     isPressed: boolean;
-    handleCheck: (drink: string, drinkKey: keyof DrinksDataType) => void;
+    handleCheck: (drink: DrinkType, drinkKey: keyof DrinksDataType) => void;
 }
 
 const styles = StyleSheet.create({
