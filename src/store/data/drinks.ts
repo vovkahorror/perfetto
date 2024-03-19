@@ -223,24 +223,17 @@ export const CAPPUCCINO = new HotMilkDrink('Cappuccino',
         appearance: 'Окремі шари піни, кави та молока, вкриті товстим шаром піни',
     });
 
-export const TWO_CAPPUCCINO = {
-    ...CAPPUCCINO,
-    name: '2x Cappuccino',
-    description: 'Одночасне приготування двох капучино. Еспресо змішується з великою кількістю гарячого молока, з максимальним рівнем розкішної щільної піни.',
-    imageUrl: 'https://www.dropbox.com/scl/fi/peqg519o3k0e858q8hjw6/2x-cappuccino.webp?rlkey=6a3eu2yr25zsg6e809bff60hc&dl=0&raw=1',
-    data: {
-        ...CAPPUCCINO.data,
-        process: {
-            ...CAPPUCCINO.data?.process,
-            coffee: '130 мл (130 г): по 65 мл (65 г) для кожної порції',
-            milk: '330 мл (160 г): по 165 мл (80 г) для кожної порції',
-        },
-        result: {
-            ...CAPPUCCINO.data?.result,
-            volume: '460 мл (290 г): по 230 мл (145 г) для кожної порції',
-        },
-    },
-};
+export const TWO_CAPPUCCINO = new HotMilkDrink('2x Cappuccino',
+    'Одночасне приготування двох капучино. Еспресо змішується з великою кількістю гарячого молока, з максимальним рівнем розкішної щільної піни.',
+    'https://www.dropbox.com/scl/fi/peqg519o3k0e858q8hjw6/2x-cappuccino.webp?rlkey=6a3eu2yr25zsg6e809bff60hc&dl=0&raw=1',
+    {
+        coffee: '130 мл (130 г): по 65 мл (65 г) для кожної порції',
+        milk: '330 мл (160 г): по 165 мл (80 г) для кожної порції',
+        milkFoam: 'Максимальний рівень',
+        submission: 'Спершу молоко, потім кава',
+        volume: '460 мл (290 г): по 230 мл (145 г) для кожної порції',
+        appearance: 'Окремі шари піни, кави та молока, вкриті товстим шаром піни',
+    });
 
 export const LATTE_MACCHIATO = new HotMilkDrink('Latte Macchiato',
     'Одна порція еспресо, плюс майже вчетверо більша кількість гарячого молока із середнім рівнем піни.',
@@ -254,23 +247,17 @@ export const LATTE_MACCHIATO = new HotMilkDrink('Latte Macchiato',
         appearance: 'Окремі шари молока, еспресо та молочної піни',
     });
 
-export const TWO_LATTE_MACCHIATO = {
-    ...LATTE_MACCHIATO,
-    name: '2x Latte Macchiato',
-    description: 'Одночасне приготування двох лате-мак\'ято. Еспресо змішується з майже вчетверо більшою кількістю гарячого молока із середнім рівнем піни.',
-    imageUrl: 'https://www.dropbox.com/scl/fi/ldx11j2q9k0mkpcpw8ix5/2x-latte-macchiato.webp?rlkey=kq3rwl7hkqnut4luyajiut0w3&dl=0&raw=1',
-    data: {
-        process: {
-            ...LATTE_MACCHIATO.data?.process,
-            coffee: '120 мл (120 г): по 60 мл (60 г) для кожної порції',
-            milk: '450 мл (280 г): по 225 мл (140 г) для кожної порції',
-        },
-        result: {
-            ...LATTE_MACCHIATO.data?.result,
-            volume: '570 мл (400 г): по 285 мл (200 г) для кожної порції',
-        },
-    },
-};
+export const TWO_LATTE_MACCHIATO = new HotMilkDrink('2x Latte Macchiato',
+    'Одночасне приготування двох лате-мак\'ято. Еспресо змішується з майже вчетверо більшою кількістю гарячого молока із середнім рівнем піни.',
+    'https://www.dropbox.com/scl/fi/ldx11j2q9k0mkpcpw8ix5/2x-latte-macchiato.webp?rlkey=kq3rwl7hkqnut4luyajiut0w3&dl=0&raw=1',
+    {
+        coffee: '120 мл (120 г): по 60 мл (60 г) для кожної порції',
+        milk: '450 мл (280 г): по 225 мл (140 г) для кожної порції',
+        milkFoam: 'Середній рівень',
+        submission: 'Спершу молоко, потім кава',
+        volume: '570 мл (400 г): по 285 мл (200 г) для кожної порції',
+        appearance: 'Окремі шари молока, еспресо та молочної піни',
+    });
 
 export const CAPPUCCINO_PLUS = new HotMilkDrink('Cappuccino+',
     'Вершковий капучино, приготований на основі Doppio+ для додаткового аромату та додаткової енергії.',
@@ -296,23 +283,17 @@ export const CAPPUCCINO_MIX = new HotMilkDrink('Cappuccino Mix',
         appearance: 'Рівномірно-коричневий, навіть пінка',
     });
 
-export const TWO_CAPPUCCINO_MIX = {
-    ...CAPPUCCINO_MIX,
-    name: '2x Cappuccino Mix',
-    description: 'Одночасне приготування двох капучино-мікс. В еспресо подається гаряче спінене молоко, що створює насичений кавовий смак всього напою.',
-    imageUrl: 'https://www.dropbox.com/scl/fi/0ct0lhpj6m2y38pokpkub/2x-cappuccino-mix.webp?rlkey=u1mqyvoe3k4kwoeohwnudog9i&dl=0&raw=1',
-    data: {
-        process: {
-            ...CAPPUCCINO_MIX.data?.process,
-            coffee: '130 мл (130 г): по 65 мл (65 г) для кожної порції',
-            milk: '330 мл (160 г): по 165 мл (80 г) для кожної порції',
-        },
-        result: {
-            ...CAPPUCCINO_MIX.data?.result,
-            volume: '460 мл (290 г): по 230 мл (145 г) для кожної порції',
-        },
-    },
-};
+export const TWO_CAPPUCCINO_MIX = new HotMilkDrink('2x Cappuccino Mix',
+    'Одночасне приготування двох капучино-мікс. В еспресо подається гаряче спінене молоко, що створює насичений кавовий смак всього напою.',
+    'https://www.dropbox.com/scl/fi/0ct0lhpj6m2y38pokpkub/2x-cappuccino-mix.webp?rlkey=u1mqyvoe3k4kwoeohwnudog9i&dl=0&raw=1',
+    {
+        coffee: '130 мл (130 г): по 65 мл (65 г) для кожної порції',
+        milk: '330 мл (160 г): по 165 мл (80 г) для кожної порції',
+        milkFoam: 'Середній рівень',
+        submission: 'Спершу кава, потім молоко',
+        volume: '460 мл (290 г): по 230 мл (145 г) для кожної порції',
+        appearance: 'Рівномірно-коричневий, навіть пінка',
+    });
 
 export const HOT_MILK = new HotMilkDrink('Hot Milk',
     'Гаряче молоко подається із бажаним рівнем щільності піни. Чим нижчий рівень щільності піни, тим нижча температура напою.',
@@ -657,19 +638,17 @@ export const OVER_ICE = new ColdCoffeeDrink('Over Ice',
         appearance: 'Вишуканий та ароматний напій з насиченим стійким смаком',
     });
 
-export const ICED_COFFEE = {
-    ...OVER_ICE,
-    name: 'Iced Coffee',
-    description: 'Кава, що заварюється на зниженій температурі, з додаванням льоду',
-    imageUrl: 'https://www.dropbox.com/scl/fi/5hwhonbg7w1lp81fsyifu/iced-coffee.webp?rlkey=iack139qe1y1ajqlbngxarnyh&dl=0&raw=1',
-    data: {
-        ...OVER_ICE.data,
-        result: {
-            ...OVER_ICE.data?.result,
-            appearance: 'Вишукана та ароматна кава з льодом',
+export const ICED_COFFEE = new ColdCoffeeDrink('Iced Coffee',
+    'Кава, що заварюється на зниженій температурі, з додаванням льоду',
+    'https://www.dropbox.com/scl/fi/5hwhonbg7w1lp81fsyifu/iced-coffee.webp?rlkey=iack139qe1y1ajqlbngxarnyh&dl=0&raw=1',
+    {
+        original: {
+            coffee: '100 мл',
+            iceCubes: '6 (95 мл)',
         },
-    },
-};
+        volume: '195 мл',
+        appearance: 'Вишукана та ароматна кава з льодом',
+    });
 
 export const COLD_COFFEE_MIX_CARAFE = new ColdCoffeeDrink('Cold Coffee (MixCarafe)',
     'Еспресо змішаний з кубиками льоду та спінений у MixCarafe.',
@@ -1041,62 +1020,12 @@ export type DrinkType = Drink
     | ColdMilkDrink
     | TeaFunction;
 
-export type HotCoffeeDrinksType = Array<
-    typeof ESPRESSO
-    | typeof ESPRESSO_SOUL
-    | typeof ESPRESSO_LUNGO
-    | typeof RISTRETTO
-    | typeof COFFEE
-    | typeof LONG
-    | typeof DOPPIO_PLUS
-    | typeof AMERICANO
-    | typeof LONG_BLACK
-    | typeof COFFEE_POT
-    | typeof VERLANGERTER>;
+export type HotCoffeeDrinksType = HotCoffeeDrink[];
 
-export type HotMilkDrinksType = Array<
-    typeof CAPPUCCINO
-    | typeof TWO_CAPPUCCINO
-    | typeof LATTE_MACCHIATO
-    | typeof TWO_LATTE_MACCHIATO
-    | typeof CAPPUCCINO_PLUS
-    | typeof CAPPUCCINO_MIX
-    | typeof TWO_CAPPUCCINO_MIX
-    | typeof HOT_MILK
-    | typeof CAFFELATTE
-    | typeof FLAT_WHITE
-    | typeof CORTADO
-    | typeof ESPRESSO_MACCHIATO
-    | typeof MY_LATTE
-    | typeof CAFE_AU_LAIT
-    | typeof GALAO
-    | typeof CAFE_CON_LECHE>;
+export type HotMilkDrinksType = HotMilkDrink[];
 
-export type ColdCoffeeDrinksType = Array<
-    typeof COLD_AMERICANO
-    | typeof COLD_COFFEE
-    | typeof COLD_ESPRESSO
-    | typeof COLD_BREW
-    | typeof COLD_BREW_TO_MIX
-    | typeof COLD_BREW_POT
-    | typeof OVER_ICE
-    | typeof ICED_COFFEE
-    | typeof COLD_COFFEE_MIX_CARAFE>;
+export type ColdCoffeeDrinksType = ColdCoffeeDrink[];
 
-export type ColdMilkDrinksType = Array<
-    typeof COLD_CAPPUCCINO
-    | typeof COLD_CAPPUCCINO_MIX
-    | typeof COLD_LATTE_MACCHIATO
-    | typeof COLD_CAFFELATTE
-    | typeof COLD_MILK
-    | typeof COLD_FLAT_WHITE
-    | typeof COLD_BREW_LATTE
-    | typeof COLD_BREW_CAPPUCCINO
-    | typeof COLD_MILK_FOAM_MIX_CARAFE>;
+export type ColdMilkDrinksType = ColdMilkDrink[];
 
-export type OtherDrinksType = Array<
-    typeof CHOCOLATE_MIX_CARAFE
-    | typeof TEA_FUNCTION
-    | typeof HOT_WATER
-    | typeof STEAM_HOT_WATER
-    | typeof MUG_TO_GO>;
+export type OtherDrinksType = Array<Drink | TeaFunction>;
