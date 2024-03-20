@@ -1,12 +1,15 @@
 import {CoffeeMachine} from '../store/data/models';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {DrawerScreenProps} from '@react-navigation/drawer';
+import {DrinkType} from '../store/data/drinks';
 
 export type RootTabParamList = {
     ModelsTab: undefined;
-    PatentsTab: undefined;
+    DrinksTab: undefined;
+    TechnologiesTab: undefined;
 }
 
+// Models Screens
 export type ModelsStackParamList = {
     Models: undefined;
     CurrentModel: CoffeeMachine | undefined;
@@ -22,3 +25,13 @@ export type ModelsDrawerParamList = {
 }
 
 export type ModelsListProps = DrawerScreenProps<ModelsDrawerParamList, 'ModelsList'>
+
+// Drinks Screens
+export type DrinksStackParamList = {
+    Drinks: undefined;
+    CurrentDrink: DrinkType | undefined;
+}
+
+export type DrinksProps = NativeStackScreenProps<DrinksStackParamList, 'Drinks'>;
+export type CurrentDrinkProps = NativeStackScreenProps<DrinksStackParamList, 'CurrentDrink'>;
+

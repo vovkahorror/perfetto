@@ -39,7 +39,7 @@ export default function App() {
                                                 <Icon source={'coffee-maker'}
                                                       color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={30}/>),
                                         }}/>
-                            <Tab.Screen name="PatentsTab"
+                            <Tab.Screen name="TechnologiesTab"
                                         component={TechnologiesTab}
                                         options={{
                                             tabBarLabel: 'Технології',
