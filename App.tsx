@@ -11,6 +11,7 @@ import {Icon} from 'react-native-paper';
 import {RootTabParamList} from './src/types/NavigationTypes';
 import {PRIMARY_DARK_COLOR, TEXT_COLOR, TEXT_FOCUS_COLOR} from './src/constants/constants';
 import {TechnologiesTab} from './src/screens/TechnologiesTab/TechnologiesTab';
+import {DrinksTab} from './src/screens/DrinksTab/DrinksTab';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 LogBox.ignoreAllLogs();
@@ -39,6 +40,16 @@ export default function App() {
                                                 <Icon source={'coffee-maker'}
                                                       color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={30}/>),
                                         }}/>
+
+                            <Tab.Screen name="DrinksTab"
+                                        component={DrinksTab}
+                                        options={{
+                                            tabBarLabel: 'Напої',
+                                            tabBarIcon: ({focused}) => (
+                                                <Icon source={'coffee'}
+                                                      color={focused ? TEXT_FOCUS_COLOR : TEXT_COLOR} size={30}/>),
+                                        }}/>
+
                             <Tab.Screen name="TechnologiesTab"
                                         component={TechnologiesTab}
                                         options={{
