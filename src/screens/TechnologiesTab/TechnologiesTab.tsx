@@ -12,8 +12,6 @@ import {
     TEXT_SHADOW_COLOR,
 } from '../../constants/constants';
 
-const backgroundImage = require('../../../assets/background/background2.webp');
-
 export const TechnologiesTab = () => {
     const technologies = useAppSelector(selectTechnologies);
 
@@ -21,7 +19,7 @@ export const TechnologiesTab = () => {
         <TechnologyItem item={item}/>);
 
     return (
-        <Wrapper backgroundImage={backgroundImage}>
+        <Wrapper>
             <FlatList
                 data={technologies}
                 renderItem={renderItem}

@@ -10,6 +10,8 @@ import {FC} from 'react';
 import {Wrapper} from '../../../../utils/hoc/Wrapper';
 import {ModelsHeader} from './ModelsHeader/ModelsHeader';
 
+const backgroundImage = require('../../../../../assets/background/background3.webp');
+
 export const ModelsList: FC<ModelsListProps> = ({navigation}) => {
     const models = useAppSelector(selectModels);
 
@@ -17,7 +19,7 @@ export const ModelsList: FC<ModelsListProps> = ({navigation}) => {
         <ModelItem item={item} navigation={navigation}/>);
 
     return (
-        <Wrapper>
+        <Wrapper backgroundImage={backgroundImage}>
             <FlatList
                 data={models}
                 renderItem={renderItem}
