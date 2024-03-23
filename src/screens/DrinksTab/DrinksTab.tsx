@@ -1,42 +1,19 @@
-import {FlatList, ListRenderItem, StyleSheet} from 'react-native';
-import {Wrapper} from '../../utils/hoc/Wrapper';
-import {useAppSelector} from '../../utils/custom-hooks/useAppSelector';
-import {selectDrinks} from './selectors';
-import {GAP, PADDING_HORIZONTAL, PADDING_VERTICAL} from '../../constants/constants';
-import {DrinkType} from '../../store/data/drinks';
-import {DrinkItem} from './DrinkItem/DrinkItem';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {DrinksStackParamList} from '../../types/NavigationTypes';
+import {DrinksList} from './DrinksList/DrinksList';
+import {CurrentDrink} from './CurrentDrink/CurrentDrink';
 
-const backgroundImage = require('../../../assets/background/background2.webp');
+const Stack = createNativeStackNavigator<DrinksStackParamList>();
 
-export const DrinksTab = () => {
-    const drinks = useAppSelector(selectDrinks);
-
-    const renderItem: ListRenderItem<DrinkType> = ({item}) => (
-        <DrinkItem item={item}/>);
-
+export const DrinksTab = ({}: DrinksTabProps) => {
     return (
-        <Wrapper backgroundImage={backgroundImage}>
-            <FlatList
-                data={drinks.hotCoffeeDrinks}
-                renderItem={renderItem}
-                numColumns={3}
-                contentContainerStyle={styles.contentContainerStyle}
-                columnWrapperStyle={styles.columnWrapperStyle}
-                keyboardShouldPersistTaps={'always'}
-            />
-        </Wrapper>
+        <Stack.Navigator screenOptions={{headerShown: false, animation: 'fade'}}>
+            <Stack.Screen name={'Drinks'} component={DrinksList}/>
+            <Stack.Screen name={'CurrentDrink'} component={CurrentDrink}/>
+        </Stack.Navigator>
     );
 };
 
-const styles = StyleSheet.create({
-    contentContainerStyle: {
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingHorizontal: PADDING_HORIZONTAL,
-        paddingVertical: PADDING_VERTICAL,
-        gap: GAP,
-    },
-    columnWrapperStyle: {
-        gap: GAP,
-    },
-});
+interface DrinksTabProps {
+
+}
