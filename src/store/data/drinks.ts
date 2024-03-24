@@ -1013,12 +1013,12 @@ export const TEA_FUNCTION = new TeaFunction('Tea Function',
     },
 );
 
-export type DrinkType = Drink
-    | HotCoffeeDrink
+export type DrinkType = HotCoffeeDrink
     | HotMilkDrink
     | ColdCoffeeDrink
     | ColdMilkDrink
-    | TeaFunction;
+    | TeaFunction
+    | Drink;
 
 export type HotCoffeeDrinksType = HotCoffeeDrink[];
 
@@ -1029,3 +1029,60 @@ export type ColdCoffeeDrinksType = ColdCoffeeDrink[];
 export type ColdMilkDrinksType = ColdMilkDrink[];
 
 export type OtherDrinksType = Array<Drink | TeaFunction>;
+
+export type DrinksDataPropertyType = {
+    data: {
+        process: {
+            beanWeight: number | string;
+            preWetting: boolean;
+            pressure: string;
+            coffee?: string;
+            milk: string;
+            milkFoam: string;
+            submission?: string;
+            ice?: {
+                coffee: string;
+                water?: string;
+                milk?: string;
+                iceCubes: string;
+            },
+            extraIce?: {
+                coffee: string;
+                water?: string;
+                milk?: string;
+                iceCubes: string;
+            },
+            original?: {
+                beanWeight?: number | string;
+                coffee: string;
+                iceCubes: string;
+            },
+            intense?: {
+                beanWeight?: number | string;
+                coffee: string;
+                iceCubes: string;
+            },
+            littleCup?: {
+                coffee: string;
+                iceCubes: string;
+                milk: string;
+            },
+            bigCup?: {
+                coffee: string;
+                iceCubes: string;
+                milk: string;
+            },
+            extraction?: string;
+            white: Tea,
+            green: Tea,
+            black: Tea,
+            oolong: Tea,
+        };
+        result: {
+            volume: string;
+            appearance: string;
+        };
+    }
+}| null;
+
+

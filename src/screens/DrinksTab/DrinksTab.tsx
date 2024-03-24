@@ -5,15 +5,11 @@ import {CurrentDrink} from './CurrentDrink/CurrentDrink';
 
 const Stack = createNativeStackNavigator<DrinksStackParamList>();
 
-export const DrinksTab = ({}: DrinksTabProps) => {
+export const DrinksTab = () => {
     return (
-        <Stack.Navigator screenOptions={{headerShown: false, animation: 'fade'}}>
+        <Stack.Navigator screenOptions={{headerShown: false, animation: 'slide_from_bottom', animationDuration: 300}}>
             <Stack.Screen name={'Drinks'} component={DrinksList}/>
             <Stack.Screen name={'CurrentDrink'} component={CurrentDrink}/>
         </Stack.Navigator>
     );
 };
-
-interface DrinksTabProps {
-
-}

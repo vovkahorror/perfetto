@@ -29,7 +29,7 @@ export type ModelsListProps = DrawerScreenProps<ModelsDrawerParamList, 'ModelsLi
 // Drinks Screens
 export type DrinksStackParamList = {
     Drinks: undefined;
-    CurrentDrink: DrinkType | undefined;
+    CurrentDrink: DrinkType;
 }
 
 export type DrinksProps = NativeStackScreenProps<DrinksStackParamList, 'Drinks'>;

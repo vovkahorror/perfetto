@@ -140,7 +140,7 @@ export const allModels = [
     ecam22_112,
 ];
 
-export const allDrinks: DrinksDataType = {
+export const allDrinks: DrinksDataType  = {
     hotCoffeeDrinks: [
         ESPRESSO,
         ESPRESSO_SOUL,
