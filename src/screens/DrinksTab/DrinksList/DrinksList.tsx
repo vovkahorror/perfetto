@@ -1,5 +1,5 @@
 import {FlatList, ListRenderItem, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {Wrapper} from '../../../utils/hoc/Wrapper';
+import {Wrapper} from '../../../utils/components/Wrapper';
 import {useAppSelector} from '../../../utils/custom-hooks/useAppSelector';
 import {selectDrinks} from '../selectors';
 import {GAP, PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR, TEXT_SHADOW_COLOR} from '../../../constants/constants';

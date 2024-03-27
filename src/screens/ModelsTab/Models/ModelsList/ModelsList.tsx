@@ -7,7 +7,7 @@ import {ModelItem} from './ModelItem/ModelItem';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {ModelsStackParamList} from '../../../../types/NavigationTypes';
 import {FC} from 'react';
-import {Wrapper} from '../../../../utils/hoc/Wrapper';
+import {Wrapper} from '../../../../utils/components/Wrapper';
 import {ModelsHeader} from './ModelsHeader/ModelsHeader';
 
 const backgroundImage = require('../../../../../assets/background/background3.webp');

@@ -1,5 +1,5 @@
 import {FlatList, ListRenderItem, StyleSheet, Text} from 'react-native';
-import {Wrapper} from '../../utils/hoc/Wrapper';
+import {Wrapper} from '../../utils/components/Wrapper';
 import {useAppSelector} from '../../utils/custom-hooks/useAppSelector';
 import {selectTechnologies} from './selectors';
 import {TechnologyItem} from './TechnologyItem/TechnologyItem';

@@ -1,7 +1,7 @@
 import {Dimensions, View, StyleSheet} from 'react-native';
 import {InstructionProps} from '../../../../types/NavigationTypes';
 import Pdf from 'react-native-pdf';
-import {Wrapper} from '../../../../utils/hoc/Wrapper';
+import {Wrapper} from '../../../../utils/components/Wrapper';
 import {BORDER_RADIUS, PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR} from '../../../../constants/constants';
 import Spinner from 'react-native-loading-spinner-overlay';
 

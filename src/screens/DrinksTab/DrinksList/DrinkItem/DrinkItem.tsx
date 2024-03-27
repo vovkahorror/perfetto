@@ -1,6 +1,6 @@
 import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
 import {DrinkType} from '../../../../store/data/drinks';
-import {ImageWithLoading} from '../../../../utils/hoc/ImageWithLoading';
+import {ImageWithLoading} from '../../../../utils/components/ImageWithLoading';
 import {
     BACKGROUND_COLOR,
     BORDER_RADIUS,

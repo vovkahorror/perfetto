@@ -1,5 +1,5 @@
 import {Dimensions, ScrollView, StyleSheet, Text} from 'react-native';
-import {Wrapper} from '../../../utils/hoc/Wrapper';
+import {Wrapper} from '../../../utils/components/Wrapper';
 import {
     BACKGROUND_COLOR,
     BORDER_RADIUS,
@@ -11,7 +11,9 @@ import {
 } from '../../../constants/constants';
 import {CurrentDrinkProps} from '../../../types/NavigationTypes';
 import {DrinksDataPropertyType, DrinkType} from '../../../store/data/drinks';
-import {ImageWithLoading} from '../../../utils/hoc/ImageWithLoading';
+import {ImageWithLoading} from '../../../utils/components/ImageWithLoading';
+import {ListItem} from '../../../utils/components/ListItem';
+import {ListAccordion} from '../../../utils/components/ListAccordion';
 
 export const CurrentDrink = ({route}: CurrentDrinkProps) => {
     const {
@@ -26,6 +28,18 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
             <ScrollView contentContainerStyle={styles.container}>
                 <Text style={styles.name}>{name}</Text>
                 <ImageWithLoading styles={styles.image} source={{uri: imageUrl}}/>
+                <Text style={styles.description}>{description}</Text>
+
+                <ListAccordion
+                    title="Процес приготування"
+                    icon="eyedropper">
+                    {data.process.beanWeight &&
+                        <ListItem title="Вага кавових зерен, г" description={data.process.beanWeight}/>}
+                    {data.process.preWetting !== null && data.process.preWetting !== undefined &&
+                        <ListItem title="Попереднє змочування" description={data.process.preWetting ? 'Так' : 'Ні'}/>}
+                    {data.process.pressure &&
+                        <ListItem title="Тиск при заварюванні" description={data.process.pressure}/>}
+                </ListAccordion>
             </ScrollView>
         </Wrapper>
     );
@@ -33,6 +47,7 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         gap: GAP,
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
@@ -53,5 +68,10 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').width - PADDING_HORIZONTAL * 2,
         resizeMode: 'cover',
         borderRadius: BORDER_RADIUS,
+    },
+    description: {
+        fontSize: 16,
+        color: TEXT_COLOR,
+        fontStyle: 'italic',
     },
 });

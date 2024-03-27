@@ -1,11 +1,11 @@
 import {ImageSourcePropType, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {CurrentModelProps} from '../../../types/NavigationTypes';
-import {Wrapper} from '../../../utils/hoc/Wrapper';
+import {Wrapper} from '../../../utils/components/Wrapper';
 import {Icon, List} from 'react-native-paper';
-import {ListItem} from '../../../utils/hoc/ListItem';
+import {ListItem} from '../../../utils/components/ListItem';
 import {createStringFromArray} from '../../../utils/util-functions/createStringFromArray';
 import {convertBooleanToString} from '../../../utils/util-functions/convertBooleanToString';
-import {ListAccordion} from '../../../utils/hoc/ListAccordion';
+import {ListAccordion} from '../../../utils/components/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
 import {

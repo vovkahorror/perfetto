@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import {Technology} from '../../../store/data/technologies';
-import {ListAccordion} from '../../../utils/hoc/ListAccordion';
+import {ListAccordion} from '../../../utils/components/ListAccordion';
 import {
     BACKGROUND_COLOR,
     BORDER_RADIUS,
@@ -13,7 +13,7 @@ import {
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
 import * as ScreenOrientation from 'expo-screen-orientation';
-import {ImageWithLoading} from '../../../utils/hoc/ImageWithLoading';
+import {ImageWithLoading} from '../../../utils/components/ImageWithLoading';
 import {v1} from 'react-native-uuid/dist/v1';
 
 export const TechnologyItem = ({item}: TechnologyItemProps) => {
