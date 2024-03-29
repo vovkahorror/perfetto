@@ -8,9 +8,11 @@ export class Drink {
 export class HotCoffeeDrink extends Drink {
     public data: {
         process: {
-            beanWeight: number | string;
-            preWetting: boolean;
-            pressure: string;
+            general: {
+                beanWeight: number | string;
+                preWetting: boolean;
+                pressure: string;
+            }
         };
         result: {
             volume: string;
@@ -33,9 +35,11 @@ export class HotCoffeeDrink extends Drink {
         this.data = data
             ? {
                 process: {
-                    beanWeight: data.beanWeight,
-                    preWetting: data.preWetting,
-                    pressure: data.pressure,
+                    general: {
+                        beanWeight: data.beanWeight,
+                        preWetting: data.preWetting,
+                        pressure: data.pressure,
+                    },
                 },
                 result: {
                     volume: data.volume,
@@ -170,10 +174,12 @@ export const VERLANGERTER = new HotCoffeeDrink('Verlängerter',
 export class HotMilkDrink extends Drink {
     public data: {
         process: {
-            coffee?: string;
-            milk: string;
-            milkFoam: string;
-            submission?: string;
+            general: {
+                coffee?: string;
+                milk: string;
+                milkFoam: string;
+                submission?: string;
+            }
         };
         result: {
             volume: string;
@@ -197,10 +203,12 @@ export class HotMilkDrink extends Drink {
         this.data = data
             ? {
                 process: {
-                    coffee: data.coffee,
-                    milk: data.milk,
-                    milkFoam: data.milkFoam,
-                    submission: data.submission,
+                    general: {
+                        coffee: data.coffee,
+                        milk: data.milk,
+                        milkFoam: data.milkFoam,
+                        submission: data.submission,
+                    },
                 },
                 result: {
                     volume: data.volume,
@@ -404,6 +412,9 @@ export const CAFE_CON_LECHE = new HotMilkDrink('Café con Leche',
 export class ColdCoffeeDrink extends Drink {
     public data: {
         process: {
+            general?: {
+                extraction?: string;
+            },
             ice?: {
                 coffee: string;
                 water?: string;
@@ -432,7 +443,6 @@ export class ColdCoffeeDrink extends Drink {
                 coffee: string;
                 iceCubes: string;
             },
-            extraction?: string;
         };
         result: {
             volume: string;
@@ -444,6 +454,9 @@ export class ColdCoffeeDrink extends Drink {
                 public description: string,
                 public imageUrl: string,
                 data: {
+                    general?: {
+                        extraction?: string;
+                    },
                     ice?: {
                         coffee: string,
                         water?: string,
@@ -481,6 +494,11 @@ export class ColdCoffeeDrink extends Drink {
         this.data = data
             ? {
                 process: {
+                    general: data.general
+                        ? {
+                            extraction: data.general.extraction,
+                        }
+                        : undefined,
                     ice: data.ice
                         ? {
                             coffee: data.ice.coffee,
@@ -521,7 +539,6 @@ export class ColdCoffeeDrink extends Drink {
                             iceCubes: data.bigCup.iceCubes,
                         }
                         : undefined,
-                    extraction: data.extraction,
                 },
                 result: {
                     volume: data.volume,
@@ -575,6 +592,9 @@ export const COLD_BREW = new ColdCoffeeDrink('Cold Brew',
     'Чашка освіжаючого напою Cold Brew, приготованого за кімнатної температури менше ніж за 5 хвилин, подається з льодом.',
     'https://www.dropbox.com/scl/fi/0ub7np9e7oe7gq7pcii6d/cold-brew.webp?rlkey=5e2mdwnkpklh3ubj9pynr6ox9&dl=0&raw=1',
     {
+        general: {
+            extraction: 'Порційне надходження води кімнатної температури у заварювальний блок під низьким тиском',
+        },
         original: {
             beanWeight: 11.5,
             coffee: '120 мл',
@@ -585,7 +605,6 @@ export const COLD_BREW = new ColdCoffeeDrink('Cold Brew',
             coffee: '120 мл',
             iceCubes: '6 (95 мл)',
         },
-        extraction: 'Порційне надходження води кімнатної температури у заварювальний блок під низьким тиском',
         volume: '180 мл',
         appearance: 'Чашка освіжаючого напою Cold Brew, приготованого за кімнатної температури',
     });
@@ -594,6 +613,9 @@ export const COLD_BREW_TO_MIX = new ColdCoffeeDrink('Cold Brew to Mix',
     'Концентрований напій Cold Brew ідеально підходить для змішування з іншими інгредієнтами.',
     'https://www.dropbox.com/scl/fi/mxr2m6lc2itpar1fb1xpr/cold-brew-to-mix.webp?rlkey=hc6downsxkh2bszbvff6eupxn&dl=0&raw=1',
     {
+        general: {
+            extraction: 'Порційне надходження води кімнатної температури у заварювальний блок під дуже низьким тиском',
+        },
         original: {
             beanWeight: 12,
             coffee: '60 мл',
@@ -604,7 +626,6 @@ export const COLD_BREW_TO_MIX = new ColdCoffeeDrink('Cold Brew to Mix',
             coffee: '60 мл',
             iceCubes: '6 (95 мл)',
         },
-        extraction: 'Порційне надходження води кімнатної температури у заварювальний блок під дуже низьким тиском',
         volume: 'Близько 255 мл (Загальний об\'єм залежить від інших інгредієнтів, що додаються для створення коктейлів: сиропів, тоніків тощо)',
         appearance: 'Напій-база для створення коктейлів та інших креативних рецептів',
     });
@@ -613,6 +634,9 @@ export const COLD_BREW_POT = new ColdCoffeeDrink('Cold Brew Pot',
     'Приготуйте до 6 порцій холодних напоїв поспіль прямо в кавник, щоб розділити задоволення від освіжаючої кави.',
     'https://www.dropbox.com/scl/fi/njvixl8w9w0sk4oxh1f6a/cold-brew-pot.webp?rlkey=5amquf26s2ue0wln1mx25uyyy&dl=0&raw=1',
     {
+        general: {
+            extraction: 'Порційне надходження води кімнатної температури у заварювальний блок під дуже низьким тиском',
+        },
         original: {
             coffee: '120 мл',
             iceCubes: 'До 4 кубиків льоду, можна покласти безпосередньо у келих',
@@ -621,7 +645,6 @@ export const COLD_BREW_POT = new ColdCoffeeDrink('Cold Brew Pot',
             coffee: '120 мл',
             iceCubes: 'До 4 кубиків льоду, можна покласти безпосередньо у келих',
         },
-        extraction: 'Порційне надходження води кімнатної температури у заварювальний блок під дуже низьким тиском',
         volume: 'До 720 мл',
         appearance: 'Величезна порція освіжаючої кави',
     });
@@ -669,6 +692,11 @@ export const COLD_COFFEE_MIX_CARAFE = new ColdCoffeeDrink('Cold Coffee (MixCaraf
 export class ColdMilkDrink extends Drink {
     public data: {
         process: {
+            general?: {
+                extraction?: string;
+                milkFoam?: string;
+                submission?: string;
+            },
             ice?: {
                 coffee?: string;
                 milk?: string;
@@ -693,7 +721,6 @@ export class ColdMilkDrink extends Drink {
             bigCup?: {
                 milk: string;
             },
-            extraction?: string,
         };
         result: {
             volume: string;
@@ -705,6 +732,11 @@ export class ColdMilkDrink extends Drink {
                 public description: string,
                 public imageUrl: string,
                 data: {
+                    general?: {
+                        extraction?: string,
+                        milkFoam?: string,
+                        submission?: string,
+                    },
                     ice?: {
                         coffee?: string,
                         milk?: string,
@@ -729,9 +761,6 @@ export class ColdMilkDrink extends Drink {
                     bigCup?: {
                         milk: string,
                     },
-                    extraction?: string,
-                    milkFoam?: string,
-                    submission?: string,
                     volume: string,
                     appearance: string
                 } | null) {
@@ -740,6 +769,13 @@ export class ColdMilkDrink extends Drink {
         this.data = data
             ? {
                 process: {
+                    general: data.general
+                        ? {
+                            extraction: data.general.extraction,
+                            milkFoam: data.general.milkFoam,
+                            submission: data.general.submission,
+                        }
+                        : undefined,
                     ice: data.ice
                         ? {
                             coffee: data.ice.coffee,
@@ -776,7 +812,6 @@ export class ColdMilkDrink extends Drink {
                             milk: data.bigCup.milk,
                         }
                         : undefined,
-                    extraction: data.extraction,
                 },
                 result: {
                     volume: data.volume,
@@ -791,6 +826,10 @@ export const COLD_CAPPUCCINO = new ColdMilkDrink('Cold Cappuccino',
     'Капучино з молоком, спіненим за допомогою карафки De’Longhi LatteCrema Cool та максимальним рівнем піни, подається з льодом для ще більш освіжаючого смаку.',
     'https://www.dropbox.com/scl/fi/lh2d5mi7ypim8y4gz2hmc/cold-cappuccino.webp?rlkey=k48pr458tcipcmzrfuu0zo2pa&dl=0&raw=1',
     {
+        general: {
+            milkFoam: 'Максимальний рівень',
+            submission: 'Лід, спершу молоко, потім кава',
+        },
         ice: {
             coffee: '65 мл (65 г)',
             milk: '165 мл (100 г)',
@@ -801,8 +840,6 @@ export const COLD_CAPPUCCINO = new ColdMilkDrink('Cold Cappuccino',
             milk: '145 мл (85 г)',
             iceCubes: '8 (125 мл)',
         },
-        milkFoam: 'Максимальний рівень',
-        submission: 'Лід, спершу молоко, потім кава',
         volume: '325 мл',
         appearance: 'Окремі шари холодної піни, кави та молока. Кубики льоду для більш освіжаючого напою',
     });
@@ -811,6 +848,10 @@ export const COLD_CAPPUCCINO_MIX = new ColdMilkDrink('Cold Cappuccino Mix',
     'Капучино-мікс з молоком, спіненим за допомогою карафки De’Longhi LatteCrema Cool та максимальним рівнем піни, подається з льодом для ще більш освіжаючого смаку.',
     'https://www.dropbox.com/scl/fi/z25x6c5jlzkjy3q121oef/cold-cappuccino-mix.webp?rlkey=8oj26x6w3kli5j1oqwsngd1kp&dl=0&raw=1',
     {
+        general: {
+            milkFoam: 'Максимальний рівень',
+            submission: 'Лід, спершу кава, потім молоко',
+        },
         ice: {
             coffee: '65 мл (65 г)',
             milk: '165 мл (100 г)',
@@ -821,8 +862,6 @@ export const COLD_CAPPUCCINO_MIX = new ColdMilkDrink('Cold Cappuccino Mix',
             milk: '145 мл (85 г)',
             iceCubes: '8 (125 мл)',
         },
-        milkFoam: 'Максимальний рівень',
-        submission: 'Лід, спершу кава, потім молоко',
         volume: '325 мл',
         appearance: 'Рівномірно-коричневий, еспресо, змішаний із холодним молоком та піною. Кубики льоду доповнюють напій',
     });
@@ -831,6 +870,10 @@ export const COLD_LATTE_MACCHIATO = new ColdMilkDrink('Cold Latte Macchiato',
     'Лате-мак\'ято з молоком, спіненим за допомогою карафки De’Longhi LatteCrema Cool та середнім рівнем піни, подається з льодом, щоб зробити вашу каву-брейк ще більш освіжаючою.',
     'https://www.dropbox.com/scl/fi/8lcifi96fry2xsiiq0b34/cold-latte-macchiato.webp?rlkey=p9zi5287fm4zm85aonqabza8q&dl=0&raw=1',
     {
+        general: {
+            milkFoam: 'Середній рівень',
+            submission: 'Лід, спершу молоко, потім кава',
+        },
         ice: {
             coffee: '65 мл (65 г)',
             milk: '250 мл (175 г)',
@@ -841,8 +884,6 @@ export const COLD_LATTE_MACCHIATO = new ColdMilkDrink('Cold Latte Macchiato',
             milk: '230 мл (160 г)',
             iceCubes: '8 (125 мл)',
         },
-        milkFoam: 'Середній рівень',
-        submission: 'Лід, спершу молоко, потім кава',
         volume: '410 мл (Ice) / 415 мл (Extra Ice)',
         appearance: 'Розділені шари молока, кави та холодної молочної піни. Кубики льоду для більш освіжаючого молочного напою',
     });
@@ -851,6 +892,10 @@ export const COLD_CAFFELATTE = new ColdMilkDrink('Cold Caffelatte',
     'Лате з молоком, спіненим за допомогою карафки De’Longhi LatteCrema Cool і мінімальним рівнем піни, подається з льодом для створення молочного напою, що охолоджує.',
     'https://www.dropbox.com/scl/fi/czh65enlvsnjzg85g51f9/cold-caffelatte.webp?rlkey=7gvxvtdhvd8ie5lkxotdqbk64&dl=0&raw=1',
     {
+        general: {
+            milkFoam: 'Мінімальний рівень',
+            submission: 'Лід, спершу кава, потім молоко',
+        },
         ice: {
             coffee: '65 мл (65 г)',
             milk: '245 мл (230 )',
@@ -861,8 +906,6 @@ export const COLD_CAFFELATTE = new ColdMilkDrink('Cold Caffelatte',
             milk: '225 мл (210 г)',
             iceCubes: '8 (125 мл)',
         },
-        milkFoam: 'Мінімальний рівень',
-        submission: 'Лід, спершу кава, потім молоко',
         volume: '405 мл (Ice) / 410 мл (Extra Ice)',
         appearance: 'Об\'ємний молочно-кавовий напій із мінімальним шаром холодної піни. Додайте кубики льоду, щоб зробити його холоднішим та більш освіжаючим',
     });
@@ -871,6 +914,10 @@ export const COLD_FLAT_WHITE = new ColdMilkDrink('Cold Flat White',
     'Флет-вайт з молоком, спіненим за допомогою карафки De’Longhi LatteCrema Cool, та середнім рівнем бархатистої піни, подається з льодом для надання освіжаючого смаку.',
     'https://www.dropbox.com/scl/fi/ozel3ha1uvcghv231mn4u/cold-flat-white.webp?rlkey=bkp80fap0y2pipu2r4tb35ary&dl=0&raw=1',
     {
+        general: {
+            milkFoam: 'Середній рівень',
+            submission: 'Лід, спершу кава, потім молоко',
+        },
         ice: {
             coffee: '65 мл (65 г)',
             milk: '166 мл (115 г)',
@@ -881,8 +928,6 @@ export const COLD_FLAT_WHITE = new ColdMilkDrink('Cold Flat White',
             milk: '144 мл (100 г)',
             iceCubes: '8 (125 мл)',
         },
-        milkFoam: 'Середній рівень',
-        submission: 'Лід, спершу кава, потім молоко',
         volume: '320 мл',
         appearance: 'Еспресо з мікропінкою (пропарене холодне молоко з дрібними бульбашками та глянсовою або бархатистою консистенцією) та кубиками льоду, щоб зробити його освіжаючим',
     });
@@ -891,6 +936,9 @@ export const COLD_MILK = new ColdMilkDrink('Cold Milk',
     'Холодне молоко, спінене за допомогою карафки De’Longhi LatteCrema Cool з максимальним рівнем піни, змішане з кубиками льоду для отримання прохолодного молочного напою.',
     'https://www.dropbox.com/scl/fi/p18fh6enowi5n8uu79vkm/cold-milk.webp?rlkey=o2v53quwri8mrf1vtgmrtfj8o&dl=0&raw=1',
     {
+        general: {
+            milkFoam: 'Максимальний рівень',
+        },
         ice: {
             milk: '305 мл (185 г)',
             iceCubes: '6 (95 мл)',
@@ -899,7 +947,6 @@ export const COLD_MILK = new ColdMilkDrink('Cold Milk',
             milk: '275 мл (165 г)',
             iceCubes: '8 (125 мл)',
         },
-        milkFoam: 'Максимальний рівень',
         volume: '400 мл',
         appearance: 'Освіжаюче молоко з молочною пінкою',
     });
@@ -908,6 +955,11 @@ export const COLD_BREW_CAPPUCCINO = new ColdMilkDrink('Cold Brew Cappuccino',
     'Насичений холодний напій із вершковою пінкою з холодного молока для освіжаючого задоволення.',
     'https://www.dropbox.com/scl/fi/tsn4ni7mu3w9xhyeoblrf/cold-brew-cappuccino.webp?rlkey=ipp74l3poy76xqhys6uljseha&dl=0&raw=1',
     {
+        general: {
+            extraction: 'Порційне надходження води кімнатної температури до заварювального блоку під дуже низьким тиском',
+            milkFoam: 'Максимальний рівень',
+            submission: 'Лід, кава холодної екстракції, холодне спінене молоко',
+        },
         original: {
             coffee: '120 мл',
             iceCubes: '4 (60 мл)',
@@ -916,9 +968,6 @@ export const COLD_BREW_CAPPUCCINO = new ColdMilkDrink('Cold Brew Cappuccino',
             coffee: '120 мл',
             iceCubes: '6 (95 мл)',
         },
-        extraction: 'Порційне надходження води кімнатної температури до заварювального блоку під дуже низьким тиском',
-        milkFoam: 'Максимальний рівень',
-        submission: 'Лід, кава холодної екстракції, холодне спінене молоко',
         volume: '180 мл',
         appearance: 'Багатошаровий напій з густою піною',
     });
@@ -927,6 +976,11 @@ export const COLD_BREW_LATTE = new ColdMilkDrink('Cold Brew Latte',
     'Освіжаючий напій холодної екстракції, який подається з вершковою, холодною молочною пінкою.',
     'https://www.dropbox.com/scl/fi/1nzzd8txd59g3k75hzv42/cold-brew-latte.webp?rlkey=dgzwslf68kxawpdtxssw8ylvg&dl=0&raw=1',
     {
+        general: {
+            extraction: 'Порційне надходження води кімнатної температури до заварювального блоку під дуже низьким тиском',
+            milkFoam: 'Середній рівень',
+            submission: 'Лід, кава холодної екстракції, холодне спінене молоко',
+        },
         original: {
             coffee: '120 мл',
             iceCubes: '4 (60 мл)',
@@ -935,9 +989,6 @@ export const COLD_BREW_LATTE = new ColdMilkDrink('Cold Brew Latte',
             coffee: '120 мл',
             iceCubes: '6 (95 мл)',
         },
-        extraction: 'Порційне надходження води кімнатної температури до заварювального блоку під дуже низьким тиском',
-        milkFoam: 'Середній рівень',
-        submission: 'Лід, кава холодної екстракції, холодне спінене молоко',
         volume: '443 мл',
         appearance: 'Двошаровий напій з вершковою піною',
     });
@@ -1033,56 +1084,59 @@ export type OtherDrinksType = Array<Drink | TeaFunction>;
 export type DrinksDataPropertyType = {
     data: {
         process: {
-            beanWeight: number | string;
-            preWetting: boolean;
-            pressure: string;
-            coffee?: string;
-            milk: string;
-            milkFoam: string;
-            submission?: string;
+            general: {
+                beanWeight: number | string;
+                preWetting: boolean;
+                pressure: string;
+                coffee?: string;
+                extraction?: string;
+                milk: string;
+                milkFoam: string;
+                submission?: string;
+            };
             ice?: {
                 coffee: string;
                 water?: string;
                 milk?: string;
                 iceCubes: string;
-            },
+            };
             extraIce?: {
                 coffee: string;
                 water?: string;
                 milk?: string;
                 iceCubes: string;
-            },
+            };
             original?: {
                 beanWeight?: number | string;
                 coffee: string;
                 iceCubes: string;
-            },
+            };
             intense?: {
                 beanWeight?: number | string;
                 coffee: string;
                 iceCubes: string;
-            },
+            };
             littleCup?: {
                 coffee: string;
                 iceCubes: string;
                 milk: string;
-            },
+            };
             bigCup?: {
                 coffee: string;
                 iceCubes: string;
                 milk: string;
-            },
+            };
             extraction?: string;
-            white: Tea,
-            green: Tea,
-            black: Tea,
-            oolong: Tea,
+            white: Tea;
+            green: Tea;
+            black: Tea;
+            oolong: Tea;
         };
         result: {
             volume: string;
             appearance: string;
         };
     }
-}| null;
+} | null;
 
 

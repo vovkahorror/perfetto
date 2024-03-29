@@ -4,8 +4,8 @@ import {List} from 'react-native-paper';
 import {BORDER_RADIUS, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../constants/constants';
 import {IconSource} from 'react-native-paper/lib/typescript/components/Icon';
 
-export const ListAccordion: FC<Props & CustomProps> = ({icon, ...props}) => {
-    const [isExpanded, setIsExpanded] = useState(false);
+export const ListAccordion: FC<Props & CustomProps> = ({icon, expanded, ...props}) => {
+    const [isExpanded, setIsExpanded] = useState(expanded !== undefined ? expanded : false);
 
     const currentColor = isExpanded ? TEXT_FOCUS_COLOR : TEXT_COLOR;
 
@@ -28,4 +28,5 @@ export const ListAccordion: FC<Props & CustomProps> = ({icon, ...props}) => {
 
 interface CustomProps {
     icon?: IconSource;
+    expanded?: boolean;
 }

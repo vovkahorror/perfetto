@@ -26,29 +26,59 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
     return (
         <Wrapper>
             <View style={styles.container}>
-                <ScrollView>
+                <ScrollView contentContainerStyle={styles.contentContainerStyle}>
                     <Text style={styles.name}>{name}</Text>
                     <ImageWithLoading styles={styles.image} source={{uri: imageUrl}}/>
                     <Text style={styles.description}>{description}</Text>
 
-                    <ListAccordion
-                        title="Процес приготування"
-                        icon="eyedropper">
-                        <ListItemWithCheck title="Вага кавових зерен, г" description={data.process.beanWeight}/>
-                        <ListItemWithCheck title="Попереднє змочування" description={data.process.preWetting}/>
-                        <ListItemWithCheck title="Тиск при заварюванні" description={data.process.pressure}/>
-                        <ListItemWithCheck title="Об'єм кави" description={data.process.coffee}/>
-                        <ListItemWithCheck title="Об'єм молока" description={data.process.milk}/>
-                        <ListItemWithCheck title="Молочна пінка" description={data.process.milkFoam}/>
-                        <ListItemWithCheck title="Порядок подачі" description={data.process.submission}/>
-                    </ListAccordion>
+                    {data && data.process && data.process.general &&
+                        <ListAccordion
+                            title="Процес приготування"
+                            icon="magic-staff"
+                            expanded>
+                            <ListItemWithCheck title="Вага кавових зерен, г"
+                                               description={data.process.general.beanWeight}/>
+                            <ListItemWithCheck title="Попереднє змочування"
+                                               description={data.process.general.preWetting}/>
+                            <ListItemWithCheck title="Тиск при заварюванні"
+                                               description={data.process.general.pressure}/>
+                            <ListItemWithCheck title="Об'єм кави" description={data.process.general.coffee}/>
+                            <ListItemWithCheck title="Екстракція" description={data.process.general.extraction}/>
+                            <ListItemWithCheck title="Об'єм молока" description={data.process.general.milk}/>
+                            <ListItemWithCheck title="Молочна пінка" description={data.process.general.milkFoam}/>
+                            <ListItemWithCheck title="Порядок подачі" description={data.process.general.submission}/>
+                        </ListAccordion>}
 
-                    <ListAccordion
-                        title="Результат"
-                        icon="coffee-to-go">
-                        <ListItemWithCheck title="Об'єм" description={data.result.volume}/>
-                        <ListItemWithCheck title="Зовнішній вигляд" description={data.result.appearance}/>
-                    </ListAccordion>
+                    {data && data.process && data.process.ice &&
+                        <ListAccordion
+                            title="Ice"
+                            icon="hexagon-slice-3"
+                            expanded>
+                            <ListItemWithCheck title="Об'єм кави" description={data.process.ice.coffee}/>
+                            <ListItemWithCheck title="Об'єм води" description={data.process.ice.water}/>
+                            <ListItemWithCheck title="Об'єм молока" description={data.process.ice.milk}/>
+                            <ListItemWithCheck title="Кубики льоду" description={data.process.ice.iceCubes}/>
+                        </ListAccordion>}
+
+                    {data && data.process && data.process.extraIce &&
+                        <ListAccordion
+                            title="Extra Ice"
+                            icon="hexagon-slice-6"
+                            expanded>
+                            <ListItemWithCheck title="Об'єм кави" description={data.process.extraIce.coffee}/>
+                            <ListItemWithCheck title="Об'єм води" description={data.process.extraIce.water}/>
+                            <ListItemWithCheck title="Об'єм молока" description={data.process.extraIce.milk}/>
+                            <ListItemWithCheck title="Кубики льоду" description={data.process.extraIce.iceCubes}/>
+                        </ListAccordion>}
+
+                    {data && data.result &&
+                        <ListAccordion
+                            title="Результат"
+                            icon="coffee-to-go"
+                            expanded>
+                            <ListItemWithCheck title="Об'єм" description={data.result.volume}/>
+                            <ListItemWithCheck title="Зовнішній вигляд" description={data.result.appearance}/>
+                        </ListAccordion>}
                 </ScrollView>
             </View>
         </Wrapper>
@@ -72,11 +102,13 @@ const ListItemWithCheck = ({title, description, ...props}: {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        gap: GAP,
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
         backgroundColor: BACKGROUND_COLOR,
         borderRadius: BORDER_RADIUS,
+    },
+    contentContainerStyle: {
+        gap: GAP,
     },
     name: {
         fontSize: 24,
