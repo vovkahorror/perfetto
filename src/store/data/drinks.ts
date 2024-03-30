@@ -412,7 +412,7 @@ export const CAFE_CON_LECHE = new HotMilkDrink('Café con Leche',
 export class ColdCoffeeDrink extends Drink {
     public data: {
         process: {
-            general?: {
+            general: {
                 extraction?: string;
             },
             ice?: {
@@ -494,11 +494,9 @@ export class ColdCoffeeDrink extends Drink {
         this.data = data
             ? {
                 process: {
-                    general: data.general
-                        ? {
-                            extraction: data.general.extraction,
-                        }
-                        : undefined,
+                    general: {
+                            extraction: data.general?.extraction,
+                        },
                     ice: data.ice
                         ? {
                             coffee: data.ice.coffee,

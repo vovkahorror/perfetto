@@ -12,8 +12,8 @@ import {
 import {CurrentDrinkProps} from '../../../types/NavigationTypes';
 import {DrinksDataPropertyType, DrinkType} from '../../../store/data/drinks';
 import {ImageWithLoading} from '../../../utils/components/ImageWithLoading';
-import {ListItem} from '../../../utils/components/ListItem';
 import {ListAccordion} from '../../../utils/components/ListAccordion';
+import {ListItemWithCheck} from '../../../utils/components/ListItemWithCheck';
 
 export const CurrentDrink = ({route}: CurrentDrinkProps) => {
     const {
@@ -35,7 +35,32 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                         <ListAccordion
                             title="Процес приготування"
                             icon="magic-staff"
-                            expanded>
+                            expanded
+                        >
+                            {data && data.process && data.process.ice &&
+                                <ListAccordion
+                                    title="Ice"
+                                    icon="hexagon-slice-3"
+                                    expanded
+                                >
+                                    <ListItemWithCheck title="Об'єм кави" description={data.process.ice.coffee}/>
+                                    <ListItemWithCheck title="Об'єм води" description={data.process.ice.water}/>
+                                    <ListItemWithCheck title="Об'єм молока" description={data.process.ice.milk}/>
+                                    <ListItemWithCheck title="Кубики льоду" description={data.process.ice.iceCubes}/>
+                                </ListAccordion>}
+
+                            {data && data.process && data.process.extraIce &&
+                                <ListAccordion
+                                    title="Extra Ice"
+                                    icon="hexagon-slice-6"
+                                    expanded
+                                >
+                                    <ListItemWithCheck title="Об'єм кави" description={data.process.extraIce.coffee}/>
+                                    <ListItemWithCheck title="Об'єм води" description={data.process.extraIce.water}/>
+                                    <ListItemWithCheck title="Об'єм молока" description={data.process.extraIce.milk}/>
+                                    <ListItemWithCheck title="Кубики льоду" description={data.process.extraIce.iceCubes}/>
+                                </ListAccordion>}
+
                             <ListItemWithCheck title="Вага кавових зерен, г"
                                                description={data.process.general.beanWeight}/>
                             <ListItemWithCheck title="Попереднє змочування"
@@ -49,28 +74,6 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                             <ListItemWithCheck title="Порядок подачі" description={data.process.general.submission}/>
                         </ListAccordion>}
 
-                    {data && data.process && data.process.ice &&
-                        <ListAccordion
-                            title="Ice"
-                            icon="hexagon-slice-3"
-                            expanded>
-                            <ListItemWithCheck title="Об'єм кави" description={data.process.ice.coffee}/>
-                            <ListItemWithCheck title="Об'єм води" description={data.process.ice.water}/>
-                            <ListItemWithCheck title="Об'єм молока" description={data.process.ice.milk}/>
-                            <ListItemWithCheck title="Кубики льоду" description={data.process.ice.iceCubes}/>
-                        </ListAccordion>}
-
-                    {data && data.process && data.process.extraIce &&
-                        <ListAccordion
-                            title="Extra Ice"
-                            icon="hexagon-slice-6"
-                            expanded>
-                            <ListItemWithCheck title="Об'єм кави" description={data.process.extraIce.coffee}/>
-                            <ListItemWithCheck title="Об'єм води" description={data.process.extraIce.water}/>
-                            <ListItemWithCheck title="Об'єм молока" description={data.process.extraIce.milk}/>
-                            <ListItemWithCheck title="Кубики льоду" description={data.process.extraIce.iceCubes}/>
-                        </ListAccordion>}
-
                     {data && data.result &&
                         <ListAccordion
                             title="Результат"
@@ -82,20 +85,6 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                 </ScrollView>
             </View>
         </Wrapper>
-    );
-};
-
-const ListItemWithCheck = ({title, description, ...props}: {
-    title: string,
-    description?: string | number | boolean
-}) => {
-    const simplifiedDescription = typeof description === 'boolean' ? (description ? 'Так' : 'Ні') : description;
-
-    return (
-        <>
-            {description !== null && description !== undefined &&
-                <ListItem title={title} description={simplifiedDescription} {...props}/>}
-        </>
     );
 };
 
