@@ -1,9 +1,8 @@
 import {ListItem} from './ListItem';
+import {FC} from 'react';
+import {Props} from 'react-native-paper/src/components/List/ListItem';
 
-export const ListItemWithCheck = ({title, description, ...props}: {
-    title: string,
-    description?: string | number | boolean
-}) => {
+export const ListItemWithCheck: FC<CustomProps & Props> = ({title, description, ...props}) => {
     const simplifiedDescription = typeof description === 'boolean' ? (description ? 'Так' : 'Ні') : description;
 
     return (
@@ -13,3 +12,8 @@ export const ListItemWithCheck = ({title, description, ...props}: {
         </>
     );
 };
+
+interface CustomProps {
+    title: string;
+    description?: string | number | boolean;
+}
