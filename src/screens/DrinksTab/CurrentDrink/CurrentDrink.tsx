@@ -35,31 +35,37 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                         <ListAccordion
                             title="Процес приготування"
                             icon="magic-staff"
-                            expanded
-                        >
+                            expanded>
                             {data && data.process && data.process.ice &&
-                                <ListAccordion
-                                    title="Ice"
-                                    icon="hexagon-slice-3"
-                                    expanded
-                                >
-                                    <ListItemWithCheck title="Об'єм кави" description={data.process.ice.coffee}/>
-                                    <ListItemWithCheck title="Об'єм води" description={data.process.ice.water}/>
-                                    <ListItemWithCheck title="Об'єм молока" description={data.process.ice.milk}/>
-                                    <ListItemWithCheck title="Кубики льоду" description={data.process.ice.iceCubes}/>
-                                </ListAccordion>}
+                                <View>
+                                    <ListAccordion
+                                        title="Ice"
+                                        icon="hexagon-slice-3"
+                                        expanded>
+                                        <ListItemWithCheck title="Об'єм кави" description={data.process.ice.coffee}/>
+                                        <ListItemWithCheck title="Об'єм води" description={data.process.ice.water}/>
+                                        <ListItemWithCheck title="Об'єм молока" description={data.process.ice.milk}/>
+                                        <ListItemWithCheck title="Кубики льоду"
+                                                           description={data.process.ice.iceCubes}/>
+                                    </ListAccordion>
+                                </View>}
 
                             {data && data.process && data.process.extraIce &&
-                                <ListAccordion
-                                    title="Extra Ice"
-                                    icon="hexagon-slice-6"
-                                    expanded
-                                >
-                                    <ListItemWithCheck title="Об'єм кави" description={data.process.extraIce.coffee}/>
-                                    <ListItemWithCheck title="Об'єм води" description={data.process.extraIce.water}/>
-                                    <ListItemWithCheck title="Об'єм молока" description={data.process.extraIce.milk}/>
-                                    <ListItemWithCheck title="Кубики льоду" description={data.process.extraIce.iceCubes}/>
-                                </ListAccordion>}
+                                <View>
+                                    <ListAccordion
+                                        title="Extra Ice"
+                                        icon="hexagon-slice-6"
+                                        expanded>
+                                        <ListItemWithCheck title="Об'єм кави"
+                                                           description={data.process.extraIce.coffee}/>
+                                        <ListItemWithCheck title="Об'єм води"
+                                                           description={data.process.extraIce.water}/>
+                                        <ListItemWithCheck title="Об'єм молока"
+                                                           description={data.process.extraIce.milk}/>
+                                        <ListItemWithCheck title="Кубики льоду"
+                                                           description={data.process.extraIce.iceCubes}/>
+                                    </ListAccordion>
+                                </View>}
 
                             <ListItemWithCheck title="Вага кавових зерен, г"
                                                description={data.process.general.beanWeight}/>
