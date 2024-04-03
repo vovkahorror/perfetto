@@ -35,13 +35,15 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                         <ListAccordion
                             title="Процес приготування"
                             icon="magic-staff"
-                            expanded>
+                            expanded
+                        >
                             {data && data.process && data.process.ice &&
                                 <View>
                                     <ListAccordion
                                         title="Ice"
-                                        icon="hexagon-slice-3"
-                                        expanded>
+                                        icon="hexagon"
+                                        expanded
+                                    >
                                         <ListItemWithCheck title="Об'єм кави" description={data.process.ice.coffee}/>
                                         <ListItemWithCheck title="Об'єм води" description={data.process.ice.water}/>
                                         <ListItemWithCheck title="Об'єм молока" description={data.process.ice.milk}/>
@@ -54,8 +56,9 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                 <View>
                                     <ListAccordion
                                         title="Extra Ice"
-                                        icon="hexagon-slice-6"
-                                        expanded>
+                                        icon="hexagon-multiple"
+                                        expanded
+                                    >
                                         <ListItemWithCheck title="Об'єм кави"
                                                            description={data.process.extraIce.coffee}/>
                                         <ListItemWithCheck title="Об'єм води"
@@ -64,6 +67,32 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                                            description={data.process.extraIce.milk}/>
                                         <ListItemWithCheck title="Кубики льоду"
                                                            description={data.process.extraIce.iceCubes}/>
+                                    </ListAccordion>
+                                </View>}
+
+                            {data && data.process && data.process.original &&
+                                <View>
+                                    <ListAccordion
+                                        title="Original"
+                                        icon="check-circle"
+                                        expanded
+                                    >
+                                        <ListItemWithCheck title="Вага кавових зерен, г" description={data.process.original.beanWeight}/>
+                                        <ListItemWithCheck title="Об'єм кави" description={data.process.original.coffee}/>
+                                        <ListItemWithCheck title="Кубики льоду" description={data.process.original.iceCubes}/>
+                                    </ListAccordion>
+                                </View>}
+
+                            {data && data.process && data.process.intense &&
+                                <View>
+                                    <ListAccordion
+                                        title="Intense"
+                                        icon="plus-circle"
+                                        expanded
+                                    >
+                                        <ListItemWithCheck title="Вага кавових зерен, г" description={data.process.intense.beanWeight}/>
+                                        <ListItemWithCheck title="Об'єм кави" description={data.process.intense.coffee}/>
+                                        <ListItemWithCheck title="Кубики льоду" description={data.process.intense.iceCubes}/>
                                     </ListAccordion>
                                 </View>}
 

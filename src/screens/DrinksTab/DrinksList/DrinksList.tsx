@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: '700',
         textDecorationLine: 'underline',
-        fontStyle: 'italic',
         textAlign: 'center',
         color: TEXT_COLOR,
         textShadowColor: TEXT_SHADOW_COLOR,
