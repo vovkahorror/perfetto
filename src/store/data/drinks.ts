@@ -495,8 +495,8 @@ export class ColdCoffeeDrink extends Drink {
             ? {
                 process: {
                     general: {
-                            extraction: data.general?.extraction,
-                        },
+                        extraction: data.general?.extraction,
+                    },
                     ice: data.ice
                         ? {
                             coffee: data.ice.coffee,
@@ -767,13 +767,11 @@ export class ColdMilkDrink extends Drink {
         this.data = data
             ? {
                 process: {
-                    general: data.general
-                        ? {
-                            extraction: data.general.extraction,
-                            milkFoam: data.general.milkFoam,
-                            submission: data.general.submission,
-                        }
-                        : undefined,
+                    general: {
+                            extraction: data.general?.extraction,
+                            milkFoam: data.general?.milkFoam,
+                            submission: data.general?.submission,
+                        },
                     ice: data.ice
                         ? {
                             coffee: data.ice.coffee,
@@ -995,6 +993,7 @@ export const COLD_MILK_FOAM_MIX_CARAFE = new ColdMilkDrink('Cold Milk Foam (MixC
     'Холодне молоко спінене у MixCarafe',
     'https://www.dropbox.com/scl/fi/j4i9bt6ionetedf243iem/cold-milk-mix-carafe.webp?rlkey=9cqlqcdpyunuht6hiol792nfn&dl=0&raw=1',
     {
+        general: {},
         littleCup: {
             milk: '100 мл',
         },
@@ -1116,15 +1115,14 @@ export type DrinksDataPropertyType = {
             };
             littleCup?: {
                 coffee: string;
-                iceCubes: string;
                 milk: string;
+                iceCubes: string;
             };
             bigCup?: {
                 coffee: string;
-                iceCubes: string;
                 milk: string;
+                iceCubes: string;
             };
-            extraction?: string;
             white: Tea;
             green: Tea;
             black: Tea;

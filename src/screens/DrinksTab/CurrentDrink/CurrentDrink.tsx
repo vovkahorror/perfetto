@@ -96,6 +96,32 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                     </ListAccordion>
                                 </View>}
 
+                            {data && data.process && data.process.littleCup &&
+                                <View>
+                                    <ListAccordion
+                                        title="Маленька чашка"
+                                        icon="cup-outline"
+                                        expanded
+                                    >
+                                        <ListItemWithCheck title="Об'єм кави" description={data.process.littleCup.coffee}/>
+                                        <ListItemWithCheck title="Об'єм молока" description={data.process.littleCup.milk}/>
+                                        <ListItemWithCheck title="Кубики льоду" description={data.process.littleCup.iceCubes}/>
+                                    </ListAccordion>
+                                </View>}
+
+                            {data && data.process && data.process.bigCup &&
+                                <View>
+                                    <ListAccordion
+                                        title="Велика чашка"
+                                        icon="cup"
+                                        expanded
+                                    >
+                                        <ListItemWithCheck title="Об'єм кави" description={data.process.bigCup.coffee}/>
+                                        <ListItemWithCheck title="Об'єм молока" description={data.process.bigCup.milk}/>
+                                        <ListItemWithCheck title="Кубики льоду" description={data.process.bigCup.iceCubes}/>
+                                    </ListAccordion>
+                                </View>}
+
                             <ListItemWithCheck title="Вага кавових зерен, г"
                                                description={data.process.general.beanWeight}/>
                             <ListItemWithCheck title="Попереднє змочування"
