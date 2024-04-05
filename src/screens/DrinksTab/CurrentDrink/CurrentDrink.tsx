@@ -126,9 +126,10 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                                description={data.process.general.beanWeight}/>
                             <ListItemWithCheck title="Попереднє змочування"
                                                description={data.process.general.preWetting}/>
+                            <ListItemWithCheck title="Об'єм кави" description={data.process.general.coffee}/>
+                            <ListItemWithCheck title="Об'єм води" description={data.process.general.water}/>
                             <ListItemWithCheck title="Тиск при заварюванні"
                                                description={data.process.general.pressure}/>
-                            <ListItemWithCheck title="Об'єм кави" description={data.process.general.coffee}/>
                             <ListItemWithCheck title="Екстракція" description={data.process.general.extraction}/>
                             <ListItemWithCheck title="Об'єм молока" description={data.process.general.milk}/>
                             <ListItemWithCheck title="Молочна пінка" description={data.process.general.milkFoam}/>

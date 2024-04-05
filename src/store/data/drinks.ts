@@ -11,6 +11,8 @@ export class HotCoffeeDrink extends Drink {
             general: {
                 beanWeight: number | string;
                 preWetting: boolean;
+                coffee?: string;
+                water?: string;
                 pressure: string;
             }
         };
@@ -26,6 +28,8 @@ export class HotCoffeeDrink extends Drink {
                 data: {
                     beanWeight: number | string,
                     preWetting: boolean,
+                    coffee?: string,
+                    water?: string,
                     pressure: string,
                     volume: string,
                     appearance: string
@@ -38,6 +42,8 @@ export class HotCoffeeDrink extends Drink {
                     general: {
                         beanWeight: data.beanWeight,
                         preWetting: data.preWetting,
+                        coffee: data.coffee,
+                        water: data.water,
                         pressure: data.pressure,
                     },
                 },
@@ -133,8 +139,10 @@ export const AMERICANO = new HotCoffeeDrink('Americano',
     {
         beanWeight: 9,
         preWetting: true,
+        coffee: '50 мл (40 г)',
+        water: '110-160 мл',
         pressure: 'Високий (9-12 бар)',
-        volume: '160-210 мл (150-200 г): еспресо 50 мл (40 г) + гаряча вода 110-160 мл',
+        volume: '160-210 мл (150-200 г)',
         appearance: 'Майже немає пінки крема після додавання гарячої води',
     });
 
@@ -155,8 +163,10 @@ export const LONG_BLACK = new HotCoffeeDrink('Long Black',
     {
         beanWeight: 12.5,
         preWetting: true,
+        coffee: '90 мл (80 г)',
+        water: '120 мл',
         pressure: 'Високий (9-12 бар)',
-        volume: '210 мл (200 г): еспресо 90 мл (80 г) + гаряча вода (120 мл)',
+        volume: '210 мл (200 г)',
         appearance: 'Більш тонка крема та легкий смак еспресо',
     });
 
@@ -166,8 +176,10 @@ export const VERLANGERTER = new HotCoffeeDrink('Verlängerter',
     {
         beanWeight: 9,
         preWetting: true,
+        coffee: '50 мл (40 г)',
+        water: '40 мл',
         pressure: 'Високий (9-12 бар)',
-        volume: '90 мл (80 г): еспресо 50 мл (40 г) + гаряча вода (40 мл)',
+        volume: '90 мл (80 г)',
         appearance: 'Зменшена пінка після додавання гарячої води',
     });
 
@@ -1086,6 +1098,7 @@ export type DrinksDataPropertyType = {
                 preWetting: boolean;
                 pressure: string;
                 coffee?: string;
+                water?: string;
                 extraction?: string;
                 milk: string;
                 milkFoam: string;
