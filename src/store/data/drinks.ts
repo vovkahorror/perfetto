@@ -1094,56 +1094,56 @@ export type DrinksDataPropertyType = {
     data: {
         process: {
             general: {
-                beanWeight: number | string;
-                preWetting: boolean;
-                pressure: string;
+                beanWeight?: number | string;
+                preWetting?: boolean;
+                pressure?: string;
                 coffee?: string;
                 water?: string;
                 extraction?: string;
-                milk: string;
-                milkFoam: string;
+                milk?: string;
+                milkFoam?: string;
                 submission?: string;
             };
             ice?: {
-                coffee: string;
+                coffee?: string;
                 water?: string;
                 milk?: string;
-                iceCubes: string;
+                iceCubes?: string;
             };
             extraIce?: {
-                coffee: string;
+                coffee?: string;
                 water?: string;
                 milk?: string;
-                iceCubes: string;
+                iceCubes?: string;
             };
             original?: {
                 beanWeight?: number | string;
-                coffee: string;
-                iceCubes: string;
+                coffee?: string;
+                iceCubes?: string;
             };
             intense?: {
                 beanWeight?: number | string;
-                coffee: string;
-                iceCubes: string;
+                coffee?: string;
+                iceCubes?: string;
             };
             littleCup?: {
-                coffee: string;
-                milk: string;
-                iceCubes: string;
+                coffee?: string;
+                milk?: string;
+                iceCubes?: string;
             };
             bigCup?: {
-                coffee: string;
-                milk: string;
-                iceCubes: string;
+                coffee?: string;
+                milk?: string;
+                iceCubes?: string;
             };
-            white: Tea;
-            green: Tea;
-            black: Tea;
-            oolong: Tea;
+            white?: Tea;
+            green?: Tea;
+            black?: Tea;
+            oolong?: Tea;
         };
         result: {
-            volume: string;
-            appearance: string;
+            volume?: string;
+            appearance?: string;
         };
     }
 } | null;

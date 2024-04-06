@@ -100,7 +100,7 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                 <View>
                                     <ListAccordion
                                         title="Маленька чашка"
-                                        icon="cup-outline"
+                                        icon="cup"
                                         expanded
                                     >
                                         <ListItemWithCheck title="Об'єм кави" description={data.process.littleCup.coffee}/>
@@ -113,7 +113,7 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                 <View>
                                     <ListAccordion
                                         title="Велика чашка"
-                                        icon="cup"
+                                        icon="glass-mug"
                                         expanded
                                     >
                                         <ListItemWithCheck title="Об'єм кави" description={data.process.bigCup.coffee}/>
