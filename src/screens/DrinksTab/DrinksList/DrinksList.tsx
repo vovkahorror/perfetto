@@ -7,7 +7,7 @@ import {DrinkType} from '../../../store/data/drinks';
 import {DrinkItem} from './DrinkItem/DrinkItem';
 import {DrinksProps} from '../../../types/NavigationTypes';
 
-const backgroundImage = require('../../../../assets/background/background2.webp');
+const backgroundImage = require('../../../../assets/background/background4.webp');
 
 export const DrinksList = ({navigation}: DrinksProps) => {
     const drinks = useAppSelector(selectDrinks);
