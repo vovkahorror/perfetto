@@ -93,7 +93,7 @@ import {
 import {
     beanAdapt,
     brewingUnit,
-    coffeeGrinder,
+    coffeeGrinder, coffeeLink,
     coldExtraction,
     crf,
     latteCremaCool,
@@ -215,6 +215,7 @@ export const allTechnologies = [
     beanAdapt,
     coldExtraction,
     mixCarafe,
+    coffeeLink
 ];
 
 export type DrinksDataType = {
