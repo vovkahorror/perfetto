@@ -780,10 +780,10 @@ export class ColdMilkDrink extends Drink {
             ? {
                 process: {
                     general: {
-                            extraction: data.general?.extraction,
-                            milkFoam: data.general?.milkFoam,
-                            submission: data.general?.submission,
-                        },
+                        extraction: data.general?.extraction,
+                        milkFoam: data.general?.milkFoam,
+                        submission: data.general?.submission,
+                    },
                     ice: data.ice
                         ? {
                             coffee: data.ice.coffee,
@@ -1041,20 +1041,24 @@ export class Tea {
 
 export class TeaFunction extends Drink {
     public data: {
-        white: Tea;
-        green: Tea;
-        black: Tea;
-        oolong: Tea;
+        tea: [
+            white: Tea,
+            green: Tea,
+            oolong: Tea,
+            black: Tea,
+        ]
     };
 
     constructor(public name: string,
                 public description: string,
                 public imageUrl: string,
                 data: {
-                    white: Tea,
-                    green: Tea,
-                    black: Tea,
-                    oolong: Tea,
+                    tea: [
+                        white: Tea,
+                        green: Tea,
+                        oolong: Tea,
+                        black: Tea,
+                    ]
                 }) {
         super(name, description, imageUrl);
 
@@ -1066,10 +1070,12 @@ export const TEA_FUNCTION = new TeaFunction('Tea Function',
     'Коли справа доходить до чаю, важливо, щоб кожен тип заварювався за правильної температури, щоб найкраще розкрити смак. Машини De’Longhi подають воду різної температури в залежності від вибраного типу чаю або настою.',
     'https://www.dropbox.com/scl/fi/y4wl3ddce4p795lsyjwxe/tea.webp?rlkey=z7xlv7qunhgf7o377ioaab9rd&dl=0&raw=1',
     {
-        white: new Tea('Білий чай', 'Приблизно 75 °C (70-80 °C)', '1–3 хв'),
-        green: new Tea('Зелений чай', 'Приблизно 80 °C (70-80 °C)', '1–2 хв'),
-        black: new Tea('Чорний чай', 'Приблизно 95 °C (90-98 °C)', '1–5 хв'),
-        oolong: new Tea('Улун', 'Приблизно 90 °C (90-95 °C)', '30 с - 1 хв'),
+        tea: [
+            new Tea('Білий чай', 'Приблизно 75 °C (70-80 °C)', '1–3 хв'),
+            new Tea('Зелений чай', 'Приблизно 80 °C (70-80 °C)', '1–2 хв'),
+            new Tea('Улун', 'Приблизно 90 °C (90-95 °C)', '30 с - 1 хв'),
+            new Tea('Чорний чай', 'Приблизно 95 °C (90-98 °C)', '1–5 хв'),
+        ],
     },
 );
 
@@ -1136,10 +1142,7 @@ export type DrinksDataPropertyType = {
                 milk?: string;
                 iceCubes?: string;
             };
-            white?: Tea;
-            green?: Tea;
-            black?: Tea;
-            oolong?: Tea;
+            tea?: TeaFunction
         };
         result: {
             volume?: string;
