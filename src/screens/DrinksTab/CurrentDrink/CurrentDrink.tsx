@@ -10,7 +10,7 @@ import {
     TEXT_SHADOW_COLOR,
 } from '../../../constants/constants';
 import {CurrentDrinkProps} from '../../../types/NavigationTypes';
-import {DrinksDataPropertyType, DrinkType} from '../../../store/data/drinks';
+import {DrinksDataPropertyType, DrinkType, Tea} from '../../../store/data/drinks';
 import {ImageWithLoading} from '../../../utils/components/ImageWithLoading';
 import {ListAccordion} from '../../../utils/components/ListAccordion';
 import {ListItemWithCheck} from '../../../utils/components/ListItemWithCheck';
@@ -77,9 +77,12 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                         icon="check-circle"
                                         expanded
                                     >
-                                        <ListItemWithCheck title="Вага кавових зерен, г" description={data.process.original.beanWeight}/>
-                                        <ListItemWithCheck title="Об'єм кави" description={data.process.original.coffee}/>
-                                        <ListItemWithCheck title="Кубики льоду" description={data.process.original.iceCubes}/>
+                                        <ListItemWithCheck title="Вага кавових зерен, г"
+                                                           description={data.process.original.beanWeight}/>
+                                        <ListItemWithCheck title="Об'єм кави"
+                                                           description={data.process.original.coffee}/>
+                                        <ListItemWithCheck title="Кубики льоду"
+                                                           description={data.process.original.iceCubes}/>
                                     </ListAccordion>
                                 </View>}
 
@@ -90,9 +93,12 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                         icon="plus-circle"
                                         expanded
                                     >
-                                        <ListItemWithCheck title="Вага кавових зерен, г" description={data.process.intense.beanWeight}/>
-                                        <ListItemWithCheck title="Об'єм кави" description={data.process.intense.coffee}/>
-                                        <ListItemWithCheck title="Кубики льоду" description={data.process.intense.iceCubes}/>
+                                        <ListItemWithCheck title="Вага кавових зерен, г"
+                                                           description={data.process.intense.beanWeight}/>
+                                        <ListItemWithCheck title="Об'єм кави"
+                                                           description={data.process.intense.coffee}/>
+                                        <ListItemWithCheck title="Кубики льоду"
+                                                           description={data.process.intense.iceCubes}/>
                                     </ListAccordion>
                                 </View>}
 
@@ -103,9 +109,12 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                         icon="cup"
                                         expanded
                                     >
-                                        <ListItemWithCheck title="Об'єм кави" description={data.process.littleCup.coffee}/>
-                                        <ListItemWithCheck title="Об'єм молока" description={data.process.littleCup.milk}/>
-                                        <ListItemWithCheck title="Кубики льоду" description={data.process.littleCup.iceCubes}/>
+                                        <ListItemWithCheck title="Об'єм кави"
+                                                           description={data.process.littleCup.coffee}/>
+                                        <ListItemWithCheck title="Об'єм молока"
+                                                           description={data.process.littleCup.milk}/>
+                                        <ListItemWithCheck title="Кубики льоду"
+                                                           description={data.process.littleCup.iceCubes}/>
                                     </ListAccordion>
                                 </View>}
 
@@ -118,7 +127,8 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                                     >
                                         <ListItemWithCheck title="Об'єм кави" description={data.process.bigCup.coffee}/>
                                         <ListItemWithCheck title="Об'єм молока" description={data.process.bigCup.milk}/>
-                                        <ListItemWithCheck title="Кубики льоду" description={data.process.bigCup.iceCubes}/>
+                                        <ListItemWithCheck title="Кубики льоду"
+                                                           description={data.process.bigCup.iceCubes}/>
                                     </ListAccordion>
                                 </View>}
 
@@ -144,6 +154,23 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
                             <ListItemWithCheck title="Об'єм" description={data.result.volume}/>
                             <ListItemWithCheck title="Зовнішній вигляд" description={data.result.appearance}/>
                         </ListAccordion>}
+
+                    {data && data.teas &&
+                        <View>
+                            {data.teas.map((tea: Tea) => {
+                                return (
+                                    <ListAccordion
+                                        title={tea.name}
+                                        icon="tea"
+                                        expanded
+                                    >
+                                        <ListItemWithCheck title="Температура" description={tea.temperature}/>
+                                        <ListItemWithCheck title="Час заварювання"
+                                                           description={tea.brewingTime}/>
+                                    </ListAccordion>
+                                );
+                            })}
+                        </View>}
                 </ScrollView>
             </View>
         </Wrapper>

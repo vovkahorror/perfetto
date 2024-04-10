@@ -319,9 +319,9 @@ export const HOT_MILK = new HotMilkDrink('Hot Milk',
     'Гаряче молоко подається із бажаним рівнем щільності піни. Чим нижчий рівень щільності піни, тим нижча температура напою.',
     'https://www.dropbox.com/scl/fi/thrk4c7fcdmxmnwp657x5/hot-milk.webp?rlkey=6ujq49wi1n0jzr1d10lx7okth&dl=0&raw=1',
     {
-        milk: '370 мл (170 г)',
+        milk: '310 мл (170 г)',
         milkFoam: 'Максимальний рівень (пропонований)',
-        volume: '370 мл (170 г)',
+        volume: '310 мл (170 г)',
         appearance: 'Гаряче спінене молоко',
     });
 
@@ -594,7 +594,7 @@ export const COLD_COFFEE = new ColdCoffeeDrink('Cold Coffee',
     });
 
 export const COLD_ESPRESSO = new ColdCoffeeDrink('Cold Espresso',
-    'Прохолодний еспресо, що подається з льодом.',
+    'Міцна кава з сильним ароматом, подається в шотах поверх кубиків льоду.',
     'https://www.dropbox.com/scl/fi/rif8dx8xvv9ka2g4dzni8/cold-espresso.webp?rlkey=8l4mc48y5172b6temh4fs2xkv&dl=0&raw=1',
     null);
 
@@ -906,7 +906,7 @@ export const COLD_CAFFELATTE = new ColdMilkDrink('Cold Caffelatte',
         },
         ice: {
             coffee: '65 мл (65 г)',
-            milk: '245 мл (230 )',
+            milk: '245 мл (230 г)',
             iceCubes: '6 (95 мл)',
         },
         extraIce: {
@@ -1041,7 +1041,7 @@ export class Tea {
 
 export class TeaFunction extends Drink {
     public data: {
-        tea: [
+        teas: [
             white: Tea,
             green: Tea,
             oolong: Tea,
@@ -1053,7 +1053,7 @@ export class TeaFunction extends Drink {
                 public description: string,
                 public imageUrl: string,
                 data: {
-                    tea: [
+                    teas: [
                         white: Tea,
                         green: Tea,
                         oolong: Tea,
@@ -1070,7 +1070,7 @@ export const TEA_FUNCTION = new TeaFunction('Tea Function',
     'Коли справа доходить до чаю, важливо, щоб кожен тип заварювався за правильної температури, щоб найкраще розкрити смак. Машини De’Longhi подають воду різної температури в залежності від вибраного типу чаю або настою.',
     'https://www.dropbox.com/scl/fi/y4wl3ddce4p795lsyjwxe/tea.webp?rlkey=z7xlv7qunhgf7o377ioaab9rd&dl=0&raw=1',
     {
-        tea: [
+        teas: [
             new Tea('Білий чай', 'Приблизно 75 °C (70-80 °C)', '1–3 хв'),
             new Tea('Зелений чай', 'Приблизно 80 °C (70-80 °C)', '1–2 хв'),
             new Tea('Улун', 'Приблизно 90 °C (90-95 °C)', '30 с - 1 хв'),
@@ -1142,12 +1142,12 @@ export type DrinksDataPropertyType = {
                 milk?: string;
                 iceCubes?: string;
             };
-            tea?: TeaFunction
         };
         result: {
             volume?: string;
             appearance?: string;
         };
+        teas?: Tea[]
     }
 } | null;
 

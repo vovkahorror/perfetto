@@ -2,7 +2,14 @@ import {FlatList, ListRenderItem, ScrollView, StyleSheet, Text, View} from 'reac
 import {Wrapper} from '../../../utils/components/Wrapper';
 import {useAppSelector} from '../../../utils/custom-hooks/useAppSelector';
 import {selectDrinks} from '../selectors';
-import {GAP, PADDING_HORIZONTAL, PADDING_VERTICAL, TEXT_COLOR, TEXT_SHADOW_COLOR} from '../../../constants/constants';
+import {
+    GAP,
+    PADDING_HORIZONTAL,
+    PADDING_VERTICAL,
+    TEXT_COLOR,
+    TEXT_FOCUS_COLOR,
+    TEXT_SHADOW_COLOR,
+} from '../../../constants/constants';
 import {DrinkType} from '../../../store/data/drinks';
 import {DrinkItem} from './DrinkItem/DrinkItem';
 import {DrinksProps} from '../../../types/NavigationTypes';
@@ -77,6 +84,10 @@ export const DrinksList = ({navigation}: DrinksProps) => {
                         scrollEnabled={false}
                     />
                 </View>
+
+                <Text style={styles.text}>
+                    Указані значення засновані на заводських налаштуваннях за замовчуванням для нової машини, що використовує певну еталонну каву
+                </Text>
             </ScrollView>
         </Wrapper>
     );
@@ -86,6 +97,7 @@ const styles = StyleSheet.create({
     scrollView: {
         gap: 20,
         paddingHorizontal: PADDING_HORIZONTAL,
+        paddingVertical: PADDING_VERTICAL,
     },
     title: {
         fontSize: 22,
@@ -106,5 +118,14 @@ const styles = StyleSheet.create({
     },
     columnWrapperStyle: {
         gap: GAP,
+    },
+    text: {
+        paddingHorizontal: PADDING_HORIZONTAL,
+        fontSize: 14,
+        fontWeight: '700',
+        color: TEXT_FOCUS_COLOR,
+        textShadowColor: TEXT_SHADOW_COLOR,
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 1,
     },
 });
