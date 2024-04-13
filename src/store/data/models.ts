@@ -640,6 +640,17 @@ export const ecam359_55 = new CoffeeMachine('ECAM359.55.B',
     'Нержавіюча сталь',
     false);
 
+export const ecam354_55 = {
+    ...ecam359_55,
+    model: 'ECAM354.55.SB',
+    imageUrls: ['https://dam.delonghi.com/902x902/assets/158207', 'https://dam.delonghi.com/902x902/assets/184447', 'https://dam.delonghi.com/902x902/assets/116925', 'https://dam.delonghi.com/902x902/assets/189167', 'https://dam.delonghi.com/902x902/assets/192114'],
+    summary: ['Напої на основі кави та молока одним натисканням кнопки', 'Приготування 2 чашок еспресо одночасно', 'Кремова, щільна, стійка молочна піна ідеальної температури з автоматичною системою LatteCrema. Карафка для молока з автоматичним очищенням', 'Створюйте нові рецепти, змінюйте аромат і кількість за допомогою функції "My"', 'Сріблясто-чорне оздоблення та РК-дисплей'],
+    colourMaterialFinish: {
+        ...ecam359_55.colourMaterialFinish,
+        colour: 'Сріблясто-чорний',
+    },
+}
+
 export const ecam353_75w = new CoffeeMachine('ECAM353.75.W',
     'Dinamica',
     ['https://dam.delonghi.com/902x902/assets/90962', 'https://dam.delonghi.com/902x902/assets/90957'],
