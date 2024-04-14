@@ -7,7 +7,7 @@ const Stack = createNativeStackNavigator<DrinksStackParamList>();
 
 export const DrinksTab = () => {
     return (
-        <Stack.Navigator screenOptions={{headerShown: false, animation: 'slide_from_bottom', animationDuration: 100}}>
+        <Stack.Navigator screenOptions={{headerShown: false, animation: 'slide_from_bottom'}}>
             <Stack.Screen name={'Drinks'} component={DrinksList}/>
             <Stack.Screen name={'CurrentDrink'} component={CurrentDrink}/>
         </Stack.Navigator>

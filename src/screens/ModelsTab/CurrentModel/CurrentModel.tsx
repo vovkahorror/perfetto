@@ -9,15 +9,20 @@ import {ListAccordion} from '../../../utils/components/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
 import {useCallback, useState} from 'react';
 import {
-    BACKGROUND_COLOR, BORDER_RADIUS, GAP,
+    BACKGROUND_COLOR,
+    BORDER_RADIUS,
+    GAP,
     PADDING_HORIZONTAL,
-    PADDING_VERTICAL, PRIMARY_DARK_COLOR,
+    PADDING_VERTICAL,
+    PRIMARY_DARK_COLOR,
     TEXT_COLOR,
-    TEXT_FOCUS_COLOR, TEXT_SHADOW_COLOR,
+    TEXT_FOCUS_COLOR,
+    TEXT_SHADOW_COLOR,
 } from '../../../constants/constants';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {v1} from 'react-native-uuid/dist/v1';
+import {ModelDrinks} from './ModelDrinks/ModelDrinks';
 
 export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
     const {
@@ -141,15 +146,22 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                     <ListAccordion
                         title="Функції"
                         icon="coffee">
-                        <ListItem title="Гарячі кавові напої"
-                                  description={createStringFromArray(functions?.drinks.hotCoffeeDrinks)}/>
+                        {functions?.drinks.hotCoffeeDrinks && <ListItem title="Гарячі кавові напої"
+                                                                      description={
+                                                                          <ModelDrinks
+                                                                              drinks={functions.drinks.hotCoffeeDrinks}/>
+                                                                      }/>}
                         {functions?.drinks.hotMilkDrinks && <ListItem title="Гарячі молочні напої"
-                                                                      description={createStringFromArray(functions.drinks.hotMilkDrinks)}/>}
+                                                                      description={
+                                                                          <ModelDrinks
+                                                                              drinks={functions.drinks.hotMilkDrinks}/>
+                                                                      }/>}
                         {functions?.drinks.coldCoffeeDrinks && <ListItem title="Холодні кавові напої"
                                                                          description={createStringFromArray(functions.drinks.coldCoffeeDrinks)}/>}
                         {functions?.drinks.coldMilkDrinks && <ListItem title="Холодні молочні напої"
                                                                        description={createStringFromArray(functions.drinks.coldMilkDrinks)}/>}
-                        <ListItem title="Інші напої" description={createStringFromArray(functions?.drinks.otherDrinks)}/>
+                        <ListItem title="Інші напої"
+                                  description={createStringFromArray(functions?.drinks.otherDrinks)}/>
                         <ListItem title="Загальна кількість напоїв" description={functions?.totalCountOfDrinks}/>
                         <ListItem title="Можливість персоналізувати аромат"
                                   description={convertBooleanToString(functions?.aromaFunction)}/>
@@ -238,7 +250,7 @@ const styles = StyleSheet.create({
         color: TEXT_COLOR,
         textShadowColor: TEXT_SHADOW_COLOR,
         textShadowOffset: {width: 2, height: 2},
-        textShadowRadius: 2
+        textShadowRadius: 2,
     },
     series: {
         fontSize: 18,
@@ -246,7 +258,7 @@ const styles = StyleSheet.create({
         color: TEXT_COLOR,
         textShadowColor: TEXT_SHADOW_COLOR,
         textShadowOffset: {width: 2, height: 2},
-        textShadowRadius: 2
+        textShadowRadius: 2,
     },
     mediaWrapper: {
         borderRadius: BORDER_RADIUS,

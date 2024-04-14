@@ -2,10 +2,11 @@ import {CoffeeMachine} from '../store/data/models';
 import {NativeStackScreenProps} from 'react-native-screens/native-stack';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {DrinkType} from '../store/data/drinks';
+import {NavigatorScreenParams} from '@react-navigation/native';
 
 export type RootTabParamList = {
     ModelsTab: undefined;
-    DrinksTab: undefined;
+    DrinksTab: NavigatorScreenParams<DrinksStackParamList>;
     TechnologiesTab: undefined;
 }
 

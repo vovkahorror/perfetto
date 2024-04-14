@@ -1,17 +1,18 @@
 import {Pressable, StyleSheet, View} from 'react-native';
 import {Icon, Searchbar} from 'react-native-paper';
 import {BACKGROUND_COLOR, GAP, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../../../../constants/constants';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {DrawerActions} from '@react-navigation/native';
 import {useAppSelector} from '../../../../../utils/custom-hooks/useAppSelector';
 import {selectSearchQuery} from '../../selectors';
 import {setSearch} from '../../../../../store/models-slice';
 import {useAppDispatch} from '../../../../../utils/custom-hooks/useAppDispatch';
 import {useDrawerStatus} from '@react-navigation/drawer';
+import {useAppNavigation} from '../../../../../utils/custom-hooks/useAppNavigation';
 
 export const ModelsHeader = () => {
     const dispatch = useAppDispatch();
     const searchQuery = useAppSelector(selectSearchQuery);
-    const navigation = useNavigation();
+    const navigation = useAppNavigation();
     const status = useDrawerStatus();
 
     const onChangeSearch = (query: string) => {

@@ -9,7 +9,7 @@ export const ListItem: FC<Props> = (props) => {
         <List.Item titleStyle={{color: TEXT_COLOR, textDecorationLine: 'underline'}}
                    descriptionStyle={{fontSize: 16, fontWeight: '700', color: TEXT_COLOR}}
                    titleNumberOfLines={2}
-                   descriptionNumberOfLines={5}
+                   descriptionNumberOfLines={10}
                    {...props} />
     );
 };

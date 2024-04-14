@@ -7,15 +7,16 @@ import {CheckboxWithTitle} from './CheckboxWithTitle/CheckboxWithTitle';
 import {Button} from 'react-native-paper';
 import {useAppDispatch} from '../../../../utils/custom-hooks/useAppDispatch';
 import {resetModels, setSelectedModels} from '../../../../store/models-slice';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {DrawerActions} from '@react-navigation/native';
 import {resetSelectedDrinks, setSelectedDrinks} from '../../../../store/drinks-slice';
 import {useCallback} from 'react';
 import {PADDING_HORIZONTAL, PADDING_VERTICAL, PRIMARY_DARK_COLOR, TEXT_COLOR} from '../../../../constants/constants';
 import {DrinkType} from '../../../../store/data/drinks';
+import {useAppNavigation} from '../../../../utils/custom-hooks/useAppNavigation';
 
 export const SideMenu = () => {
     const dispatch = useAppDispatch();
-    const navigation = useNavigation();
+    const navigation = useAppNavigation();
     const drinks = useAppSelector(selectDrinks);
     const selectedDrinks = useAppSelector(selectSelectedDrinks);
 
