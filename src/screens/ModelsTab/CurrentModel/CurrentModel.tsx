@@ -3,7 +3,6 @@ import {CurrentModelProps} from '../../../types/NavigationTypes';
 import {Wrapper} from '../../../utils/components/Wrapper';
 import {Icon, List} from 'react-native-paper';
 import {ListItem} from '../../../utils/components/ListItem';
-import {createStringFromArray} from '../../../utils/util-functions/createStringFromArray';
 import {convertBooleanToString} from '../../../utils/util-functions/convertBooleanToString';
 import {ListAccordion} from '../../../utils/components/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
@@ -147,21 +146,29 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                         title="Функції"
                         icon="coffee">
                         {functions?.drinks.hotCoffeeDrinks && <ListItem title="Гарячі кавові напої"
-                                                                      description={
-                                                                          <ModelDrinks
-                                                                              drinks={functions.drinks.hotCoffeeDrinks}/>
-                                                                      }/>}
+                                                                        description={
+                                                                            <ModelDrinks
+                                                                                drinks={functions.drinks.hotCoffeeDrinks}/>
+                                                                        }/>}
                         {functions?.drinks.hotMilkDrinks && <ListItem title="Гарячі молочні напої"
                                                                       description={
                                                                           <ModelDrinks
                                                                               drinks={functions.drinks.hotMilkDrinks}/>
                                                                       }/>}
                         {functions?.drinks.coldCoffeeDrinks && <ListItem title="Холодні кавові напої"
-                                                                         description={createStringFromArray(functions.drinks.coldCoffeeDrinks)}/>}
+                                                                         description={
+                                                                             <ModelDrinks
+                                                                                 drinks={functions.drinks.coldCoffeeDrinks}/>
+                                                                         }/>}
                         {functions?.drinks.coldMilkDrinks && <ListItem title="Холодні молочні напої"
-                                                                       description={createStringFromArray(functions.drinks.coldMilkDrinks)}/>}
-                        <ListItem title="Інші напої"
-                                  description={createStringFromArray(functions?.drinks.otherDrinks)}/>
+                                                                       description={
+                                                                           <ModelDrinks
+                                                                               drinks={functions.drinks.coldMilkDrinks}/>
+                                                                       }/>}
+                        {functions?.drinks.otherDrinks && <ListItem title="Інші напої"
+                                                                    description={<ModelDrinks
+                                                                        drinks={functions.drinks.otherDrinks}/>
+                                                                    }/>}
                         <ListItem title="Загальна кількість напоїв" description={functions?.totalCountOfDrinks}/>
                         <ListItem title="Можливість персоналізувати аромат"
                                   description={convertBooleanToString(functions?.aromaFunction)}/>

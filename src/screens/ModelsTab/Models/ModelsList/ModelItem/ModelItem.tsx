@@ -9,15 +9,17 @@ import {ImageWithLoading} from '../../../../../utils/components/ImageWithLoading
 export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
     const [isPressed, setIsPressed] = useState(false);
     const transformAnimValue = useRef(new Animated.Value(1)).current;
+    let navigationTimeout: NodeJS.Timeout;
 
     const handlePress = (item: CoffeeMachine) => {
         setIsPressed(true);
-        navigation.navigate('CurrentModel', item);
+        clearTimeout(navigationTimeout);
+        navigationTimeout = setTimeout(() => navigation.navigate('CurrentModel', item), 200);
     };
 
     useEffect(() => {
         Animated.timing(transformAnimValue, {
-            toValue: isPressed ? 1.3 : 1,
+            toValue: isPressed ? 0.95 : 1,
             duration: 200,
             useNativeDriver: true,
         }).start();
