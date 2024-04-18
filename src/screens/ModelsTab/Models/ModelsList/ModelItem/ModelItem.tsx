@@ -9,12 +9,10 @@ import {ImageWithLoading} from '../../../../../utils/components/ImageWithLoading
 export const ModelItem: FC<ModelItemProps> = memo(({item, navigation}) => {
     const [isPressed, setIsPressed] = useState(false);
     const transformAnimValue = useRef(new Animated.Value(1)).current;
-    let navigationTimeout: NodeJS.Timeout;
 
     const handlePress = useCallback((item: CoffeeMachine) => {
         setIsPressed(true);
-        clearTimeout(navigationTimeout);
-        navigationTimeout = setTimeout(() => navigation.navigate('CurrentModel', item), 200);
+        navigation.navigate('CurrentModel', item);
     }, []);
 
     useEffect(() => {

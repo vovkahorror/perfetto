@@ -9,12 +9,10 @@ import {ModelsStackParamList} from '../../../../../types/NavigationTypes';
 export const ModelDrinksItem = memo(({item, navigation}: ModelDrinksItemProps) => {
     const [isPressed, setIsPressed] = useState(false);
     const transformAnimValue = useRef(new Animated.Value(1)).current;
-    let navigationTimeout: NodeJS.Timeout;
 
     const onPressHandler = useCallback((drink: DrinkType) => {
         setIsPressed(true);
-        clearTimeout(navigationTimeout);
-        navigationTimeout = setTimeout(() => navigation.navigate('CurrentDrink', drink), 200);
+       navigation.navigate('CurrentDrink', drink);
     }, []);
 
     useEffect(() => {
