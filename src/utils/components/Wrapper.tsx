@@ -1,9 +1,9 @@
 import {ImageBackground, View} from 'react-native';
-import {ReactNode} from 'react';
+import {memo, ReactNode} from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {BACKGROUND_IMAGE_DEFAULT} from '../../constants/constants';
 
-export const Wrapper = ({children, backgroundImage, backgroundColor}: WithSafeAreaProviderProps) => {
+export const Wrapper = memo(({children, backgroundImage, backgroundColor}: WithSafeAreaProviderProps) => {
     const insets = useSafeAreaInsets();
 
     return (
@@ -23,7 +23,7 @@ export const Wrapper = ({children, backgroundImage, backgroundColor}: WithSafeAr
             }
         </>
     );
-};
+});
 
 interface WithSafeAreaProviderProps {
     children: ReactNode;

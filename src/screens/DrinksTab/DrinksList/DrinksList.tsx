@@ -13,10 +13,11 @@ import {
 import {DrinkType} from '../../../store/data/drinks';
 import {DrinkItem} from './DrinkItem/DrinkItem';
 import {DrinksProps} from '../../../types/NavigationTypes';
+import {memo} from 'react';
 
 const backgroundImage = require('../../../../assets/background/background4.webp');
 
-export const DrinksList = ({navigation}: DrinksProps) => {
+export const DrinksList = memo(({navigation}: DrinksProps) => {
     const drinks = useAppSelector(selectDrinks);
 
     const renderItem: ListRenderItem<DrinkType> = ({item}) => (
@@ -91,7 +92,7 @@ export const DrinksList = ({navigation}: DrinksProps) => {
             </ScrollView>
         </Wrapper>
     );
-};
+});
 
 const styles = StyleSheet.create({
     scrollView: {

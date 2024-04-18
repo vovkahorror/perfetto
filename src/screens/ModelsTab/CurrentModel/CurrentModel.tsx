@@ -6,7 +6,7 @@ import {ListItem} from '../../../utils/components/ListItem';
 import {convertBooleanToString} from '../../../utils/util-functions/convertBooleanToString';
 import {ListAccordion} from '../../../utils/components/ListAccordion';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
-import {useCallback, useState} from 'react';
+import {memo, useCallback, useState} from 'react';
 import {
     BACKGROUND_COLOR,
     BORDER_RADIUS,
@@ -23,7 +23,7 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 import {v1} from 'react-native-uuid/dist/v1';
 import {ModelDrinks} from './ModelDrinks/ModelDrinks';
 
-export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
+export const CurrentModel = memo(({navigation, route}: CurrentModelProps) => {
     const {
         model,
         series,
@@ -243,7 +243,7 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
             </ScrollView>
         </Wrapper>
     );
-};
+});
 
 const styles = StyleSheet.create({
     container: {

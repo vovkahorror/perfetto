@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator<ModelsStackParamList>();
 
 export const ModelsTab = () => {
     return (
-        <Stack.Navigator screenOptions={{headerShown: false, animation: 'fade'}}>
+        <Stack.Navigator screenOptions={{headerShown: false, animation: 'slide_from_bottom'}}>
             <Stack.Screen name={'Models'} component={Models}/>
             <Stack.Screen name={'CurrentModel'} component={CurrentModel}/>
             <Stack.Screen name={'Instruction'} component={Instruction}/>

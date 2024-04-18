@@ -11,8 +11,9 @@ import {GAP, PADDING_HORIZONTAL} from '../../../../constants/constants';
 import {ModelDrinksItem} from './ModelDrinksItem/ModelDrinksItem';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {ModelsStackParamList} from '../../../../types/NavigationTypes';
+import {memo} from 'react';
 
-export const ModelDrinks = ({drinks, navigation}: ModelDrinksProps) => {
+export const ModelDrinks = memo(({drinks, navigation}: ModelDrinksProps) => {
     const renderItem: ListRenderItem<DrinkType> = ({item}) => <ModelDrinksItem item={item} navigation={navigation}/>;
 
     return (
@@ -24,7 +25,7 @@ export const ModelDrinks = ({drinks, navigation}: ModelDrinksProps) => {
             contentContainerStyle={styles.container}
         />
     );
-};
+});
 
 const styles = StyleSheet.create({
     container: {

@@ -6,13 +6,13 @@ import {CoffeeMachine} from '../../../../store/data/models';
 import {ModelItem} from './ModelItem/ModelItem';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {ModelsStackParamList} from '../../../../types/NavigationTypes';
-import {FC} from 'react';
+import {FC, memo} from 'react';
 import {Wrapper} from '../../../../utils/components/Wrapper';
 import {ModelsHeader} from './ModelsHeader/ModelsHeader';
 
 const backgroundImage = require('../../../../../assets/background/background3.webp');
 
-export const ModelsList: FC<ModelsListProps> = ({navigation}) => {
+export const ModelsList: FC<ModelsListProps> = memo(({navigation}) => {
     const models = useAppSelector(selectModels);
 
     const renderItem: ListRenderItem<CoffeeMachine> = ({item}) => (
@@ -28,7 +28,7 @@ export const ModelsList: FC<ModelsListProps> = ({navigation}) => {
                 keyboardShouldPersistTaps={'always'}/>
         </Wrapper>
     );
-};
+});
 
 const styles = StyleSheet.create({
     contentContainerStyle: {

@@ -2,20 +2,20 @@ import {Animated, Image, Pressable, StyleSheet, Text} from 'react-native';
 import {v1} from 'react-native-uuid/dist/v1';
 import {DrinkType} from '../../../../../store/data/drinks';
 import {TEXT_COLOR} from '../../../../../constants/constants';
-import {useEffect, useRef, useState} from 'react';
+import {memo, useCallback, useEffect, useRef, useState} from 'react';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {ModelsStackParamList} from '../../../../../types/NavigationTypes';
 
-export const ModelDrinksItem = ({item, navigation}: ModelDrinksItemProps) => {
+export const ModelDrinksItem = memo(({item, navigation}: ModelDrinksItemProps) => {
     const [isPressed, setIsPressed] = useState(false);
     const transformAnimValue = useRef(new Animated.Value(1)).current;
     let navigationTimeout: NodeJS.Timeout;
 
-    const onPressHandler = (drink: DrinkType) => {
+    const onPressHandler = useCallback((drink: DrinkType) => {
         setIsPressed(true);
         clearTimeout(navigationTimeout);
         navigationTimeout = setTimeout(() => navigation.navigate('CurrentDrink', drink), 200);
-    };
+    }, []);
 
     useEffect(() => {
         Animated.timing(transformAnimValue, {
@@ -40,7 +40,7 @@ export const ModelDrinksItem = ({item, navigation}: ModelDrinksItemProps) => {
             </Animated.View>
         </Pressable>
     );
-};
+});
 
 interface ModelDrinksItemProps {
     item: DrinkType;

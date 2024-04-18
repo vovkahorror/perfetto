@@ -11,12 +11,12 @@ import {
     TEXT_SHADOW_COLOR,
 } from '../../../constants/constants';
 import YoutubePlayer, {PLAYER_STATES} from 'react-native-youtube-iframe';
-import {useCallback, useState} from 'react';
+import {memo, useCallback, useState} from 'react';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {ImageWithLoading} from '../../../utils/components/ImageWithLoading';
 import {v1} from 'react-native-uuid/dist/v1';
 
-export const TechnologyItem = ({item}: TechnologyItemProps) => {
+export const TechnologyItem = memo(({item}: TechnologyItemProps) => {
     const [playing, setPlaying] = useState(false);
 
     const onStateChange = useCallback((state: PLAYER_STATES) => {
@@ -55,7 +55,7 @@ export const TechnologyItem = ({item}: TechnologyItemProps) => {
             </ListAccordion>
         </View>
     );
-};
+});
 
 interface TechnologyItemProps {
     item: Technology;

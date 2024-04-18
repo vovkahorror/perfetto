@@ -1,11 +1,11 @@
 import {Image, ImageStyle, StyleProp, View} from 'react-native';
-import {useEffect, useState} from 'react';
+import {memo, useEffect, useState} from 'react';
 import {ImageSourcePropType} from 'react-native/Libraries/Image/Image';
 import {CacheManager} from 'react-native-expo-image-cache';
 
 const loadingImage = require('../../../assets/loading.gif');
 
-export const ImageWithLoading = ({source, styles}: LoadingProps) => {
+export const ImageWithLoading = memo(({source, styles}: LoadingProps) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export const ImageWithLoading = ({source, styles}: LoadingProps) => {
                     onLoad={() => setLoading(false)}/>}
         </>
     );
-};
+});
 
 interface LoadingProps {
     source: ImageSourcePropType;

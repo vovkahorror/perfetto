@@ -11,11 +11,10 @@ import {
 } from '../../../../constants/constants';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {DrinksStackParamList} from '../../../../types/NavigationTypes';
+import {memo, useCallback} from 'react';
 
-export const DrinkItem = ({item, navigation}: DrinkItemProps) => {
-    const handlePress = (item: DrinkType) => {
-        navigation.navigate('CurrentDrink', item);
-    };
+export const DrinkItem = memo(({item, navigation}: DrinkItemProps) => {
+    const handlePress = useCallback((item: DrinkType) => navigation.navigate('CurrentDrink', item), []);
 
     return (
         <Pressable onPress={() => handlePress(item)}>
@@ -25,7 +24,7 @@ export const DrinkItem = ({item, navigation}: DrinkItemProps) => {
             </View>
         </Pressable>
     );
-};
+});
 
 interface DrinkItemProps {
     item: DrinkType;

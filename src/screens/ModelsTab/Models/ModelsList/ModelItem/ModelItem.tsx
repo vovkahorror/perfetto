@@ -1,21 +1,21 @@
 import {Animated, Pressable, StyleSheet, Text, View} from 'react-native';
 import {CoffeeMachine} from '../../../../../store/data/models';
-import {FC, useEffect, useRef, useState} from 'react';
+import {FC, memo, useCallback, useEffect, useRef, useState} from 'react';
 import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
 import {ModelsStackParamList} from '../../../../../types/NavigationTypes';
 import {BACKGROUND_COLOR, BORDER_RADIUS, GAP, TEXT_COLOR, TEXT_SHADOW_COLOR} from '../../../../../constants/constants';
 import {ImageWithLoading} from '../../../../../utils/components/ImageWithLoading';
 
-export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
+export const ModelItem: FC<ModelItemProps> = memo(({item, navigation}) => {
     const [isPressed, setIsPressed] = useState(false);
     const transformAnimValue = useRef(new Animated.Value(1)).current;
     let navigationTimeout: NodeJS.Timeout;
 
-    const handlePress = (item: CoffeeMachine) => {
+    const handlePress = useCallback((item: CoffeeMachine) => {
         setIsPressed(true);
         clearTimeout(navigationTimeout);
         navigationTimeout = setTimeout(() => navigation.navigate('CurrentModel', item), 200);
-    };
+    }, []);
 
     useEffect(() => {
         Animated.timing(transformAnimValue, {
@@ -44,7 +44,7 @@ export const ModelItem: FC<ModelItemProps> = ({item, navigation}) => {
             </Animated.View>
         </Pressable>
     );
-};
+});
 
 interface ModelItemProps {
     item: CoffeeMachine;

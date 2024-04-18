@@ -8,18 +8,17 @@ import {setSearch} from '../../../../../store/models-slice';
 import {useAppDispatch} from '../../../../../utils/custom-hooks/useAppDispatch';
 import {useDrawerStatus} from '@react-navigation/drawer';
 import {useAppNavigation} from '../../../../../utils/custom-hooks/useAppNavigation';
+import {memo, useCallback} from 'react';
 
-export const ModelsHeader = () => {
+export const ModelsHeader = memo(() => {
     const dispatch = useAppDispatch();
     const searchQuery = useAppSelector(selectSearchQuery);
     const navigation = useAppNavigation();
     const status = useDrawerStatus();
 
-    const onChangeSearch = (query: string) => {
-        dispatch(setSearch(query));
-    };
+    const onChangeSearch = useCallback((query: string) => dispatch(setSearch(query)), []);
 
-    const toggleMenu = () => navigation.dispatch(DrawerActions.toggleDrawer());
+    const toggleMenu = useCallback(() => navigation.dispatch(DrawerActions.toggleDrawer()), []);
 
     return (
         <View style={styles.container}>
@@ -45,7 +44,7 @@ export const ModelsHeader = () => {
             </Pressable>
         </View>
     );
-};
+});
 
 const styles = StyleSheet.create({
     container: {

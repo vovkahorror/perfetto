@@ -24,16 +24,16 @@ export const SideMenu = () => {
         dispatch(setSelectedDrinks({drink, drinkKey}));
     }, [dispatch]);
 
-    const applyFilter = () => {
+    const applyFilter = useCallback(() => {
         dispatch(setSelectedModels(selectedDrinks));
         navigation.dispatch(DrawerActions.toggleDrawer());
-    };
+    }, [selectedDrinks]);
 
-    const resetFilter = () => {
+    const resetFilter = useCallback(() => {
         dispatch(resetModels());
         dispatch(resetSelectedDrinks());
         navigation.dispatch(DrawerActions.toggleDrawer());
-    };
+    }, []);
 
     const getRenderItem = (drinkKey: keyof DrinksDataType) => {
         const renderItem: ListRenderItem<DrinkType> = ({item}) => {

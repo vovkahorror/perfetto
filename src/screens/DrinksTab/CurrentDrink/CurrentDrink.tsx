@@ -14,8 +14,9 @@ import {DrinksDataPropertyType, DrinkType, Tea} from '../../../store/data/drinks
 import {ImageWithLoading} from '../../../utils/components/ImageWithLoading';
 import {ListAccordion} from '../../../utils/components/ListAccordion';
 import {ListItemWithCheck} from '../../../utils/components/ListItemWithCheck';
+import {memo} from 'react';
 
-export const CurrentDrink = ({route}: CurrentDrinkProps) => {
+export const CurrentDrink = memo(({route}: CurrentDrinkProps) => {
     const {
         name,
         description,
@@ -175,7 +176,7 @@ export const CurrentDrink = ({route}: CurrentDrinkProps) => {
             </View>
         </Wrapper>
     );
-};
+});
 
 const styles = StyleSheet.create({
     container: {
