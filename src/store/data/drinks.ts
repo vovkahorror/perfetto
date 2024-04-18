@@ -1032,6 +1032,10 @@ export const MUG_TO_GO = new Drink('Mug To Go',
     'Спеціальна функція для людей, які хочуть створювати та налаштовувати свій власний напій, щоб взяти його із собою. Об\'єм — 250 мл. Підходить для всіх рецептів кави De’Longhi (у тому числі Over Ice) та молока, об\'єм яких не перевищує 250 мл.',
     'https://www.dropbox.com/scl/fi/tafytdzj9xcffvah357cn/mug-to-go.webp?rlkey=wplrelpy4b4mf77q5qr8bbohm&dl=0&raw=1');
 
+export const TO_GO = new Drink('To Go',
+    'Спеціальна функція, яка дозволяє ідеально підібрати кожен напій до всіх розмірів дорожніх чашок. Користувач може обрати один з трьох попередньо встановлених розмірів: Piccolo (235 мл), Medio (355 мл) чи Grande (473 мл). Кавомашина атоматично дозуватиме не лише кількість кави та молока, залежно від пропорцій напою, а й, враховуючи налаштування міцності, виконає необхідну кількість помелів та заварювань, щоб забезпечити ідеальний смак, незалежно від розміру чашки.',
+    'https://www.dropbox.com/scl/fi/4uzif1vvgfjbpevp0x4w5/to-go.webp?rlkey=qe60hg4781v9cs04pwiun6hcb&st=wd26ggvc&dl=0&raw=1');
+
 export class Tea {
     constructor(public name: string,
                 public temperature: string,

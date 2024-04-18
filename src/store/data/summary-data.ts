@@ -84,7 +84,7 @@ import {
     OVER_ICE,
     RISTRETTO,
     STEAM_HOT_WATER,
-    TEA_FUNCTION,
+    TEA_FUNCTION, TO_GO,
     TWO_CAPPUCCINO,
     TWO_CAPPUCCINO_MIX,
     TWO_LATTE_MACCHIATO,
@@ -202,6 +202,7 @@ export const allDrinks: DrinksDataType  = {
         HOT_WATER,
         STEAM_HOT_WATER,
         MUG_TO_GO,
+        TO_GO
     ],
 };
 
