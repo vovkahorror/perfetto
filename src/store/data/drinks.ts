@@ -1070,7 +1070,7 @@ export class TeaFunction extends Drink {
     }
 }
 
-export const TEA_FUNCTION = new TeaFunction('Tea Function',
+export const TEA_FUNCTION = new TeaFunction('Tea',
     'Коли справа доходить до чаю, важливо, щоб кожен тип заварювався за правильної температури, щоб найкраще розкрити смак. Машини De’Longhi подають воду різної температури в залежності від вибраного типу чаю або настою.',
     'https://www.dropbox.com/scl/fi/y4wl3ddce4p795lsyjwxe/tea.webp?rlkey=z7xlv7qunhgf7o377ioaab9rd&dl=0&raw=1',
     {
