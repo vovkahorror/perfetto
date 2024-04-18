@@ -148,26 +148,31 @@ export const CurrentModel = ({navigation, route}: CurrentModelProps) => {
                         {functions?.drinks.hotCoffeeDrinks && <ListItem title="Гарячі кавові напої"
                                                                         description={
                                                                             <ModelDrinks
-                                                                                drinks={functions.drinks.hotCoffeeDrinks}/>
+                                                                                drinks={functions.drinks.hotCoffeeDrinks}
+                                                                                navigation={navigation}/>
                                                                         }/>}
                         {functions?.drinks.hotMilkDrinks && <ListItem title="Гарячі молочні напої"
                                                                       description={
                                                                           <ModelDrinks
-                                                                              drinks={functions.drinks.hotMilkDrinks}/>
+                                                                              drinks={functions.drinks.hotMilkDrinks}
+                                                                              navigation={navigation}/>
                                                                       }/>}
                         {functions?.drinks.coldCoffeeDrinks && <ListItem title="Холодні кавові напої"
                                                                          description={
                                                                              <ModelDrinks
-                                                                                 drinks={functions.drinks.coldCoffeeDrinks}/>
+                                                                                 drinks={functions.drinks.coldCoffeeDrinks}
+                                                                                 navigation={navigation}/>
                                                                          }/>}
                         {functions?.drinks.coldMilkDrinks && <ListItem title="Холодні молочні напої"
                                                                        description={
                                                                            <ModelDrinks
-                                                                               drinks={functions.drinks.coldMilkDrinks}/>
+                                                                               drinks={functions.drinks.coldMilkDrinks}
+                                                                               navigation={navigation}/>
                                                                        }/>}
                         {functions?.drinks.otherDrinks && <ListItem title="Інші напої"
                                                                     description={<ModelDrinks
-                                                                        drinks={functions.drinks.otherDrinks}/>
+                                                                        drinks={functions.drinks.otherDrinks}
+                                                                        navigation={navigation}/>
                                                                     }/>}
                         <ListItem title="Загальна кількість напоїв" description={functions?.totalCountOfDrinks}/>
                         <ListItem title="Можливість персоналізувати аромат"

@@ -2,11 +2,11 @@ import {Animated, Image, Pressable, StyleSheet, Text} from 'react-native';
 import {v1} from 'react-native-uuid/dist/v1';
 import {DrinkType} from '../../../../../store/data/drinks';
 import {TEXT_COLOR} from '../../../../../constants/constants';
-import {useAppNavigation} from '../../../../../utils/custom-hooks/useAppNavigation';
 import {useEffect, useRef, useState} from 'react';
+import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import {ModelsStackParamList} from '../../../../../types/NavigationTypes';
 
-export const ModelDrinksItem = ({item}: ModelDrinksItemProps) => {
-    const navigation = useAppNavigation();
+export const ModelDrinksItem = ({item, navigation}: ModelDrinksItemProps) => {
     const [isPressed, setIsPressed] = useState(false);
     const transformAnimValue = useRef(new Animated.Value(1)).current;
     let navigationTimeout: NodeJS.Timeout;
@@ -14,10 +14,7 @@ export const ModelDrinksItem = ({item}: ModelDrinksItemProps) => {
     const onPressHandler = (drink: DrinkType) => {
         setIsPressed(true);
         clearTimeout(navigationTimeout);
-        navigationTimeout = setTimeout(() => navigation.navigate('DrinksTab', {
-            screen: 'CurrentDrink',
-            params: drink,
-        }), 200);
+        navigationTimeout = setTimeout(() => navigation.navigate('CurrentDrink', drink), 200);
     };
 
     useEffect(() => {
@@ -47,6 +44,7 @@ export const ModelDrinksItem = ({item}: ModelDrinksItemProps) => {
 
 interface ModelDrinksItemProps {
     item: DrinkType;
+    navigation:  NativeStackNavigationProp<ModelsStackParamList>;
 }
 
 const styles = StyleSheet.create({

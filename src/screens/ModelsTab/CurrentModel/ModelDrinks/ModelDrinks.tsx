@@ -9,9 +9,11 @@ import {
 } from '../../../../store/data/drinks';
 import {GAP, PADDING_HORIZONTAL} from '../../../../constants/constants';
 import {ModelDrinksItem} from './ModelDrinksItem/ModelDrinksItem';
+import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import {ModelsStackParamList} from '../../../../types/NavigationTypes';
 
-export const ModelDrinks = ({drinks}: ModelDrinksProps) => {
-    const renderItem: ListRenderItem<DrinkType> = ({item}) => <ModelDrinksItem item={item}/>;
+export const ModelDrinks = ({drinks, navigation}: ModelDrinksProps) => {
+    const renderItem: ListRenderItem<DrinkType> = ({item}) => <ModelDrinksItem item={item} navigation={navigation}/>;
 
     return (
         <FlatList
@@ -20,7 +22,6 @@ export const ModelDrinks = ({drinks}: ModelDrinksProps) => {
             renderItem={renderItem}
             numColumns={1}
             contentContainerStyle={styles.container}
-            scrollEnabled={false}
         />
     );
 };
@@ -37,4 +38,5 @@ const styles = StyleSheet.create({
 
 interface ModelDrinksProps {
     drinks: HotCoffeeDrinksType | HotMilkDrinksType | ColdCoffeeDrinksType | ColdMilkDrinksType | OtherDrinksType;
+    navigation:  NativeStackNavigationProp<ModelsStackParamList>;
 }
