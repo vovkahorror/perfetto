@@ -874,7 +874,7 @@ export const ecam320_60 = new CoffeeMachine('ECAM320.60.B',
 
 export const ecam310_60 = new CoffeeMachine('ECAM310.60.GB',
     'Magnifica Evo Next',
-    ['https://dam.delonghi.com/902x902/assets/276181', 'https://dam.delonghi.com/902x902/assets/276180', 'https://dam.delonghi.com/902x902/assets/276183', 'https://dam.delonghi.com/902x902/assets/276184', 'https://dam.delonghi.com/902x902/assets/276462'],
+    ['https://delonghi-shop.com.ua/modules/images/delonghi_ecam_31060_gb_magnifica_evo_next_b.jpg', 'https://delonghi-shop.com.ua/modules/images/delonghi_ecam_31060_gb_magnifica_evo_next_a.jpg', 'https://delonghi-shop.com.ua/modules/images/delonghi_ecam_31060_gb_magnifica_evo_next_c.jpg', 'https://delonghi-shop.com.ua/modules/images/delonghi_ecam_31060_gb_magnifica_evo_next_d.jpg'],
     'ckTOTzJte0k',
     'У De’Longhi Magnifica Plus знайдеться кава на будь-який смак, з 15 напоями, доступними одним натиском кнопки. Насолоджуйтеся захоплюючими враженнями завдяки 3,5-дюймовому сенсорному кольоровому дисплею з багатою анімацією та персоналізуйте свої улюблені напої за допомогою до 4 профілів користувачів. Насолоджуйтеся ніжною насиченою пінкою за допомогою технології LatteCrema Hot для всіх ваших напоїв на основі молока.',
     ['Неперевершений аромат та насичений смак кави зі свіжозмелених зерен', 'LatteCrema Hot доповнює ваші напої ніжною насиченою молочною піною з однією з трьох текстур: щільною, кремовою або легкою', 'Інтуїтивно зрозумілий 3,5-дюймовий сенсорний кольоровий дисплей із багатою анімацією', 'Можливість вибору з 15 гарячих і холодних кавових напоїв, які можна повністю персоналізувати', 'Легко очищається завдяки знімним компонентам, які можна мити в посудомийній машині'],
