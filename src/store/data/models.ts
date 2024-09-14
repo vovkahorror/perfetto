@@ -441,7 +441,7 @@ export const ecam450_65 = new CoffeeMachine('ECAM450.65.G',
     false);
 
 export const exam440_55 = new CoffeeMachine('EXAM440.55.BG',
-    'Eletta Explore',
+    'Rivelia',
     ['https://dam.delonghi.com/902x902/assets/257455', 'https://dam.delonghi.com/902x902/assets/220127', 'https://dam.delonghi.com/902x902/assets/232723', 'https://dam.delonghi.com/902x902/assets/247339', 'https://dam.delonghi.com/902x902/assets/232717'],
     'MNrCaAKMFwE',
     'Нова автоматична кавомашина De’Longhi Eletta Explore у вишуканому темно-сірому кольорі пропонує вам більше 50 гарячих і холодних напоїв.\n' +
