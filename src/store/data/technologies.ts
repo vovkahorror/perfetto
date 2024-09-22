@@ -99,6 +99,6 @@ export const coffeeLink = new Technology(
 export const beanSwitch = new Technology(
     'https://www.dropbox.com/scl/fi/8oebzlip1icinmvuavjke/Bean-Switch.webp?rlkey=ghe81drw9rw1tz9hwt8ljnev8&st=5sbbyh7f&dl=0&raw=1',
     ['wA-Q9LzAZM8'],
-    'Coffee Link *',
+    'Bean Switch *',
     'За допомогою додатка Coffee Link можна легко отримати віддалений доступ до управління кавомашиною через Bluetooth або Wi-Fi: установити параметри екстрагування кави за допомогою технології Bean Adapt, контролювати та піклуватися про машину, настроювати, створювати та зберігати свої особливі рецепти в особистих профілях, яким можна присвоїти імена, дистанційно запускати приготування кави, а також ознайомитись та відтворити понад 100 креативних рецептів. Функціонал може дещо відрізнятись залежно від моделі кавомашини.',
 );
