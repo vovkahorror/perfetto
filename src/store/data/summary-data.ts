@@ -91,7 +91,7 @@ import {
     VERLANGERTER,
 } from './drinks';
 import {
-    beanAdapt,
+    beanAdapt, beanSwitch,
     brewingUnit,
     coffeeGrinder, coffeeLink,
     coldExtraction,
@@ -220,7 +220,8 @@ export const allTechnologies = [
     beanAdapt,
     coldExtraction,
     mixCarafe,
-    coffeeLink
+    coffeeLink,
+    beanSwitch
 ];
 
 export type DrinksDataType = {
