@@ -29,7 +29,8 @@
         "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION",
         "android.permission.ACCESS_NETWORK_STATE"
       ],
-      "package": "com.vovkahorror.perfetto"
+      "package": "com.vovkahorror.perfetto",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -41,6 +42,16 @@
         "expo-screen-orientation",
         {
           "initialOrientation": "DEFAULT"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": true,
+            "extraProguardRules": "-keep public class com.horcrux.svg.** {*;}",
+            "allowBackup": false
+          }
         }
       ]
     ],
