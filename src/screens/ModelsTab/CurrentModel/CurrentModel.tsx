@@ -101,7 +101,7 @@ export const CurrentModel = memo(({navigation, route}: CurrentModelProps) => {
                     {mappedSummary}
                 </List.Section>
 
-                <View style={styles.mediaWrapper}>
+                {videoId && <View style={styles.mediaWrapper}>
                     <YoutubePlayer
                         height={(viewWidth - (PADDING_HORIZONTAL * 2)) / (16 / 9)}
                         play={playing}
@@ -110,7 +110,7 @@ export const CurrentModel = memo(({navigation, route}: CurrentModelProps) => {
                         onFullScreenChange={setOrientation}
                         webViewStyle={{opacity: 0.99}}
                     />
-                </View>
+                </View>}
 
                 <List.Section title="Характеристики" titleStyle={styles.listTitle}>
                     <ListAccordion
