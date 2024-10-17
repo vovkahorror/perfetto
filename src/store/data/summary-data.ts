@@ -1,4 +1,5 @@
 import {
+    ecam13_123,
     ecam220_20,
     ecam220_21,
     ecam220_31,
@@ -142,9 +143,10 @@ export const allModels = [
     ecam220_21,
     ecam220_20,
     ecam22_112,
+    ecam13_123,
 ];
 
-export const allDrinks: DrinksDataType  = {
+export const allDrinks: DrinksDataType = {
     hotCoffeeDrinks: [
         ESPRESSO,
         ESPRESSO_SOUL,
@@ -204,7 +206,7 @@ export const allDrinks: DrinksDataType  = {
         HOT_WATER,
         STEAM_HOT_WATER,
         MUG_TO_GO,
-        TO_GO
+        TO_GO,
     ],
 };
 
@@ -221,7 +223,7 @@ export const allTechnologies = [
     coldExtraction,
     mixCarafe,
     coffeeLink,
-    beanSwitch
+    beanSwitch,
 ];
 
 export type DrinksDataType = {
