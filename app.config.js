@@ -3,7 +3,7 @@ const IS_DEV = process.env.APP_VARIANT === 'development';
 export default {
     'name': IS_DEV ? 'Perfetto Dev' : 'Perfetto',
     'slug': 'perfetto',
-    'version': '1.3.1',
+    'version': '1.3.2',
     'orientation': 'portrait',
     'icon': './assets/icon.png',
     'userInterfaceStyle': 'light',
@@ -32,7 +32,7 @@ export default {
             'android.permission.ACCESS_NETWORK_STATE'
         ],
         'package': IS_DEV ? 'com.vovkahorror.perfetto.dev' : 'com.vovkahorror.perfetto',
-        'versionCode': 3
+        'versionCode': 4
     },
     'web': {
         'favicon': './assets/favicon.png'
