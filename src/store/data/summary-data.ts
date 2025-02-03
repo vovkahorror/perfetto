@@ -32,7 +32,7 @@ import {
     ecam610_74,
     ecam610_75,
     ecam650_85,
-    epam960_75, exam440_55,
+    epam960_75, exam440_55bg,
 } from './models';
 import {
     AMERICANO,
@@ -113,7 +113,7 @@ export const allModels = [
     ecam610_55,
     ecam450_86,
     ecam450_65,
-    exam440_55,
+    exam440_55bg,
     ecam46_860,
     ecam44_660,
     ecam380_95,

@@ -441,7 +441,7 @@ export const ecam450_65 = new CoffeeMachine('ECAM450.65.G',
     'Нержавіюча сталь',
     false);
 
-export const exam440_55 = new CoffeeMachine('EXAM440.55.BG',
+export const exam440_55bg = new CoffeeMachine('EXAM440.55.BG',
     'Rivelia',
     ['https://dam.delonghi.com/902x902/assets/268679', 'https://dam.delonghi.com/902x902/assets/268678', 'https://dam.delonghi.com/902x902/assets/268755', 'https://dam.delonghi.com/902x902/assets/273415', 'https://dam.delonghi.com/902x902/assets/287011'],
     'AKDAS3DOzV0',
