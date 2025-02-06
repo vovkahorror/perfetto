@@ -490,6 +490,18 @@ export const exam440_55g = {
     }
 }
 
+export const exam440_55w = {
+    ...exam440_55bg,
+    model: 'EXAM440.55.W',
+    imageUrls: ['https://dam.delonghi.com/902x902/assets/268697', 'https://dam.delonghi.com/902x902/assets/257251', 'https://dam.delonghi.com/902x902/assets/257252', 'https://dam.delonghi.com/902x902/assets/257259', 'https://dam.delonghi.com/902x902/assets/268756', 'https://dam.delonghi.com/902x902/assets/287002', 'https://dam.delonghi.com/902x902/assets/289047', 'https://dam.delonghi.com/902x902/assets/269790'],
+    videoId: 'R_7LQm4598M',
+    summary: ['Легко відкривайте нові смаки та кавові враження завдяки системі Bean Switch — просто перемикайтесь між різними сортами зерен', 'Розкрийте найкращий смак і аромат кожного кавового зернятка з технологією Bean Adapt, яка інтелектуально налаштовує помел, дозування та температуру для ідеального приготування', 'Насолоджуйтесь улюбленою кавою одним дотиком — обирайте серед 16 напоїв на інтуїтивному кольоровому дисплеї 3.5"', 'Побалуйте себе гарячою оксамитовою молочною пінкою саме так, як вам до вподоби, завдяки автоматичній технології LatteCrema Hot', 'Доповніть інтер’єр кухні стильним і компактним дизайном із м’якими лініями та вишуканим оздобленням у кольорі Arctic White'],
+    colourMaterialFinish: {
+        ...exam440_55bg.colourMaterialFinish,
+        colour: 'Білий',
+    }
+}
+
 export const ecam46_860 = new CoffeeMachine('ECAM46.860.B',
     'Eletta Cappuccino Evo',
     ['https://dam.delonghi.com/902x902/assets/192118', 'https://dam.delonghi.com/902x902/assets/192117', 'https://dam.delonghi.com/902x902/assets/192115', 'https://dam.delonghi.com/902x902/assets/287327'],
