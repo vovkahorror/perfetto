@@ -1,5 +1,4 @@
 import {Animated, Image, Pressable, StyleSheet, Text} from 'react-native';
-import {v1} from 'react-native-uuid/dist/v1';
 import {DrinkType} from '../../../../../store/data/drinks';
 import {TEXT_COLOR} from '../../../../../constants/constants';
 import {memo, useCallback, useEffect, useRef, useState} from 'react';
@@ -31,7 +30,7 @@ export const ModelDrinksItem = memo(({item, navigation}: ModelDrinksItemProps) =
     }, [isPressed]);
 
     return (
-        <Pressable key={v1() as string} onPress={() => onPressHandler(item)}>
+        <Pressable onPress={() => onPressHandler(item)}>
             <Animated.View style={[styles.item, {transform: [{scale: transformAnimValue}]}]}>
                 <Image source={{uri: item.imageUrl}} style={styles.itemImage}/>
                 <Text style={styles.itemText}>{item.name}</Text>
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: TEXT_COLOR,
         borderRadius: 20,
-        transition: 0.2,
+        alignSelf: 'flex-start'
     },
     itemImage: {
         width: 30,

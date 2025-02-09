@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import 'react-native-reanimated';
 import {StatusBar} from 'expo-status-bar';
 import {LogBox, StyleSheet, View} from 'react-native';
 import {Provider} from 'react-redux';
