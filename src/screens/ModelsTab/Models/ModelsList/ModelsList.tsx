@@ -4,7 +4,7 @@ import {useAppSelector} from '../../../../utils/custom-hooks/useAppSelector';
 import {selectModels} from '../selectors';
 import {CoffeeMachine} from '../../../../store/data/models';
 import {ModelItem} from './ModelItem/ModelItem';
-import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModelsStackParamList} from '../../../../types/NavigationTypes';
 import {FC, memo} from 'react';
 import {Wrapper} from '../../../../utils/components/Wrapper';

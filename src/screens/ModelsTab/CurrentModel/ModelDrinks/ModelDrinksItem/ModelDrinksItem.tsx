@@ -2,7 +2,7 @@ import {Animated, Image, Pressable, StyleSheet, Text} from 'react-native';
 import {DrinkType} from '../../../../../store/data/drinks';
 import {TEXT_COLOR} from '../../../../../constants/constants';
 import {memo, useCallback, useEffect, useRef, useState} from 'react';
-import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModelsStackParamList} from '../../../../../types/NavigationTypes';
 
 export const ModelDrinksItem = memo(({item, navigation}: ModelDrinksItemProps) => {

@@ -9,7 +9,7 @@ import {
     TEXT_COLOR,
     TEXT_SHADOW_COLOR,
 } from '../../../../constants/constants';
-import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {DrinksStackParamList} from '../../../../types/NavigationTypes';
 import {memo, useCallback} from 'react';
 

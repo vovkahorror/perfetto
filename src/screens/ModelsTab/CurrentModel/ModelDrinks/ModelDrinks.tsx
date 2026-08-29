@@ -9,7 +9,7 @@ import {
 } from '../../../../store/data/drinks';
 import {GAP} from '../../../../constants/constants';
 import {ModelDrinksItem} from './ModelDrinksItem/ModelDrinksItem';
-import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModelsStackParamList} from '../../../../types/NavigationTypes';
 import {memo} from 'react';
 

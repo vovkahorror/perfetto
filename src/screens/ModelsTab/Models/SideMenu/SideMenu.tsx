@@ -12,11 +12,10 @@ import {resetSelectedDrinks, setSelectedDrinks} from '../../../../store/drinks-s
 import {useCallback} from 'react';
 import {PADDING_HORIZONTAL, PADDING_VERTICAL, PRIMARY_DARK_COLOR, TEXT_COLOR} from '../../../../constants/constants';
 import {DrinkType} from '../../../../store/data/drinks';
-import {useAppNavigation} from '../../../../utils/custom-hooks/useAppNavigation';
+import {DrawerContentComponentProps} from '@react-navigation/drawer';
 
-export const SideMenu = () => {
+export const SideMenu = ({navigation}: DrawerContentComponentProps) => {
     const dispatch = useAppDispatch();
-    const navigation = useAppNavigation();
     const drinks = useAppSelector(selectDrinks);
     const selectedDrinks = useAppSelector(selectSelectedDrinks);
 

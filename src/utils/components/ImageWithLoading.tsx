@@ -1,41 +1,24 @@
-import {Image, ImageStyle, StyleProp, View} from 'react-native';
-import {memo, useEffect, useState} from 'react';
-import {ImageSourcePropType} from 'react-native/Libraries/Image/Image';
-import {CacheManager} from 'react-native-expo-image-cache';
+import {Image} from 'expo-image';
+import {ImageStyle, StyleProp} from 'react-native';
+import {memo} from 'react';
 
 const loadingImage = require('../../../assets/loading.gif');
 
 export const ImageWithLoading = memo(({source, styles}: LoadingProps) => {
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const checkIfImageIsCached = async () => {
-            const uri = (typeof source === 'object' && 'uri' in source) ? source.uri : source;
-            const cachedImage = await CacheManager.get(uri as string, {}).getPath();
-
-            if (cachedImage) {
-                setLoading(false);
-            }
-        };
-
-        checkIfImageIsCached();
-    }, []);
-
     return (
-        <>
-            {loading
-                ? <View style={[{justifyContent: 'center', alignItems: 'center'}, styles]}>
-                    <Image source={loadingImage} style={[styles, {width: 80}]} resizeMode={'contain'}/>
-                </View>
-                : <Image
-                    source={source}
-                    style={styles}
-                    onLoad={() => setLoading(false)}/>}
-        </>
+        <Image
+            source={source}
+            style={styles}
+            placeholder={loadingImage}
+            placeholderContentFit="contain"
+            contentFit="cover"
+            transition={200}
+            cachePolicy="disk"
+        />
     );
 });
 
 interface LoadingProps {
-    source: ImageSourcePropType;
+    source: { uri: string } | number;
     styles: StyleProp<ImageStyle>;
 }

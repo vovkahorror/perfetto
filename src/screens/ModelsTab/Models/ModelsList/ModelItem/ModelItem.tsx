@@ -1,7 +1,7 @@
 import {Animated, Pressable, StyleSheet, Text, View} from 'react-native';
 import {CoffeeMachine} from '../../../../../store/data/models';
 import {FC, memo, useCallback, useEffect, useRef, useState} from 'react';
-import {NativeStackNavigationProp} from 'react-native-screens/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModelsStackParamList} from '../../../../../types/NavigationTypes';
 import {BACKGROUND_COLOR, BORDER_RADIUS, GAP, TEXT_COLOR, TEXT_SHADOW_COLOR} from '../../../../../constants/constants';
 import {ImageWithLoading} from '../../../../../utils/components/ImageWithLoading';
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         gap: GAP,
-        transition: 0.3,
         padding: 10,
         borderRadius: BORDER_RADIUS,
         backgroundColor: BACKGROUND_COLOR,

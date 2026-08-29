@@ -8,7 +8,7 @@ const Drawer = createDrawerNavigator<ModelsDrawerParamList>();
 export const Models = ({}: ModelsProps) => {
     return (
         <Drawer.Navigator
-            drawerContent={() => <SideMenu/>}
+            drawerContent={(props) => <SideMenu {...props}/>}
             screenOptions={{headerShown: false}}>
             <Drawer.Screen name={'ModelsList'} component={ModelsList}/>
         </Drawer.Navigator>
