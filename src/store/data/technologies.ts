@@ -1,5 +1,3 @@
-import {ESPRESSO, ESPRESSO_LUNGO, RISTRETTO} from './drinks';
-
 export class Technology {
     constructor(public image: string,
                 public videoId: string[] | null,
@@ -51,7 +49,7 @@ export const twinShot = new Technology(
     'https://www.dropbox.com/scl/fi/3rxz239ldwkhqhsbkun0x/Twin-Shot.jpg?rlkey=gu917e0uga13aydp7b2xsjy0n&dl=0&raw=1',
     ['2Kh37GMKtso'],
     'Twin Shot',
-    `Twin Shot — це запатентована система, яка дозволяє приготувати дві чашки кави за один цикл помелу і заварювання, зберігаючи чудову кремову пінку та ідеальну температуру напою. Споживач отримує бездоганну каву навіть при одночасному приготування двох чашок та економить свій час. Система Twin Shot працює з напоями: ${RISTRETTO}, ${ESPRESSO}, ${ESPRESSO_LUNGO}`,
+    `Twin Shot — це запатентована система, яка дозволяє приготувати дві чашки кави за один цикл помелу і заварювання, зберігаючи чудову кремову пінку та ідеальну температуру напою. Споживач отримує бездоганну каву навіть при одночасному приготування двох чашок та економить свій час. Система Twin Shot працює з напоями: Ristretto, Espresso, Espresso Lungo`,
 );
 
 export const latteCremaHot = new Technology(

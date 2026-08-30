@@ -3,15 +3,11 @@ const IS_DEV = process.env.APP_VARIANT === 'development';
 export default {
     'name': IS_DEV ? 'Perfetto Dev' : 'Perfetto',
     'slug': 'perfetto',
-    'version': '1.4.3',
+    'version': '1.4.4',
     'orientation': 'portrait',
     'icon': './assets/icon.png',
     'userInterfaceStyle': 'light',
-    'splash': {
-        'image': './assets/splash.png',
-        'resizeMode': 'contain',
-        'backgroundColor': '#082141'
-    },
+    "newArchEnabled": true,
     'assetBundlePatterns': [
         '**/*'
     ],
@@ -32,7 +28,7 @@ export default {
             'android.permission.ACCESS_NETWORK_STATE'
         ],
         'package': IS_DEV ? 'com.vovkahorror.perfetto.dev' : 'com.vovkahorror.perfetto',
-        'versionCode': 8
+        'versionCode': 9
     },
     'web': {
         'favicon': './assets/favicon.png'
@@ -41,6 +37,14 @@ export default {
         '@config-plugins/react-native-blob-util',
         '@config-plugins/react-native-pdf',
         "expo-font",
+        [
+            'expo-splash-screen',
+            {
+                'image': './assets/splash.png',
+                'resizeMode': 'contain',
+                'backgroundColor': '#082141'
+            }
+        ],
         [
             'expo-screen-orientation',
             {
@@ -65,6 +69,5 @@ export default {
         'eas': {
             'projectId': 'dabf6189-da82-491e-afdc-9500b600a8ac'
         }
-    },
-    "newArchEnabled": true
+    }
 };
