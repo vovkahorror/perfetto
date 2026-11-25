@@ -111,7 +111,7 @@ export const COFFEE = new HotCoffeeDrink('Coffee',
         appearance: 'Більш тонка крема та легкий смак еспресо',
     });
 
-export const LONG = new HotCoffeeDrink('Long',
+export const FILTER_COFFEE = new HotCoffeeDrink('Filter Coffee',
     'Спеціальний рецепт кави, готується за зниженого тиску при заварюванні для досягнення ніжного смаку.',
     'https://www.dropbox.com/scl/fi/wtbxuwkooeroninjt17if/long.webp?rlkey=tf22d96uux2gyomi8lfe6xes2&dl=0&raw=1',
     {
@@ -181,6 +181,54 @@ export const VERLANGERTER = new HotCoffeeDrink('Verlängerter',
         pressure: 'Високий (9-12 бар)',
         volume: '90 мл (80 г)',
         appearance: 'Зменшена пінка після додавання гарячої води',
+    });
+
+export const MILD_FILTER = new HotCoffeeDrink('Mild Filter',
+    'Фільтр-кава, заварена за низького тиску, з делікатним і м\'яким смаком без гіркоти.',
+    'https://www.dropbox.com/scl/fi/66csdliv6h6lc4cs7troe/Mild-Filter.webp?rlkey=umplnmb28x2fqr5nrg1d60f8s&st=49no0l9j&dl=0&raw=1',
+    {
+        beanWeight: '2 цикли помелу по 8 г',
+        preWetting: false,
+        pressure: 'Низький, імпульсний режим заварювання',
+        volume: '200 мл (180 г)',
+        appearance: 'Світліший напій без крема',
+    });
+
+export const ESPRESSO_INTENSO = new HotCoffeeDrink('Espresso Intenso',
+    'Еспресо підвищеної інтенсивності з більшою дозою кави — розкриває фруктові ноти світлообсмажених зерен.',
+    'https://www.dropbox.com/scl/fi/yjquzwuia1epa5ykjtmzq/Espresso-Intenso.webp?rlkey=95rum9xohc5lo36g7jbgh1qo5&st=xzduvxjs&dl=0&raw=1',
+    {
+        beanWeight: 12.5,
+        preWetting: true,
+        pressure: 'Високий (9-12 бар)',
+        volume: '40-50 мл (35-40 г)',
+        appearance: 'Маленька порція з темною щільною крема',
+    });
+
+export const RED_EYE = new HotCoffeeDrink('Red Eye',
+    'Звичайна кава, доповнена шотом еспресо для додаткової міцності та аромату.',
+    'https://www.dropbox.com/scl/fi/p2acidnvkiyb8fsdum3yh/Red-Eye.webp?rlkey=2stryb2oopq433ingi5tqk86z&st=13ap6x8q&dl=0&raw=1',
+    {
+        beanWeight: 'Порція кави 10 г + шот еспресо 9 г',
+        preWetting: false,
+        pressure: 'Високий (9-12 бар)',
+        coffee: '200 мл кави',
+        water: 'додатково 40 мл еспресо',
+        volume: '240 мл (215 г)',
+        appearance: 'Темніший за Coffee, з тонкою крема',
+    });
+
+export const BLACK_EYE = new HotCoffeeDrink('Black Eye',
+    'Кава з двома шотами еспресо — найміцніший напій у кавовій лінійці.',
+    'https://www.dropbox.com/scl/fi/l96eezggrq9zowju2eqmw/Black-Eye.webp?rlkey=jyc4xr52e8par3s0dj1h5pkms&st=9xk5pzrn&dl=0&raw=1',
+    {
+        beanWeight: 'Порція кави 10 г + два шоти еспресо по 9 г',
+        preWetting: false,
+        pressure: 'Високий (9-12 бар)',
+        coffee: '200 мл кави',
+        water: 'додатково 80 мл еспресо',
+        volume: '280 мл (250 г)',
+        appearance: 'Найтемніший напій, тонка крема',
     });
 
 export class HotMilkDrink extends Drink {
@@ -419,6 +467,42 @@ export const CAFE_CON_LECHE = new HotMilkDrink('Café con Leche',
         submission: 'Спершу кава, потім молоко',
         volume: '130 мл (130 г)',
         appearance: 'Інтенсивний еспресо, змішаний з невеликою кількістю молока',
+    });
+
+export const BABYCCINO = new HotMilkDrink('Babyccino',
+    'Молочний напій для дітей: густа молочна піна з шоколадним соусом, без кави (за бажанням — на декаф-капучино).',
+    'https://www.dropbox.com/scl/fi/bufgtinyfcmlzrl9lw4g9/Babyccino.webp?rlkey=tualoyptagrfyesoi4fmx65h8&st=uvx2h7xw&dl=0&raw=1',
+    {
+        coffee: '0 мл (за бажанням — 30 мл декаф-еспресо)',
+        milk: '150 мл (100 г)',
+        milkFoam: 'Максимальний рівень',
+        submission: 'Шоколадний соус на дні склянки, потім молоко',
+        volume: '150-180 мл',
+        appearance: 'Густа молочна піна, шоколадне забарвлення, збиті вершки та какао зверху',
+    });
+
+export const MILCHKAFFEE = new HotMilkDrink('Milchkaffee',
+    'Німецький варіант кави з молоком: приблизно рівні частини кави й гарячого молока з легкою піною.',
+    'https://www.dropbox.com/scl/fi/db61hs0esf4m2dddmde4m/Milchkaffee.webp?rlkey=ugebs0gnd10zjvzmnkx9vauxs&st=wn56bkx2&dl=0&raw=1',
+    {
+        coffee: '120 мл (120 г)',
+        milk: '180 мл (150 г)',
+        milkFoam: 'Мінімальний рівень',
+        submission: 'Спершу кава, потім молоко',
+        volume: '300 мл (260 г)',
+        appearance: 'Світло-коричневий напій із тонким шаром піни',
+    });
+
+export const KOFFIE_VERKEERD = new HotMilkDrink('Koffie Verkeerd',
+    'Нідерландська «кава неправильно»: гаряче молоко замість води, кава вливається в молоко.',
+    'https://www.dropbox.com/scl/fi/owqgwnsp9yhw67sda8zkv/Koffie-Verkeerd.webp?rlkey=nme7bg76mxy421axnmv2ya8uu&st=td7anlwn&dl=0&raw=1',
+    {
+        coffee: '60 мл (60 г)',
+        milk: '200 мл (180 г)',
+        milkFoam: 'Середній рівень',
+        submission: 'Спершу молоко, потім кава',
+        volume: '260 мл (230 г)',
+        appearance: 'Молочно-кавовий напій із кремовою піною',
     });
 
 export class ColdCoffeeDrink extends Drink {
@@ -669,18 +753,6 @@ export const OVER_ICE = new ColdCoffeeDrink('Over Ice',
         },
         volume: '195 мл',
         appearance: 'Вишуканий та ароматний напій з насиченим стійким смаком',
-    });
-
-export const ICED_COFFEE = new ColdCoffeeDrink('Iced Coffee',
-    'Кава, що заварюється на зниженій температурі, з додаванням льоду',
-    'https://www.dropbox.com/scl/fi/5hwhonbg7w1lp81fsyifu/iced-coffee.webp?rlkey=iack139qe1y1ajqlbngxarnyh&dl=0&raw=1',
-    {
-        original: {
-            coffee: '100 мл',
-            iceCubes: '6 (95 мл)',
-        },
-        volume: '195 мл',
-        appearance: 'Вишукана та ароматна кава з льодом',
     });
 
 export const COLD_COFFEE_MIX_CARAFE = new ColdCoffeeDrink('Cold Coffee (MixCarafe)',

@@ -1,30 +1,29 @@
 import {Image} from 'expo-image';
-import {ImageStyle, StyleProp, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, ImageStyle, StyleProp, StyleSheet, View} from 'react-native';
 import {memo, useState} from 'react';
-import {LoadingBeans} from './LoadingBeans';
+import {TEXT_COLOR} from '../../constants/constants';
 
 export const ImageWithLoading = memo(({source, styles}: LoadingProps) => {
-    const [loading, setLoading] = useState(true);
+    const hasSource = typeof source === 'number' || Boolean(source.uri);
+    const [loading, setLoading] = useState(hasSource);
 
     return (
         <View style={styles}>
-            {loading && (
-                <View style={{
-                    ...StyleSheet.absoluteFill,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
-                    <LoadingBeans/>
+            {hasSource && (
+                <Image
+                    source={source}
+                    style={styles}
+                    contentFit="cover"
+                    transition={200}
+                    cachePolicy="disk"
+                    onLoadEnd={() => setLoading(false)}
+                />
+            )}
+            {hasSource && loading && (
+                <View style={[StyleSheet.absoluteFill, layoutStyles.center]} pointerEvents="none">
+                    <ActivityIndicator color={TEXT_COLOR}/>
                 </View>
             )}
-            <Image
-                source={source}
-                style={styles}
-                contentFit="cover"
-                transition={200}
-                cachePolicy="disk"
-                onLoadEnd={() => setLoading(false)}
-            />
         </View>
     );
 });
@@ -33,3 +32,10 @@ interface LoadingProps {
     source: { uri: string } | number;
     styles: StyleProp<ImageStyle>;
 }
+
+const layoutStyles = StyleSheet.create({
+    center: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});

@@ -1,10 +1,10 @@
-import {FC, memo, useState} from 'react';
-import {Props} from 'react-native-paper/src/components/List/ListAccordion';
+import {ComponentProps, FC, memo, useState} from 'react';
 import {List} from 'react-native-paper';
 import {BORDER_RADIUS, TEXT_COLOR, TEXT_FOCUS_COLOR} from '../../constants/constants';
-import {IconSource} from 'react-native-paper/lib/typescript/components/Icon';
 
-export const ListAccordion: FC<Props & CustomProps> = memo(({icon, expanded, ...props}) => {
+type IconSource = ComponentProps<typeof List.Icon>['icon'];
+
+export const ListAccordion: FC<ComponentProps<typeof List.Accordion> & CustomProps> = memo(({icon, expanded, ...props}) => {
     const [isExpanded, setIsExpanded] = useState(expanded !== undefined ? expanded : false);
 
     const currentColor = isExpanded ? TEXT_FOCUS_COLOR : TEXT_COLOR;

@@ -1,8 +1,9 @@
 import {ListItem} from './ListItem';
 import {FC, memo} from 'react';
-import {Props} from 'react-native-paper/src/components/List/ListItem';
+import {ComponentProps} from 'react';
+import {List} from 'react-native-paper';
 
-export const ListItemWithCheck: FC<CustomProps & Props> = memo(({title, description, ...props}) => {
+export const ListItemWithCheck: FC<CustomProps & ComponentProps<typeof List.Item>> = memo(({title, description, ...props}) => {
     const simplifiedDescription = typeof description === 'boolean' ? (description ? 'Так' : 'Ні') : description;
 
     return description !== null && description !== undefined &&

@@ -1,4 +1,4 @@
-import {ImageSourcePropType, LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {LayoutChangeEvent, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {CurrentModelProps} from '../../../types/NavigationTypes';
 import {Wrapper} from '../../../utils/components/Wrapper';
 import {Icon, List} from 'react-native-paper';
@@ -18,7 +18,7 @@ import {
     TEXT_FOCUS_COLOR,
     TEXT_SHADOW_COLOR,
 } from '../../../constants/constants';
-import {ImageSlider} from 'react-native-image-slider-banner';
+import {ImageSlider} from '../../../utils/components/ImageSlider';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import {v1} from 'react-native-uuid/dist/v1';
 import {ModelDrinks} from './ModelDrinks/ModelDrinks';
@@ -82,17 +82,10 @@ export const CurrentModel = memo(({navigation, route}: CurrentModelProps) => {
                 </View>
 
                 <View style={styles.mediaWrapper}>
-                    {imageUrls && <ImageSlider
-                        data={imageUrls?.map((el) => ({img: el as ImageSourcePropType}))}
-                        autoPlay={false}
-                        closeIconColor={PRIMARY_DARK_COLOR}
-                        showHeader
-                        previewImageStyle={{borderRadius: BORDER_RADIUS}}
-                        caroselImageContainerStyle={{height: viewWidth}}
-                        caroselImageStyle={{height: '100%', borderRadius: BORDER_RADIUS}}
-                        indicatorContainerStyle={{bottom: 0}}
-                        activeIndicatorStyle={{backgroundColor: TEXT_COLOR}}
-                    />}
+                    {imageUrls && <ImageSlider images={imageUrls}
+                                               height={viewWidth}
+                                               imageStyle={{borderRadius: BORDER_RADIUS}}
+                                               closeIconColor={PRIMARY_DARK_COLOR}/>}
                 </View>
 
                 <Text style={styles.description}>{description}</Text>
@@ -145,35 +138,26 @@ export const CurrentModel = memo(({navigation, route}: CurrentModelProps) => {
                     <ListAccordion
                         title="Функції"
                         icon="coffee">
-                        {functions?.drinks.hotCoffeeDrinks && <ListItem title="Гарячі кавові напої"
-                                                                        description={
-                                                                            <ModelDrinks
-                                                                                drinks={functions.drinks.hotCoffeeDrinks}
-                                                                                navigation={navigation}/>
-                                                                        }/>}
-                        {functions?.drinks.hotMilkDrinks && <ListItem title="Гарячі молочні напої"
-                                                                      description={
-                                                                          <ModelDrinks
-                                                                              drinks={functions.drinks.hotMilkDrinks}
-                                                                              navigation={navigation}/>
-                                                                      }/>}
-                        {functions?.drinks.coldCoffeeDrinks && <ListItem title="Холодні кавові напої"
-                                                                         description={
-                                                                             <ModelDrinks
-                                                                                 drinks={functions.drinks.coldCoffeeDrinks}
-                                                                                 navigation={navigation}/>
-                                                                         }/>}
-                        {functions?.drinks.coldMilkDrinks && <ListItem title="Холодні молочні напої"
-                                                                       description={
-                                                                           <ModelDrinks
-                                                                               drinks={functions.drinks.coldMilkDrinks}
-                                                                               navigation={navigation}/>
-                                                                       }/>}
-                        {functions?.drinks.otherDrinks && <ListItem title="Інші напої"
-                                                                    description={<ModelDrinks
-                                                                        drinks={functions.drinks.otherDrinks}
-                                                                        navigation={navigation}/>
-                                                                    }/>}
+                        {functions?.drinks.hotCoffeeDrinks && <View style={styles.drinkCategory}>
+                            <Text style={styles.drinkCategoryTitle}>Гарячі кавові напої</Text>
+                            <ModelDrinks drinks={functions.drinks.hotCoffeeDrinks} navigation={navigation}/>
+                        </View>}
+                        {functions?.drinks.hotMilkDrinks && <View style={styles.drinkCategory}>
+                            <Text style={styles.drinkCategoryTitle}>Гарячі молочні напої</Text>
+                            <ModelDrinks drinks={functions.drinks.hotMilkDrinks} navigation={navigation}/>
+                        </View>}
+                        {functions?.drinks.coldCoffeeDrinks && <View style={styles.drinkCategory}>
+                            <Text style={styles.drinkCategoryTitle}>Холодні кавові напої</Text>
+                            <ModelDrinks drinks={functions.drinks.coldCoffeeDrinks} navigation={navigation}/>
+                        </View>}
+                        {functions?.drinks.coldMilkDrinks && <View style={styles.drinkCategory}>
+                            <Text style={styles.drinkCategoryTitle}>Холодні молочні напої</Text>
+                            <ModelDrinks drinks={functions.drinks.coldMilkDrinks} navigation={navigation}/>
+                        </View>}
+                        {functions?.drinks.otherDrinks && <View style={styles.drinkCategory}>
+                            <Text style={styles.drinkCategoryTitle}>Інші напої</Text>
+                            <ModelDrinks drinks={functions.drinks.otherDrinks} navigation={navigation}/>
+                        </View>}
                         <ListItem title="Загальна кількість напоїв" description={functions?.totalCountOfDrinks}/>
                         <ListItem title="Можливість персоналізувати аромат"
                                   description={convertBooleanToString(functions?.aromaFunction)}/>
@@ -291,6 +275,15 @@ const styles = StyleSheet.create({
     summaryItem: {
         paddingVertical: 0,
         paddingHorizontal: 10,
+    },
+    drinkCategory: {
+        paddingHorizontal: 16,
+        paddingVertical: 8,
+    },
+    drinkCategoryTitle: {
+        fontSize: 14,
+        color: TEXT_COLOR,
+        textDecorationLine: 'underline',
     },
     buttonText: {
         fontSize: 18,

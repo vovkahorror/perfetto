@@ -59,19 +59,19 @@ export const SideMenu = ({navigation}: DrawerContentComponentProps) => {
 
                 <View>
                     <Text style={styles.title}>Гарячі молочні напої</Text>
-                    <FlatList data={drinks.hotMilkDrinks} renderItem={getRenderItem('hotMilkDrinks')}
+                    <FlatList data={drinks.hotMilkDrinks ?? []} renderItem={getRenderItem('hotMilkDrinks')}
                               scrollEnabled={false}/>
                 </View>
 
                 <View>
                     <Text style={styles.title}>Холодні кавові напої</Text>
-                    <FlatList data={drinks.coldCoffeeDrinks} renderItem={getRenderItem('coldCoffeeDrinks')}
+                    <FlatList data={drinks.coldCoffeeDrinks ?? []} renderItem={getRenderItem('coldCoffeeDrinks')}
                               scrollEnabled={false}/>
                 </View>
 
                 <View>
                     <Text style={styles.title}>Холодні молочні напої</Text>
-                    <FlatList data={drinks.coldMilkDrinks} renderItem={getRenderItem('coldMilkDrinks')}
+                    <FlatList data={drinks.coldMilkDrinks ?? []} renderItem={getRenderItem('coldMilkDrinks')}
                               scrollEnabled={false}/>
                 </View>
 

@@ -1,9 +1,12 @@
 const IS_DEV = process.env.APP_VARIANT === 'development';
+// CMake 3.31.6 (Ninja 1.12) is only needed on Windows for long paths and is not
+// installed on Expo Build's Linux image, so the override must stay local.
+const IS_WINDOWS = process.platform === 'win32';
 
 export default {
     'name': IS_DEV ? 'Perfetto Dev' : 'Perfetto',
     'slug': 'perfetto',
-    'version': '1.4.4',
+    'version': '1.5.0',
     'orientation': 'portrait',
     'icon': './assets/icon.png',
     'userInterfaceStyle': 'light',
@@ -28,7 +31,7 @@ export default {
             'android.permission.ACCESS_NETWORK_STATE'
         ],
         'package': IS_DEV ? 'com.vovkahorror.perfetto.dev' : 'com.vovkahorror.perfetto',
-        'versionCode': 9
+        'versionCode': 10
     },
     'web': {
         'favicon': './assets/favicon.png'
@@ -56,8 +59,8 @@ export default {
             {
                 'android': {
                     'enableProguardInReleaseBuilds': true,
-                    'extraProguardRules': '-keep public class com.horcrux.svg.** {*;}',
-                    'allowBackup': false
+                    'allowBackup': false,
+                    ...(IS_WINDOWS ? {'cmakeVersion': '3.31.6'} : {})
                 }
             }
         ],

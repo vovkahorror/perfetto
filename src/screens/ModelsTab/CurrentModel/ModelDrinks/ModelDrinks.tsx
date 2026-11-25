@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {
     ColdCoffeeDrinksType,
     ColdMilkDrinksType,
@@ -15,20 +15,25 @@ import {memo} from 'react';
 
 export const ModelDrinks = memo(({ drinks, navigation }: ModelDrinksProps) => {
     return (
-        <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.container}>
             {drinks.map((item: DrinkType, index: number) => (
-                <View key={index}>
+                <View key={index} style={styles.itemWrapper}>
                     <ModelDrinksItem item={item} navigation={navigation} />
                 </View>
             ))}
-        </ScrollView>
+        </View>
     );
 });
 
 const styles = StyleSheet.create({
     container: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
         gap: GAP,
-        marginTop: GAP
+        marginTop: GAP,
+    },
+    itemWrapper: {
+        alignSelf: 'flex-start',
     },
 });
 

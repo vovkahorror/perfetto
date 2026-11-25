@@ -1,4 +1,4 @@
-import {FlatList, ListRenderItem, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ListRenderItem, SectionList, StyleSheet, Text, View} from 'react-native';
 import {Wrapper} from '../../../utils/components/Wrapper';
 import {useAppSelector} from '../../../utils/custom-hooks/useAppSelector';
 import {selectDrinks} from '../selectors';
@@ -17,88 +17,60 @@ import {memo} from 'react';
 
 const backgroundImage = require('../../../../assets/background/background4.webp');
 
+const COLUMNS = 3;
+
+const toRows = (drinks: DrinkType[]) => {
+    const rows: DrinkType[][] = [];
+
+    for (let index = 0; index < drinks.length; index += COLUMNS) {
+        rows.push(drinks.slice(index, index + COLUMNS));
+    }
+
+    return rows;
+};
+
 export const DrinksList = memo(({navigation}: DrinksProps) => {
     const drinks = useAppSelector(selectDrinks);
 
-    const renderItem: ListRenderItem<DrinkType> = ({item}) => (
-        <DrinkItem item={item} navigation={navigation}/>);
+    const sections = [
+        {title: 'Гарячі кавові напої', data: toRows(drinks.hotCoffeeDrinks)},
+        {title: 'Гарячі молочні напої', data: toRows(drinks.hotMilkDrinks ?? [])},
+        {title: 'Холодні кавові напої', data: toRows(drinks.coldCoffeeDrinks ?? [])},
+        {title: 'Холодні молочні напої', data: toRows(drinks.coldMilkDrinks ?? [])},
+        {title: 'Інші напої', data: toRows(drinks.otherDrinks)},
+    ];
+
+    const renderItem: ListRenderItem<DrinkType[]> = ({item}) => (
+        <View style={styles.row}>
+            {item.map((drink) => (
+                <DrinkItem key={drink.name} item={drink} navigation={navigation}/>
+            ))}
+        </View>
+    );
 
     return (
         <Wrapper backgroundImage={backgroundImage}>
-            <ScrollView contentContainerStyle={styles.scrollView}>
-                <View>
-                    <Text style={styles.title}>Гарячі кавові напої</Text>
-                    <FlatList
-                        data={drinks.hotCoffeeDrinks}
-                        renderItem={renderItem}
-                        numColumns={3}
-                        contentContainerStyle={styles.contentContainerStyle}
-                        columnWrapperStyle={styles.columnWrapperStyle}
-                        scrollEnabled={false}
-                    />
-                </View>
-
-                <View>
-                    <Text style={styles.title}>Гарячі молочні напої</Text>
-                    <FlatList
-                        data={drinks.hotMilkDrinks}
-                        renderItem={renderItem}
-                        numColumns={3}
-                        contentContainerStyle={styles.contentContainerStyle}
-                        columnWrapperStyle={styles.columnWrapperStyle}
-                        scrollEnabled={false}
-                    />
-                </View>
-
-                <View>
-                    <Text style={styles.title}>Холодні кавові напої</Text>
-                    <FlatList
-                        data={drinks.coldCoffeeDrinks}
-                        renderItem={renderItem}
-                        numColumns={3}
-                        contentContainerStyle={styles.contentContainerStyle}
-                        columnWrapperStyle={styles.columnWrapperStyle}
-                        scrollEnabled={false}
-                    />
-                </View>
-
-                <View>
-                    <Text style={styles.title}>Холодні молочні напої</Text>
-                    <FlatList
-                        data={drinks.coldMilkDrinks}
-                        renderItem={renderItem}
-                        numColumns={3}
-                        contentContainerStyle={styles.contentContainerStyle}
-                        columnWrapperStyle={styles.columnWrapperStyle}
-                        scrollEnabled={false}
-                    />
-                </View>
-
-                <View>
-                    <Text style={styles.title}>Інші напої</Text>
-                    <FlatList
-                        data={drinks.otherDrinks}
-                        renderItem={renderItem}
-                        numColumns={3}
-                        contentContainerStyle={styles.contentContainerStyle}
-                        columnWrapperStyle={styles.columnWrapperStyle}
-                        scrollEnabled={false}
-                    />
-                </View>
-
-                <Text style={styles.text}>
-                    Указані значення засновані на заводських налаштуваннях за замовчуванням для нової машини, що використовує певну еталонну каву
-                </Text>
-            </ScrollView>
+            <SectionList
+                sections={sections}
+                renderItem={renderItem}
+                keyExtractor={(row) => row[0].name}
+                renderSectionHeader={({section}) => <Text style={styles.title}>{section.title}</Text>}
+                ListFooterComponent={(
+                    <Text style={styles.text}>
+                        Указані значення засновані на заводських налаштуваннях за замовчуванням для нової машини, що використовує певну еталонну каву
+                    </Text>
+                )}
+                contentContainerStyle={styles.contentContainerStyle}
+                stickySectionHeadersEnabled={false}/>
         </Wrapper>
     );
 });
 
 const styles = StyleSheet.create({
-    scrollView: {
-        gap: 20,
+    contentContainerStyle: {
         paddingHorizontal: PADDING_HORIZONTAL,
         paddingVertical: PADDING_VERTICAL,
+        gap: GAP,
     },
     title: {
         fontSize: 22,
@@ -108,16 +80,12 @@ const styles = StyleSheet.create({
         color: TEXT_COLOR,
         textShadowColor: TEXT_SHADOW_COLOR,
         textShadowOffset: {width: 0, height: 0},
-        textShadowRadius: 4
+        textShadowRadius: 4,
+        paddingTop: GAP,
     },
-    contentContainerStyle: {
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingHorizontal: PADDING_HORIZONTAL,
-        paddingVertical: PADDING_VERTICAL,
-        gap: GAP,
-    },
-    columnWrapperStyle: {
+    row: {
+        flexDirection: 'row',
+        justifyContent: 'center',
         gap: GAP,
     },
     text: {

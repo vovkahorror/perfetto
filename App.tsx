@@ -15,7 +15,6 @@ import {TechnologiesTab} from './src/screens/TechnologiesTab/TechnologiesTab';
 import {DrinksTab} from './src/screens/DrinksTab/DrinksTab';
 
 LogBox.ignoreLogs(['new NativeEventEmitter']);
-LogBox.ignoreAllLogs();
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -28,6 +27,7 @@ export default function App() {
                     <NavigationContainer>
                         <Tab.Navigator screenOptions={{
                             headerShown: false,
+                            freezeOnBlur: true,
                             tabBarStyle: {backgroundColor: PRIMARY_DARK_COLOR, paddingBottom: 2, borderTopWidth: 0},
                             tabBarLabelStyle: {fontFamily: 'serif'},
                             tabBarActiveTintColor: TEXT_FOCUS_COLOR,
